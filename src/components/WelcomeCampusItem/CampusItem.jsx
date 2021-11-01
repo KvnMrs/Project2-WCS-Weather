@@ -3,14 +3,22 @@
 import React from 'react';
 
 const CampusItem = ({ item }) => {
-  const { name, country, flag } = item;
+  // eslint-disable-next-line object-curly-newline
+  const { name, country, flag, imageUrl } = item;
 
   return (
-    <div className="w-full flex flex-col p-8 rounded-md bg-white border border-gray-200 hover:shadow-lg transform hover:-translate-y-1 transition-all transition-duration-100 ease-in-out">
-      <p className="text-3xl font-normal text-gray-800 mb-3">{name}</p>
-      <div className="flex flex-row align-middle">
-        <p className="mr-3">{flag}</p>
-        <p className="text-md">{country}</p>
+    <div className="w-full flex flex-col pb-6 rounded-2xl bg-white border border-gray-200 hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 ease-in-out">
+      <img
+        className="h-52 w-full mb-5 rounded-t-md object-cover"
+        src={imageUrl}
+        alt=""
+      />
+      <div className="flex flex-col px-6">
+        <div className="flex flex-row align-middle">
+          <p className="mr-3">{flag}</p>
+          <p className="text-md font-light">{country}</p>
+        </div>
+        <p className="text-3xl font-normal text-gray-800">{name}</p>
       </div>
     </div>
   );

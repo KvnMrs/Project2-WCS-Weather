@@ -40,9 +40,9 @@ const Welcome = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="flex flex-col p-20 mx-auto max-w-6xl lg:max-w-7xl items-center">
-        <h1 className="text-center text-7xl tracking-tight text-gray-800 font-bold">
-          Welcome !
+      <div className="flex flex-col pt-24 lg:p-20 mx-auto max-w-6xl lg:max-w-7xl items-center">
+        <h1 className="text-center text-5xl tracking-tight text-gray-800 font-bold">
+          Welcome Wilder !
         </h1>
         <p className="text-center text-gray-500 font-normal text-xl pt-2">
           Choose your campus from the list.
@@ -71,7 +71,12 @@ const Welcome = () => {
             </label>
           </form>
         </div>
-        <div className="grid px-4 w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-16">
+        {loaded ? null : (
+          <div className="text-center w-full text-gray-500 font-normal text-xl mt-16">
+            Loading...
+          </div>
+        )}
+        <div className="grid px-4 w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-7 mt-16">
           {loaded && search.length > 0
             ? finalList
                 .filter(
