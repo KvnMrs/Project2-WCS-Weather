@@ -35,12 +35,11 @@ const Welcome = () => {
     if (campusList.length > 0) {
       setLoaded(true);
       setFinalList(campusList);
-      console.log(finalList);
     }
   }, []);
 
   return (
-    <div className="h-full bg-gray-50">
+    <div className="min-h-screen bg-gray-50">
       <div className="flex flex-col p-20 mx-auto max-w-6xl lg:max-w-7xl items-center">
         <h1 className="text-center text-7xl tracking-tight text-gray-800 font-bold">
           Welcome !
@@ -88,6 +87,7 @@ const Welcome = () => {
             : finalList.map((campus) => (
                 <CampusItem item={campus} key={campus.id} />
               ))}
+          {console.log(finalList)}
         </div>
       </div>
     </div>
