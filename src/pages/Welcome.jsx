@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable operator-linebreak */
 /* eslint-disable function-paren-newline */
 /* eslint-disable implicit-arrow-linebreak */
@@ -8,6 +9,7 @@
 
 import React, { useEffect, useState } from 'react';
 import CampusItem from '../components/WelcomeCampusItem/CampusItem';
+// import WelcomePopup from '../components/WelcomePopup.jsx/WelcomePopup';
 import supabase from '../services/supabaseClient';
 
 const Welcome = () => {
@@ -20,7 +22,7 @@ const Welcome = () => {
     const { data: campus, error } = await supabase
       .from('campus')
       .select('*')
-      .order('id', { ascending: true });
+      .order('name', { ascending: true });
 
     if (error) {
       console.log(error);
@@ -39,10 +41,11 @@ const Welcome = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="relative min-h-screen bg-gray-50">
       <div className="flex flex-col pt-24 lg:p-20 mx-auto max-w-6xl lg:max-w-7xl items-center">
-        <h1 className="text-center text-5xl tracking-tight text-gray-800 font-bold">
-          Welcome Wilder !
+        <h1 className="text-center text-5xl tracking-tight text-gray-700 font-bold">
+          Welcome
+          <span className="text-dark_wild_red"> Wilder</span> !
         </h1>
         <p className="text-center text-gray-500 font-normal text-xl pt-2">
           Choose your campus from the list.
@@ -65,7 +68,9 @@ const Welcome = () => {
                     shadow-sm
                     transition-all
                     transition-duration-200
-                    ease-in-out"
+                    ease-in-out
+                    outline-none
+                    focus:border-dark_wild_red"
                 onChange={(e) => setSearch(e.target.value)}
               />
             </label>
@@ -73,10 +78,10 @@ const Welcome = () => {
         </div>
         {loaded ? null : (
           <div className="text-center w-full text-gray-500 font-normal text-xl mt-16">
-            Loading...
+            Loading... 🙃
           </div>
         )}
-        <div className="grid px-4 w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-7 mt-16">
+        <div className="grid px-4 w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-10  mt-16">
           {loaded && search.length > 0
             ? finalList
                 .filter(
@@ -92,7 +97,6 @@ const Welcome = () => {
             : finalList.map((campus) => (
                 <CampusItem item={campus} key={campus.id} />
               ))}
-          {console.log(finalList)}
         </div>
       </div>
     </div>

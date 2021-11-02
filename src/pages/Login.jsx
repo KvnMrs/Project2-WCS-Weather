@@ -51,7 +51,10 @@ const Login = () => {
                     shadow-sm
                     transition-all
                     transition-duration-200
-                    ease-in-out"
+                    ease-in-out
+                    outline-none
+                    focus:border-dark_wild_red
+                    "
               onChange={(e) => setEmail(e.target.value)}
             />
           </label>
@@ -71,7 +74,9 @@ const Login = () => {
                     shadow-sm
                     transition-all
                     transition-duration-200
-                    ease-in-out"
+                    ease-in-out
+                    outline-none
+                    focus:border-dark_wild_red"
               onChange={(e) => setPassword(e.target.value)}
             />
           </label>
@@ -79,7 +84,7 @@ const Login = () => {
           <button
             onClick={handleLogin}
             type="submit"
-            className="px-4 py-3 bg-blue-600 rounded-md font-medium text-white text-md mt-8 hover:bg-blue-800 transition-all transition-duration-150 ease-in-out"
+            className="px-4 py-4 bg-wild_red rounded-md font-bold tracking-wider text-white text-sm uppercase mt-8 hover:bg-dark_wild_red transition-all transition-duration-150 ease-in-out"
           >
             Connect to account
           </button>
@@ -88,7 +93,7 @@ const Login = () => {
               Not a member already ?
               <br />
               <Link to="/signup">
-                <span className="text-center text-sm text-gray-600 underline hover:text-blue-600">
+                <span className="text-center text-sm text-gray-600 underline hover:text-dark_wild_red">
                   Create account here
                 </span>
               </Link>
