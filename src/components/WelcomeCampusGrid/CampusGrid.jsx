@@ -11,7 +11,7 @@ import { WelcomeFetchCampus } from '../../services/WelcomeFetchCampus/WelcomeFet
 import WelcomeLoading from '../WelcomeLoading/WelcomeLoading';
 import WelcomeNoResults from '../WelcomeNoResults/WelcomeNoResults';
 
-const CampusGrid = ({ search, functionSetPopupItem }) => {
+const CampusGrid = ({ search /* DisplayPopup */ }) => {
   // CampusGrid contains CampusItems and Map the Fetch function
   // Also contains the Popup Display function
   //
@@ -48,7 +48,7 @@ const CampusGrid = ({ search, functionSetPopupItem }) => {
       ).length === 0 ? (
         <WelcomeNoResults />
       ) : null}
-      <div className="grid px-4 w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-10  mt-16">
+      <div className="grid px-4 w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8  mt-16">
         {loaded && search.length > 0
           ? campusArray
               .filter(
@@ -60,14 +60,14 @@ const CampusGrid = ({ search, functionSetPopupItem }) => {
                 <CampusItem
                   item={campus}
                   key={campus.id}
-                  onClick={(campus) => functionSetPopupItem(campus)}
+                  // onClick={DisplayPopup(campus)}
                 />
               ))
           : campusArray.map((campus) => (
               <CampusItem
                 item={campus}
                 key={campus.id}
-                onClick={(campus) => functionSetPopupItem(campus)}
+                // onClick={DisplayPopup(campus)}
               />
             ))}
       </div>

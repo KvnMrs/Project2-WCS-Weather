@@ -5,13 +5,14 @@ import React from 'react';
 const CampusItem = ({ item }) => {
   // CampusItem display every fetched Campus
   //
+  //
   // eslint-disable-next-line object-curly-newline
   const { name, country, flag, imageUrl } = item;
 
   return (
     // Item for every Campus to Map into CampusGrid
-    <div className="group w-full flex flex-col pb-6 rounded-3xl bg-white border border-gray-200 hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 ease-in-out cursor-pointer hover:scale-105">
-      <div className="relative mb-5">
+    <div className="group w-full flex flex-col pb-8 rounded-3xl bg-white border border-gray-200 hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 ease-in-out cursor-pointer hover:scale-105">
+      <div className="relative mb-8">
         <img
           className="h-52 w-full rounded-t-3xl object-cover bg-center bg-blend-luminosity"
           src={imageUrl}
@@ -20,10 +21,10 @@ const CampusItem = ({ item }) => {
         <div className="bg-gray-900 h-full w-full absolute inset-0 rounded-t-3xl bg-opacity-20 group-hover:bg-opacity-10 transition-all duration-200 ease-in-out" />
       </div>
 
-      <div className="flex flex-col px-6">
+      <div className="flex flex-col px-8">
         <div className="flex flex-row align-middle">
           <p className="mr-3 text-sm">{flag}</p>
-          <p className="text-sm font-bold text-gray-500 tracking-wide uppercase mb-4">
+          <p className="text-sm font-bold text-gray-500 tracking-wide uppercase mb-2">
             {country}
           </p>
         </div>
