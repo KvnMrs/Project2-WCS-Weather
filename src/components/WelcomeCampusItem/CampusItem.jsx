@@ -7,7 +7,7 @@ const CampusItem = ({ item }) => {
   const { name, country, flag, imageUrl } = item;
 
   return (
-    <div className="group w-full flex flex-col pb-6 rounded-md bg-white border border-gray-200 hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 ease-in-out cursor-pointer">
+    <div className="group w-full flex flex-col pb-6 rounded-md bg-white border border-gray-200 hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 ease-in-out cursor-pointer hover:scale-105">
       <div className="relative mb-5">
         <img
           className="h-52 w-full rounded-t-md object-cover bg-center bg-blend-luminosity"

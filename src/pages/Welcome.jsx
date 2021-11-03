@@ -1,3 +1,5 @@
+/* eslint-disable no-shadow */
+/* eslint-disable radix */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable operator-linebreak */
 /* eslint-disable function-paren-newline */
@@ -9,7 +11,6 @@
 
 import React, { useEffect, useState } from 'react';
 import CampusItem from '../components/WelcomeCampusItem/CampusItem';
-// import WelcomePopup from '../components/WelcomePopup.jsx/WelcomePopup';
 import supabase from '../services/supabaseClient';
 
 const Welcome = () => {
@@ -43,7 +44,7 @@ const Welcome = () => {
   return (
     <div className="relative min-h-screen bg-gray-50">
       <div className="flex flex-col pt-24 lg:p-20 mx-auto max-w-6xl lg:max-w-7xl items-center">
-        <h1 className="text-center text-5xl tracking-tight text-gray-700 font-bold">
+        <h1 className="text-center text-4xl sm:text-5xl tracking-tight text-gray-700 font-bold">
           Welcome
           <span className="text-dark_wild_red"> Wilder</span> !
         </h1>
