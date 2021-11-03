@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 
-function Dashboard() {
+function DashboardWCS() {
   <div className="flex h-screen overflow-hidden bg-white rounded-lg">
     <div className="hidden md:flex md:flex-shrink-0">
       <div className="flex flex-col w-64">
@@ -32,7 +32,7 @@ function Dashboard() {
                 "
               >
                 {' '}
-                wickedblocks
+                WCS Weather
                 {' '}
 
               </h2>
@@ -154,101 +154,7 @@ function Dashboard() {
                   </a>
                 </li>
               </ul>
-              <p className="px-4 pt-4 font-medium text-gray-900 uppercase"> Shortcuts </p>
-              <ul>
-                <li>
-                  <a
-                    className="
-                      inline-flex
-                      items-center
-                      w-full
-                      px-4
-                      py-2
-                      mt-1
-                      text-base text-gray-900
-                      transition
-                      duration-500
-                      ease-in-out
-                      transform
-                      rounded-lg
-                      focus:shadow-outline
-                      hover:bg-gray-50
-                    "
-                    href="#"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                    </svg>
-                    <span className="ml-4"> Tasks</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="
-                      inline-flex
-                      items-center
-                      w-full
-                      px-4
-                      py-2
-                      mt-1
-                      text-base text-gray-900
-                      transition
-                      duration-500
-                      ease-in-out
-                      transform
-                      rounded-lg
-                      focus:shadow-outline
-                      hover:bg-gray-50
-                    "
-                    href="#"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                    <span className="ml-4"> Reports</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="
-                      inline-flex
-                      items-center
-                      w-full
-                      px-4
-                      py-2
-                      mt-1
-                      text-base text-gray-900
-                      transition
-                      duration-500
-                      ease-in-out
-                      transform
-                      rounded-lg
-                      focus:shadow-outline
-                      hover:bg-gray-50
-                    "
-                    href="#"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
-                    </svg>
-                    <span className="ml-4"> Dashboard</span>
-                  </a>
-                </li>
-              </ul>
             </nav>
-          </div>
-          <div className="flex flex-shrink-0 p-4 px-4 bg-gray-50">
-            <a href="#" className="flex-shrink-0 block w-full group">
-              <div className="flex items-center">
-                <div>
-                  <img className="inline-block rounded-full h-9 w-9" src="https://pbs.twimg.com/profile_images/1426761460357738499/LtQow-mk_400x400.jpg" alt="" />
-                </div>
-                <div className="ml-3">
-                  <p className="text-sm font-medium text-gray-900">Wicked Labs</p>
-                </div>
-              </div>
-            </a>
           </div>
         </div>
       </div>
@@ -260,7 +166,7 @@ function Dashboard() {
             <h1 className="text-lg text-neutral-600"> Here is where you put your stuff </h1>
           </div>
           <div className="px-4 mx-auto max-w-7xl sm:px-6 md:px-8">
-            {/* CONTENT HERE */}
+            {/* 1er DASHBOARD */}
             <div className="py-4">
               <div className="rounded-lg bg-gray-50 h-96" />
             </div>
@@ -272,4 +178,4 @@ function Dashboard() {
   </div>;
 }
 
-export default Dashboard;
+export default DashboardWCS;
