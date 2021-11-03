@@ -20,6 +20,8 @@ const Signup = () => {
     const { error } = await signUp({ email, password });
     if (error) {
       alert('An error occured, please verify your credentials and try again.');
+      // eslint-disable-next-line no-unused-expressions
+      console.error;
     } else if (password.length <= 5) {
       alert('Your password must be at least 6 characters long.');
     } else {
