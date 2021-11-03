@@ -6,7 +6,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Welcome from './pages/Welcome';
-
+import Dashboard from './pages/Dashboard';
 function App() {
   const [campusList, setCampusList] = useState([]);
 
@@ -40,6 +40,7 @@ function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/welcome" component={Welcome} />
+        <Route exact path="/dashboard" component={Dashboard} />
       </Switch>
     </Router>
   );
