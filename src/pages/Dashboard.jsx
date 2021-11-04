@@ -4,6 +4,8 @@
 import React from 'react';
 import DashAirQuality from '../components/dashComponents/dashPrincipalAir';
 import DashMeteo from '../components/dashComponents/dashPrincipalMeteo';
+import GraphiqueAir from '../components/dashComponents/graphiqueAir';
+import GraphiqueMeteo from '../components/dashComponents/graphiqueMeteo';
 
 function Dash() {
   return (
@@ -183,9 +185,19 @@ function Dash() {
               <h1 className="text-lg text-neutral-600">France</h1>
                 </div>
                 </section>
-                <section className="gap-4 m-2 p-2 grid md:flex row grid-cols-1 cols-1">
+                <section className="m-2 p-2 row grid-cols md:grid grid-cols-2 gap-4">
+                <div>
                 <DashAirQuality />
+                </div>
+                <div>
                 <DashMeteo />
+                </div>
+                <div>
+                <GraphiqueAir />
+                </div>
+                <div>
+                    <GraphiqueMeteo />
+                </div>
                 </section>
                 </div>
               </div>
