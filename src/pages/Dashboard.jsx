@@ -3,19 +3,44 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import DashboardCard from '../components/DashboardCard';
+import { DashboardCardPollution, DashboardCardTemperature, DashboardCardMeteo } from '../components/DashboardCard';
 
 function DashboardWCS() {
   /* Test API */
   const [weather, setWeather] = useState('');
+  const [temperature, setTemperature] = useState('');
+  const [pollution, setPollution] = useState('');
   useEffect(() => {
     axios
-      .get('http://api.openweathermap.org/data/2.5/weather', { params: { q: 'Nantes', appid: process.env.REACT_APP_AIR_WEATHER_KEY } })
+      .get('http://api.openweathermap.org/data/2.5/weather', {
+        params: {
+          lat: 47.2173,
+          lon: -1.5534,
+          appid: process.env.REACT_APP_AIR_WEATHER_KEY,
+          units: 'metric',
+        },
+      })
       .then((response) => response.data)
       .then((data) => {
         setWeather(data.weather[0]);
+        setTemperature(data.main);
+      });
+    axios
+      .get('http://api.openweathermap.org/data/2.5/air_pollution', {
+        params: {
+          lat: 47.2173,
+          lon: -1.5534,
+          appid: process.env.REACT_APP_AIR_WEATHER_KEY,
+        },
+      })
+      .then((response) => response.data)
+      .then((data) => {
+        setPollution(data.list[0].main);
       });
   }, []);
+  console.log(weather);
+  console.log(pollution);
+  console.log(temperature);
 
   return (
     <div className="flex h-screen overflow-hidden bg-white rounded-lg">
@@ -182,8 +207,18 @@ function DashboardWCS() {
             </div>
             <div className="px-4 mx-auto max-w-7xl sm:px-6 md:px-8">
               {/* 1er DASHBOARD */}
-              <div className="text-center">
-                <DashboardCard element={weather} />
+              <div className="text-center flex flex-col">
+                <div className="bg-gray-50 flex flex-row justify-around items-center">
+                  <div>
+                    <DashboardCardTemperature element={temperature} />
+                  </div>
+                  <div>
+                    <DashboardCardMeteo element={weather} />
+                  </div>
+                </div>
+                <div>
+                  <DashboardCardPollution element={pollution} />
+                </div>
               </div>
               <div className="py-4">
                 <div className="rounded-lg bg-gray-50 h-96" />
