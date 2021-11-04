@@ -2,7 +2,8 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import DashPrincipal from '../components/dashComponents/dashPrincipalAir';
+import DashAirQuality from '../components/dashComponents/dashPrincipalAir';
+import DashMeteo from '../components/dashComponents/dashPrincipalMeteo';
 
 function Dash() {
   return (
@@ -173,8 +174,8 @@ function Dash() {
                 </h1>
               </section>
               <div className="py-4 pt-4">
-                <div className="sm:rounded-lg bg-gray-50 h-110">
-                <section className="pl-4 pt-4">
+                <div className="rounded-lg bg-gray-50 h-110">
+                <section className="pl-4 pt-8">
                 <h1 className="text-3xl font-semibold leading-none tracking-tighter text-neutral-600">
                   Nantes
                 </h1>
@@ -182,8 +183,9 @@ function Dash() {
               <h1 className="text-lg text-neutral-600">France</h1>
                 </div>
                 </section>
-                <section className="sm:gap-2 m-2 p-3 grid md:flex row grid-cols-1 cols-1">
-                <DashPrincipal />
+                <section className="gap-4 m-2 p-2 grid md:flex row grid-cols-1 cols-1">
+                <DashAirQuality />
+                <DashMeteo />
                 </section>
                 </div>
               </div>
