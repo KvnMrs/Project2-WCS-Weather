@@ -12,7 +12,7 @@ import WelcomeSearch from '../WelcomeSearch/WelcomeSearch';
 import CampusItem from '../WelcomeCampusItem/CampusItem';
 import WelcomeNoResults from '../WelcomeNoResults/WelcomeNoResults';
 
-const CampusGrid = ({ data }) => {
+const CampusGrid = ({ data, setPopupItem }) => {
   const [search, setSearch] = useState('');
 
   // CampusGrid contains CampusItems and Map the Fetch function
@@ -32,7 +32,13 @@ const CampusGrid = ({ data }) => {
         ) : null}
         <div className="grid px-4 w-full auto-cols-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8  mt-16">
           {data && search.length === 0
-            ? data.map((item) => <CampusItem item={item} key={item.id} />)
+            ? data.map((item) => (
+                <CampusItem
+                  item={item}
+                  key={item.id}
+                  onClick={(item) => setPopupItem(...item, item.target.value)}
+                />
+              ))
             : data
                 .filter(
                   (item) =>
@@ -43,7 +49,13 @@ const CampusGrid = ({ data }) => {
                       .toLocaleLowerCase()
                       .includes(search.toLocaleLowerCase()),
                 )
-                .map((item) => <CampusItem item={item} key={item.id} />)}
+                .map((item) => (
+                  <CampusItem
+                    item={item}
+                    key={item.id}
+                    onClick={(item) => setPopupItem(...item, item.target.value)}
+                  />
+                ))}
         </div>
       </div>
     </>

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-bind */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable import/no-named-as-default-member */
 /* eslint-disable import/no-named-as-default */
@@ -28,24 +29,18 @@ const Welcome = () => {
   const [loaded, setLoaded] = useState(false);
   const [data, setData] = useState([]);
   //
-  /*   // PopupStates
   //
-  const [show, setShow] = useState(false);
   const [popupItem, setPopupItem] = useState([]);
   //
   //
-  // PopupFunction
-  //
-  function ShowPopup(popupItem) {
-    setPopupItem(popupItem);
-    setShow(true);
-  }
-
-  function HidePopup() {
-    setShow(false);
-    setPopupItem([]);
+  /*   function PushPopupItem({ item }) {
+    const { name, country, flag } = item;
+    setPopupItem({
+      name,
+      country,
+      flag,
+    });
   } */
-  //
   //
   // Fetch Campus from Files
   //
@@ -72,9 +67,12 @@ const Welcome = () => {
   //
   return (
     <div className="relative min-h-screen bg-gray-50">
+      {popupItem}
       <div className="flex flex-col pt-24 lg:p-20 mx-auto max-w-6xl lg:max-w-7xl items-center">
         <WelcomeHeader />
-        {loaded && data.length > 0 ? <CampusGrid data={data} /> : null}
+        {loaded && data.length > 0 ? (
+          <CampusGrid data={data} setItem={setPopupItem} />
+        ) : null}
         <div className="pt-10">{loaded ? null : <WelcomeLoading />}</div>
       </div>
     </div>
