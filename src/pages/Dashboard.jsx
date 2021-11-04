@@ -2,7 +2,7 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import DashPrincipal from '../components/dashComponents/dashPrincipal';
+import DashPrincipal from '../components/dashComponents/dashPrincipalAir';
 
 function Dash() {
   return (
@@ -167,17 +167,24 @@ function Dash() {
           <div className="py-6">
             <div className="px-4 mx-auto max-w-7xl sm:px-6 md:px-8">
               {/* 1er DASHBOARD */}
-              <section className="">
+              <section>
+                <h1 className="text-3xl font-semibold leading-none tracking-tighter text-neutral-600 pl-2">
+                  Hello, Utilisateur !
+                </h1>
+              </section>
+              <div className="py-4 pt-4">
+                <div className="sm:rounded-lg bg-gray-50 h-110">
+                <section className="pl-4 pt-4">
                 <h1 className="text-3xl font-semibold leading-none tracking-tighter text-neutral-600">
                   Nantes
                 </h1>
                 <div className="px-4 max-w-7xl sm:px-6 md:px-8">
               <h1 className="text-lg text-neutral-600">France</h1>
                 </div>
-              </section>
-              <div className="py-4">
-                <div className="rounded-lg bg-gray-50 h-96">
+                </section>
+                <section className="sm:gap-2 m-2 p-3 grid md:flex row grid-cols-1 cols-1">
                 <DashPrincipal />
+                </section>
                 </div>
               </div>
               {/* CONTENT HERE */}
