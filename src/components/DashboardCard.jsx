@@ -9,21 +9,21 @@ export const DashboardCardMeteo = ({ element }) => {
   return (
     <div className="flex flex-row items-center">
       <img src={'https://openweathermap.org/img/wn/' + element.icon + '@2x.png'} alt="weather icon" />
-      {element.main}
     </div>
   );
 };
+
 export const DashboardCardTemperature = ({ element }) => {
   return (
     <div className="flex flex-row items-center">
-      <div>{element.temp} °C</div>
+      <div className="text-3xl">{Math.round(element.temp)} °C</div>
     </div>
   );
 };
 
 export const DashboardCardPollution = ({ element }) => {
   return (
-    <div className="bg-green-300">
+    <div>
       <ul>
         <li>
           {element.aqi} / 5

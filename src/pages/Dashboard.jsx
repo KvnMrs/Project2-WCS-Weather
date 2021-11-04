@@ -3,27 +3,33 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { DashboardCardPollution, DashboardCardTemperature, DashboardCardMeteo } from '../components/DashboardCard';
+import {
+  DashboardCardPollution,
+  DashboardCardTemperature,
+  DashboardCardMeteo,
+} from '../components/DashboardCard';
 
 function DashboardWCS() {
-  /* Test API */
+  /* Appel API */
   const [weather, setWeather] = useState('');
   const [temperature, setTemperature] = useState('');
   const [pollution, setPollution] = useState('');
+  const date = new Date(Date()).toLocaleDateString();
   useEffect(() => {
     axios
-      .get('http://api.openweathermap.org/data/2.5/weather', {
+      .get('http://api.openweathermap.org/data/2.5/onecall', {
         params: {
           lat: 47.2173,
           lon: -1.5534,
+          exclude: 'hourly' && 'minutely',
           appid: process.env.REACT_APP_AIR_WEATHER_KEY,
           units: 'metric',
         },
       })
       .then((response) => response.data)
       .then((data) => {
-        setWeather(data.weather[0]);
-        setTemperature(data.main);
+        setWeather(data.current.weather[0]);
+        setTemperature(data.current);
       });
     axios
       .get('http://api.openweathermap.org/data/2.5/air_pollution', {
@@ -38,9 +44,6 @@ function DashboardWCS() {
         setPollution(data.list[0].main);
       });
   }, []);
-  console.log(weather);
-  console.log(pollution);
-  console.log(temperature);
 
   return (
     <div className="flex h-screen overflow-hidden bg-white rounded-lg">
@@ -55,20 +58,19 @@ function DashboardWCS() {
           "
           >
             <div className="flex flex-col items-center flex-shrink-0 px-4">
-              <a href="/" className="px-8 text-left focus:outline-none">
+              <a href="/dashboard" className="px-8 text-left focus:outline-none">
                 <h2 className="
                   block
                   p-2
-                  text-xl
+                  text-2xl
                   font-medium
                   tracking-tighter
-                  text-gray-900
+                  text-wild_red
                   transition
                   duration-500
                   ease-in-out
                   transform
                   cursor-pointer
-                  hover:text-gray-900
                 "
                 >
                   {' '}
@@ -96,13 +98,13 @@ function DashboardWCS() {
                       px-4
                       py-2
                       mt-1
-                      text-base text-gray-900
+                      text-base text-white
                       transition
                       duration-500
                       ease-in-out
                       transform
                       rounded-lg
-                      bg-gray-50
+                      bg-wild_red
                       focus:shadow-outline
                     "
                       href="#"
@@ -208,15 +210,16 @@ function DashboardWCS() {
             <div className="px-4 mx-auto max-w-7xl sm:px-6 md:px-8">
               {/* 1er DASHBOARD */}
               <div className="text-center flex flex-col">
-                <div className="bg-gray-50 flex flex-row justify-around items-center">
-                  <div>
-                    <DashboardCardTemperature element={temperature} />
-                  </div>
+                <div className="text-xl">{date}</div>
+                <div className="bg-gray-50 flex flex-row justify-around items-center w-60 m-auto">
                   <div>
                     <DashboardCardMeteo element={weather} />
                   </div>
+                  <div className="border-gray-600 border-l-2">
+                    <DashboardCardTemperature element={temperature} />
+                  </div>
                 </div>
-                <div>
+                <div className="bg-green-300 w-60 m-auto">
                   <DashboardCardPollution element={pollution} />
                 </div>
               </div>
