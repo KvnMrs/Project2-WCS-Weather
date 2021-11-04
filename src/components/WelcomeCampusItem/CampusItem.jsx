@@ -30,7 +30,7 @@ const CampusItem = ({ item, functionShow }) => {
             {country}
           </p>
         </div>
-        <p className="text-4xl font-light text-gray-800">{name}</p>
+        <p className="text-3xl font-light text-gray-700">{name}</p>
       </div>
     </div>
   );

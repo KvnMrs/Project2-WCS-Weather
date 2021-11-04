@@ -1,7 +1,9 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-alert */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable arrow-body-style */
 import React, { useState } from 'react';
+import { useSpring, animated } from 'react-spring';
 import { Link, useHistory } from 'react-router-dom';
 import elephant from '../assets/elephant.jpg';
 import { useAuth } from '../services/Context';
@@ -25,8 +27,20 @@ const Login = () => {
     }
   }
 
+  const fade = useSpring({
+    from: {
+      opacity: 0,
+    },
+    to: {
+      opacity: 1,
+    },
+  });
+
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 h-screen">
+    <animated.div
+      className="grid grid-cols-1 lg:grid-cols-2 h-screen"
+      style={fade}
+    >
       <div className="relative flex flex-col py-24 justify-center items-center bg-gray-50">
         <form className="grid grid-cols-1 w-auto">
           <h1 className="text-left text-4xl tracking-tight text-gray-800 font-bold">
@@ -106,7 +120,7 @@ const Login = () => {
         // eslint-disable-next-line no-undef
         style={{ backgroundImage: url + background }}
       />
-    </div>
+    </animated.div>
   );
 };
 
