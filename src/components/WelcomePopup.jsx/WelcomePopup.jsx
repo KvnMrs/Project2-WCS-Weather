@@ -9,9 +9,8 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-const WelcomePopup = ({ popupItem, HidePopupItem }) => {
-  const { name, country, flag, id } = popupItem;
-
+const WelcomePopup = ({ item }) => {
+  const { name, country, flag, id } = item;
   // WelcomePopup display the selected campus and ask for confirmation
   return (
     <div>
@@ -19,7 +18,6 @@ const WelcomePopup = ({ popupItem, HidePopupItem }) => {
       <p>{country}</p>
       <p>{flag}</p>
       <p>{id}</p>
-      <button onClick={HidePopupItem()}>Dismiss</button>
     </div>
   );
 };

@@ -1,14 +1,19 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/prop-types */
 /* eslint-disable arrow-body-style */
 import React from 'react';
 
-const CampusItem = ({ item }) => {
+const CampusItem = ({ item, functionShow }) => {
   // eslint-disable-next-line object-curly-newline
   const { name, country, flag, imageUrl } = item;
 
   return (
     // Item for every Campus to Map into CampusGrid
-    <div className="group w-full flex flex-col pb-8 rounded-3xl bg-white border border-gray-200 hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 ease-in-out cursor-pointer hover:scale-105">
+    <div
+      onClick={() => functionShow()}
+      className="group w-full flex flex-col pb-8 rounded-3xl bg-white border border-gray-200 hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 ease-in-out cursor-pointer hover:scale-105"
+    >
       <div className="relative mb-8">
         <img
           className="h-52 w-full rounded-t-3xl object-cover bg-center bg-blend-luminosity"

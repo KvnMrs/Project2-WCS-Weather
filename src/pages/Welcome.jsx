@@ -16,31 +16,15 @@
 import React, { useEffect, useState } from 'react';
 import { WelcomeFetchCampus } from '../services/WelcomeFetchCampus/WelcomeFetchItems';
 import WelcomeHeader from '../components/WelcomeHeader/WelcomeHeader';
-// import WelcomePopup from '../components/WelcomePopup.jsx/WelcomePopup';
 import CampusGrid from '../components/WelcomeCampusGrid/CampusGrid';
 import WelcomeLoading from '../components/WelcomeLoading/WelcomeLoading';
-// import WelcomePopup from '../components/WelcomePopup.jsx/WelcomePopup';
 
 const Welcome = () => {
-  // Welcome Page
   //
   // Fetched Data States
   //
   const [loaded, setLoaded] = useState(false);
   const [data, setData] = useState([]);
-  //
-  //
-  const [popupItem, setPopupItem] = useState([]);
-  //
-  //
-  /*   function PushPopupItem({ item }) {
-    const { name, country, flag } = item;
-    setPopupItem({
-      name,
-      country,
-      flag,
-    });
-  } */
   //
   // Fetch Campus from Files
   //
@@ -50,12 +34,14 @@ const Welcome = () => {
       .then(setLoaded(true));
     return campus;
   }
+  //
   // Await Data
   useEffect(() => {
     (async () => {
       await promisedData();
     })();
   }, []);
+  //
   //
   if (data.length > 0) {
     console.log(data);
@@ -64,15 +50,11 @@ const Welcome = () => {
   }
   //
   //
-  //
   return (
     <div className="relative min-h-screen bg-gray-50">
-      {popupItem}
       <div className="flex flex-col pt-24 lg:p-20 mx-auto max-w-6xl lg:max-w-7xl items-center">
         <WelcomeHeader />
-        {loaded && data.length > 0 ? (
-          <CampusGrid data={data} setItem={setPopupItem} />
-        ) : null}
+        {loaded && data.length > 0 ? <CampusGrid data={data} /> : null}
         <div className="pt-10">{loaded ? null : <WelcomeLoading />}</div>
       </div>
     </div>
