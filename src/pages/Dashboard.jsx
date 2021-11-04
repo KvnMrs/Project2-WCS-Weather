@@ -185,7 +185,7 @@ function Dash() {
               <h1 className="text-lg text-neutral-600">France</h1>
                 </div>
                 </section>
-                <section className="sm:m-2 p-2 row grid-cols gap-y-4 md:grid grid-cols-2 gap-4">
+                <section className="sm:m-2 p-2 row grid-cols gap-y-4 lg:grid grid-cols-2 gap-4">
                 <div>
                 <DashAirQuality />
                 </div>
