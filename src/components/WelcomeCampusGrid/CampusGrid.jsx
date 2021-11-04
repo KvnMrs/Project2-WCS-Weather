@@ -31,15 +31,8 @@ const CampusGrid = ({ data, setPopupItem }) => {
           <WelcomeNoResults />
         ) : null}
         <div className="grid px-4 w-full auto-cols-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8  mt-16">
-          {data && search.length === 0
-            ? data.map((item) => (
-                <CampusItem
-                  item={item}
-                  key={item.id}
-                  onClick={(item) => setPopupItem(...item, item.target.value)}
-                />
-              ))
-            : data
+          {data
+            ? data
                 .filter(
                   (item) =>
                     item.name
@@ -55,7 +48,8 @@ const CampusGrid = ({ data, setPopupItem }) => {
                     key={item.id}
                     onClick={(item) => setPopupItem(...item, item.target.value)}
                   />
-                ))}
+                ))
+            : null}
         </div>
       </div>
     </>
