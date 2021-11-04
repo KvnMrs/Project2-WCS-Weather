@@ -26,10 +26,27 @@ const CampusGrid = ({ data }) => {
     setShow(!show);
   }
 
+  function handleHideChange() {
+    setShow(!show);
+  }
+
   // CampusGrid contains CampusItems and Map the Fetch function
   return (
     <>
-      {show ? <WelcomePopup item={popupItem} /> : null}
+      {show ? (
+        <div
+          onClick={() => handleHideChange()}
+          className="fixed flex items-center justify-center h-full w-full bg-gray-800 bg-opacity-20 z-30"
+        >
+          {show ? (
+            <WelcomePopup
+              item={popupItem}
+              handleHide={() => handleHideChange()}
+            />
+          ) : null}
+        </div>
+      ) : null}
+
       <WelcomeSearch search={search} setSearch={setSearch} />
       <div className="flex flex-col mt-5 w-full flex-grow">
         {data &&
@@ -42,7 +59,7 @@ const CampusGrid = ({ data }) => {
         ).length === 0 ? (
           <WelcomeNoResults />
         ) : null}
-        <div className="grid px-4 w-full auto-cols-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8  mt-16">
+        <div className="grid px-4 w-full auto-cols-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-16">
           {data
             ? data
                 .filter(

@@ -2,7 +2,7 @@
 import React from 'react';
 
 const WelcomeHeader = () => (
-  <div className="w-full">
+  <div className="w-full pt-24">
     <h1 className="text-center text-4xl sm:text-5xl tracking-tight text-gray-700 font-bold">
       Welcome
       <span className="text-dark_wild_red"> Wilder</span> !

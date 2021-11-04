@@ -51,8 +51,8 @@ const Welcome = () => {
   //
   //
   return (
-    <div className="relative min-h-screen bg-gray-50">
-      <div className="flex flex-col pt-24 lg:p-20 mx-auto max-w-6xl lg:max-w-7xl items-center">
+    <div className="static min-h-screen bg-gray-50">
+      <div className="static flex flex-col mx-auto max-w-6xl lg:max-w-7xl items-center">
         <WelcomeHeader />
         {loaded && data.length > 0 ? <CampusGrid data={data} /> : null}
         <div className="pt-10">{loaded ? null : <WelcomeLoading />}</div>
