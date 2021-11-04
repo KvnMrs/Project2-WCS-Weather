@@ -12,7 +12,7 @@ function GraphiqueMeteo() {
             in Nantes, France
           </span>
         </div>
-        <div className="rounded-lg bg-red-200 h-96">
+        <div className="rounded-lg bg-red-200 h-48 md:h-96">
           Graphique
         </div>
       </div>

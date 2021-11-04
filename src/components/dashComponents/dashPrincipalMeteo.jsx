@@ -4,7 +4,7 @@ function DashMeteo() {
   return (
     <div className="rounded-lg bg-white h-100">
       <section>
-        <div className="container flex flex-col items-center px-5 py-8 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div className="container flex flex-col items-center px-5 py-8 mx-auto max-w-7xl sm:px-6 mb-5 lg:px-8">
           <div className="flex flex-col w-full max-w-3xl mx-auto prose text-left prose-blue">
             <div className="grid grid-cols-3 gap-4">
               <div className="grid-rows-2 sm:pt-8">
