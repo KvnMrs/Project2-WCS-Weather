@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable import/no-named-as-default-member */
 /* eslint-disable import/no-named-as-default */
 /* eslint-disable no-shadow */
@@ -11,46 +12,70 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable arrow-body-style */
 
-import React, { useState } from 'react';
-import CampusGrid from '../components/WelcomeCampusGrid/CampusGrid';
+import React, { useEffect, useState } from 'react';
+import { WelcomeFetchCampus } from '../services/WelcomeFetchCampus/WelcomeFetchItems';
 import WelcomeHeader from '../components/WelcomeHeader/WelcomeHeader';
 // import WelcomePopup from '../components/WelcomePopup.jsx/WelcomePopup';
-import WelcomeSearch from '../components/WelcomeSearch/WelcomeSearch';
+import CampusGrid from '../components/WelcomeCampusGrid/CampusGrid';
+import WelcomeLoading from '../components/WelcomeLoading/WelcomeLoading';
+// import WelcomePopup from '../components/WelcomePopup.jsx/WelcomePopup';
 
 const Welcome = () => {
   // Welcome Page
   //
-  // Search input States
-  const [search, setSearch] = useState('');
-
-  /*   const [popupVisible, setPopupVisible] = useState(false);
-  const [popupItem, setPopupItem] = useState(null);
-
-  function DisplayPopup(item) {
-    setPopupItem(item);
-    setPopupVisible(true);
+  // Fetched Data States
+  //
+  const [loaded, setLoaded] = useState(false);
+  const [data, setData] = useState([]);
+  //
+  /*   // PopupStates
+  //
+  const [show, setShow] = useState(false);
+  const [popupItem, setPopupItem] = useState([]);
+  //
+  //
+  // PopupFunction
+  //
+  function ShowPopup(popupItem) {
+    setPopupItem(popupItem);
+    setShow(true);
   }
 
   function HidePopup() {
-    setPopupItem(null);
-    setPopupVisible(false);
+    setShow(false);
+    setPopupItem([]);
   } */
-
+  //
+  //
+  // Fetch Campus from Files
+  //
+  async function promisedData() {
+    const campus = await WelcomeFetchCampus()
+      .then((result) => setData(result))
+      .then(setLoaded(true));
+    return campus;
+  }
+  // Await Data
+  useEffect(() => {
+    (async () => {
+      await promisedData();
+    })();
+  }, []);
+  //
+  if (data.length > 0) {
+    console.log(data);
+  } else {
+    console.log('No data yet.');
+  }
+  //
+  //
+  //
   return (
     <div className="relative min-h-screen bg-gray-50">
       <div className="flex flex-col pt-24 lg:p-20 mx-auto max-w-6xl lg:max-w-7xl items-center">
-        {/*         {popupVisible ? (
-          <WelcomePopup popupItem={popupItem} HidePopup={HidePopup()} />
-        ) : null} */}
         <WelcomeHeader />
-        <WelcomeSearch search={search} setSearch={setSearch} />
-        <div>
-          <CampusGrid
-            search={search}
-            // DisplayPopup={DisplayPopup()}
-            // HidePopup={HidePopup()}
-          />
-        </div>
+        {loaded && data.length > 0 ? <CampusGrid data={data} /> : null}
+        <div className="pt-10">{loaded ? null : <WelcomeLoading />}</div>
       </div>
     </div>
   );

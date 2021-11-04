@@ -3,9 +3,6 @@
 import React from 'react';
 
 const CampusItem = ({ item }) => {
-  // CampusItem display every fetched Campus
-  //
-  //
   // eslint-disable-next-line object-curly-newline
   const { name, country, flag, imageUrl } = item;
 
@@ -16,7 +13,7 @@ const CampusItem = ({ item }) => {
         <img
           className="h-52 w-full rounded-t-3xl object-cover bg-center bg-blend-luminosity"
           src={imageUrl}
-          alt=""
+          alt={name}
         />
         <div className="bg-gray-900 h-full w-full absolute inset-0 rounded-t-3xl bg-opacity-20 group-hover:bg-opacity-10 transition-all duration-200 ease-in-out" />
       </div>
