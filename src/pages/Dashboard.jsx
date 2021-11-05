@@ -4,6 +4,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable prefer-destructuring */
 /* eslint-disable object-shorthand */
+/* eslint-disable camelcase */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import DashCity from '../components/dashComponents/dashCityCampus';
@@ -75,27 +76,26 @@ function Dash() {
    * du campus choisi lors du sign up
    */
   async function fetchCampus() {
-    const { data, error } = await supabase
+    const { data: user_campus, error } = await supabase
       .from('user_campus')
-      .select('latitude', 'longitude')
+      .select('latitude , longitude')
       .eq('user_id', id);
 
     if (error) {
       console.log(error);
       return console.log('error');
     }
-    console.log(data);
-    return data;
+    console.log(user_campus);
+    return user_campus;
   }
 
   useEffect(async () => {
     const getCampus = await fetchCampus();
     campusCoordonates = getCampus;
-    if (campusCoordonates.length > 0) {
-      setLat(campusCoordonates[0]);
-      setLong(campusCoordonates[1]);
-    }
-    console.log(campusCoordonates);
+    setLat(campusCoordonates[0].latitude);
+    setLong(campusCoordonates[0].longitude);
+    console.log(campusCoordonates[0].latitude);
+    console.log(campusCoordonates[0].longitude);
   }, []);
   return (
     <div className="flex h-screen overflow-hidden bg-white rounded-lg">
@@ -246,19 +246,8 @@ function Dash() {
                     "
                       href="#"
                     >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="w-4 h-4"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                        />
+                      <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                       </svg>
                       <span className="ml-4">User</span>
                     </a>
@@ -368,9 +357,7 @@ function Dash() {
                       WCS CAMPUS
                     </h1>
                     <div className="px-4 max-w-7xl sm:px-6 md:px-8">
-                      <h1 className="text-lg text-neutral-600">
-                        in Nantes, France
-                      </h1>
+                      <h1 className="text-lg text-neutral-600">in Nantes, France</h1>
                     </div>
                   </section>
                   <section className="m-2 p-2 row grid-cols md:grid grid-cols-1">
