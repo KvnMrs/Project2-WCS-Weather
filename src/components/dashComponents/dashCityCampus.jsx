@@ -2,18 +2,25 @@ import React from 'react';
 
 function DashCity() {
   return (
-    <div className="rounded-lg bg-blue-300 h-100 mb-5">
-      <div className="grid-rows-3 ">
-        <div className="grid justify-items-between">
+    <div className="rounded-lg bg-white h-100 mb-5 h-40">
+      <div className="grid-rows lg:grid grid-cols-3">
+        <div>
+          <h1 className="text-start text-4xl m-9">
+            Lisbonne
+            <br />
+            <span className="text-sm">
+              Portugal
+            </span>
+          </h1>
+        </div>
+        <div>
           <h1>
-            <div className="">
-              Lisbonne
-            </div>
-            <div>
-              <h3 className="">
-                today
-              </h3>
-            </div>
+            Dash
+          </h1>
+        </div>
+        <div>
+          <h1>
+            Dash
           </h1>
         </div>
       </div>
