@@ -45,7 +45,7 @@ const Signup = () => {
       style={fade}
     >
       <div className="relative flex flex-col py-24 justify-center items-center bg-gray-50">
-        <form className="grid grid-cols-1 w-auto">
+        <form className="grid grid-cols-1 w-auto px-6">
           <h1 className="text-left text-4xl tracking-tight text-gray-800 font-bold">
             Create your account
           </h1>
