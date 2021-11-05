@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable arrow-body-style */
 import React from 'react';
+import { Link } from 'react-router-dom';
 // import supabase from '../services/supabaseClient';
 
 const Home = () => {
@@ -11,27 +12,27 @@ const Home = () => {
           <div className="flex flex-col items-start mb-8 text-left lg:flex-grow lg:w-1/2 lg:pr-24 md:mb-0">
             <div className="mb-8 text-center mx-auto">
               <h1 className="text-4xl font-bold leading-none tracking-tighter text-neutral-600 md:text-7xl lg:text-6xl text-wild_red main-title">
-                {' '}
-                WCSweather.{' '}
+                WCSweather.
               </h1>
               <h2>Meteo and air pollution application</h2>
             </div>
             <p className="mb-8 text-base leading-relaxed text-gray-400 text-center">
-              {' '}
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus,
               libero labore unde repellat mollitia quos voluptas in veritatis
               repellendus obcaecati rerum. Ut voluptate laudantium facilis
-              similique sequi veritatis consectetur blanditiis..{' '}
+              similique sequi veritatis consectetur blanditiis..
             </p>
             <div className="mt-0 lg:mt-6 max-w-7xl sm:flex self-center grid grid-cols-2 gap-2">
               <div className="mt-3 rounded-lg sm:mt-0 ">
-                <button
-                  type="button"
-                  className="px-4 py-4 bg-wild_red rounded-md font-bold tracking-wider text-white text-sm uppercase mt-8 hover:bg-dark_wild_red transition-all transition-duration-150 ease-in-out"
-                >
-                  {' '}
-                  Get started{' '}
-                </button>
+                <div className="">
+                  <button
+                    type="button"
+                    className="px-4 py-4 bg-wild_red rounded-md font-bold tracking-wider text-white text-sm uppercase mt-8 hover:bg-dark_wild_red transition-all transition-duration-150 ease-in-out"
+                  >
+                    {' '}
+                    <Link to="/signUp">Get started</Link>
+                  </button>
+                </div>
               </div>
               <div className="mt-3 rounded-lg sm:mt-0 sm:ml-3">
                 <button
@@ -40,8 +41,7 @@ const Home = () => {
                   px-4 py-4 bg-wild_red rounded-md font-bold tracking-wider text-white text-sm uppercase mt-8 hover:bg-dark_wild_red transition-all transition-duration-150 ease-in-out
                   "
                 >
-                  {' '}
-                  Sign in{' '}
+                  <Link to="/login">Sign in</Link>
                 </button>
               </div>
             </div>
