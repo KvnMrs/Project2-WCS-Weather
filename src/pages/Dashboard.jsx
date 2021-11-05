@@ -205,7 +205,7 @@ function Dash() {
               </div>
                {/* DASHBOARD CAMPUS VILLES */}
                <div className="py-4 pt-4 mt-6">
-                <div className="rounded-lg bg-gray-50 h-110">
+                <div className="rounded-lg bg-gray-50 h-auto">
                 <section className="pl-4 pt-8">
                 <h1 className="text-3xl font-semibold leading-none tracking-tighter text-neutral-600">
                   WCS CAMPUS
