@@ -19,7 +19,7 @@ function Dash() {
         <main className="relative flex-1 overflow-y-auto focus:outline-none">
           <div>
             <div className="px-4 mx-auto max-w-7xl sm:px-6 bg-gray-50">
-              {/* DASHBOARD de la ville sélèctionnée par l'utilisateur */}
+              {/* DASHBOARD de la ville sélectionnée par l'utilisateur */}
               <section>
                 <h1 className="text-3xl font-semibold leading-none tracking-tighter text-neutral-600 pl-2 pt-5">
                   Hello, Utilisateur !
