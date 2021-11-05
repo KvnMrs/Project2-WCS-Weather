@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-indent */
 /* eslint-disable react/button-has-type */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-unused-vars */
@@ -5,6 +6,11 @@
 /* eslint-disable object-shorthand */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import DashCity from '../components/dashComponents/dashCityCampus';
+import DashAirQuality from '../components/dashComponents/dashPrincipalAir';
+import DashMeteo from '../components/dashComponents/dashPrincipalMeteo';
+import GraphiqueAir from '../components/dashComponents/graphiqueAir';
+import GraphiqueMeteo from '../components/dashComponents/graphiqueMeteo';
 import {
   DashboardCardPollution,
   DashboardCardTemperature,
@@ -92,6 +98,7 @@ function DashboardWCS() {
     console.log(campusCoordonates);
   }, []);
 
+function Dash() {
   return (
     <div className="flex h-screen overflow-hidden bg-white rounded-lg">
       <div className="hidden md:flex md:flex-shrink-0">
@@ -105,7 +112,7 @@ function DashboardWCS() {
           "
           >
             <div className="flex flex-col items-center flex-shrink-0 px-4">
-              <a href="/dashboard" className="px-8 text-left focus:outline-none">
+              <a href="/" className="px-8 text-left focus:outline-none">
                 <h2 className="
                   block
                   p-2
@@ -120,11 +127,8 @@ function DashboardWCS() {
                   cursor-pointer
                 "
                 >
-                  {' '}
                   WCS Weather
-                  {' '}
-
-                </h2>
+              </h2>
               </a>
               <button className="hidden rounded-lg focus:outline-none focus:shadow-outline">
                 <svg fill="currentColor" viewBox="0 0 20 20" className="w-6 h-6">
@@ -189,8 +193,8 @@ function DashboardWCS() {
                     </a>
                   </li>
                   <li>
-                    <a
-                      className="
+                  <a
+                    className="
                       inline-flex
                       items-center
                       w-full
@@ -206,17 +210,17 @@ function DashboardWCS() {
                       focus:shadow-outline
                       hover:bg-gray-50
                     "
-                      href="#"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                      </svg>
-                      <span className="ml-4">User</span>
-                    </a>
+                    href="#"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                    <span className="ml-4">User</span>
+                  </a>
                   </li>
                   <li>
-                    <a
-                      className="
+                  <a
+                    className="
                       inline-flex
                       items-center
                       w-full
@@ -239,7 +243,6 @@ function DashboardWCS() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>
                       <span className="ml-4">Settings</span>
-
                     </a>
                   </li>
                 </ul>
@@ -252,13 +255,32 @@ function DashboardWCS() {
         <main className="relative flex-1 overflow-y-auto focus:outline-none">
           <div className="py-6">
             <div className="px-4 mx-auto max-w-7xl sm:px-6 md:px-8">
-              <h1 className="text-lg text-neutral-600"> Here is where you put your stuff </h1>
-            </div>
-            <div className="px-4 mx-auto max-w-7xl sm:px-6 md:px-8">
               {/* 1er DASHBOARD */}
-              <div className="text-center flex flex-col">
-                <div className="text-xl">{date}</div>
-                <div className="bg-gray-50 flex flex-row justify-around items-center w-60 m-auto">
+              <section>
+                <h1 className="text-3xl font-semibold leading-none tracking-tighter text-neutral-600 pl-2">
+                  Hello, Utilisateur !
+                </h1>
+              </section>
+              <div className="py-4 pt-4">
+                <div className="rounded-lg bg-gray-50 h-110">
+                <section className="pl-4 pt-8">
+                <h1 className="text-3xl font-semibold leading-none tracking-tighter text-neutral-600">
+                  Nantes
+                </h1>
+                <div className="px-4 max-w-7xl sm:px-6 md:px-8">
+              <h1 className="text-lg text-neutral-600">France</h1>
+                </div>
+                </section>
+                <section className="m-2 p-2 row grid-cols md:grid grid-cols-2 gap-4">
+                <div>
+                <DashAirQuality />
+                   <div className="bg-green-300 w-60 m-auto">
+                  <DashboardCardPollution element={pollution} />
+                </div>
+                </div>
+                <div>
+                <DashMeteo />
+                     <div className="bg-gray-50 flex flex-row justify-around items-center w-60 m-auto">
                   <div>
                     <DashboardCardMeteo element={weather} />
                   </div>
@@ -266,14 +288,35 @@ function DashboardWCS() {
                     <DashboardCardTemperature element={temperature} />
                   </div>
                 </div>
-                <div className="bg-green-300 w-60 m-auto">
-                  <DashboardCardPollution element={pollution} />
+                </div>
+                <div>
+                <GraphiqueAir />
+                </div>
+                <div>
+                    <GraphiqueMeteo />
+                </div>
+                </section>
+              {/* CONTENT HERE */}
                 </div>
               </div>
-              <div className="py-4">
-                <div className="rounded-lg bg-gray-50 h-96" />
-              </div>
-              {/* CONTENT HERE */}
+               {/* DASHBOARD CAMPUS VILLES */}
+               <div className="py-4 pt-4 mt-6">
+                <div className="rounded-lg bg-gray-50 h-110">
+                <section className="pl-4 pt-8">
+                <h1 className="text-3xl font-semibold leading-none tracking-tighter text-neutral-600">
+                  WCS CAMPUS
+                </h1>
+                <div className="px-4 max-w-7xl sm:px-6 md:px-8">
+              <h1 className="text-lg text-neutral-600">in Nantes, France</h1>
+                </div>
+                </section>
+                <section className="m-2 p-2 row grid-cols md:grid grid-cols-1">
+                <div>
+                <DashCity />
+                </div>
+                </section>
+                </div>
+               </div>
             </div>
           </div>
         </main>
@@ -282,4 +325,4 @@ function DashboardWCS() {
   );
 }
 
-export default DashboardWCS;
+export default Dash;

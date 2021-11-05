@@ -1,30 +1,36 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/prop-types */
 /* eslint-disable arrow-body-style */
 import React from 'react';
 
-const CampusItem = ({ item }) => {
+const CampusItem = ({ item, functionShow }) => {
   // eslint-disable-next-line object-curly-newline
   const { name, country, flag, imageUrl } = item;
 
   return (
-    <div className="group w-full flex flex-col pb-6 rounded-md bg-white border border-gray-200 hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 ease-in-out cursor-pointer hover:scale-105">
-      <div className="relative mb-5">
+    // Item for every Campus to Map into CampusGrid
+    <div
+      onClick={() => functionShow()}
+      className="group w-full flex flex-col pb-8 rounded-3xl bg-white border border-gray-200 hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 ease-in-out cursor-pointer hover:scale-105"
+    >
+      <div className="relative mb-8">
         <img
-          className="h-52 w-full rounded-t-md object-cover bg-center bg-blend-luminosity"
+          className="h-52 w-full rounded-t-3xl object-cover bg-center bg-blend-luminosity"
           src={imageUrl}
-          alt=""
+          alt={name}
         />
-        <div className="bg-gray-900 h-full w-full absolute inset-0 bg-opacity-20 group-hover:bg-opacity-10 transition-all duration-200 ease-in-out" />
+        <div className="bg-gray-900 h-full w-full absolute inset-0 rounded-t-3xl bg-opacity-20 group-hover:bg-opacity-10 transition-all duration-200 ease-in-out" />
       </div>
 
-      <div className="flex flex-col px-6">
+      <div className="flex flex-col px-8">
         <div className="flex flex-row align-middle">
           <p className="mr-3 text-sm">{flag}</p>
-          <p className="text-sm font-bold text-gray-500 tracking-wide uppercase mb-4">
+          <p className="text-sm font-bold text-gray-500 tracking-wide uppercase mb-2">
             {country}
           </p>
         </div>
-        <p className="text-4xl font-light text-gray-800">{name}</p>
+        <p className="text-3xl font-light text-gray-700">{name}</p>
       </div>
     </div>
   );
