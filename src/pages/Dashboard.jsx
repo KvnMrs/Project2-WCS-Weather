@@ -1,6 +1,8 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-unused-vars */
+/* eslint-disable prefer-destructuring */
+/* eslint-disable object-shorthand */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import {
@@ -8,19 +10,32 @@ import {
   DashboardCardTemperature,
   DashboardCardMeteo,
 } from '../components/DashboardCard';
+import supabase from '../services/supabaseClient';
 
 function DashboardWCS() {
+  /**
+  * get user Id from context
+  */
+  const user = supabase.auth.user();
+  const id = user.id;
+
   /* Appel API */
   const [weather, setWeather] = useState('');
   const [temperature, setTemperature] = useState('');
   const [pollution, setPollution] = useState('');
+  const [lat, setLat] = useState(2);
+  const [long, setLong] = useState(0);
   const date = new Date(Date()).toLocaleDateString();
+  let campusCoordonates = [];
   useEffect(() => {
+    /**
+     * Call API onecall of openweathermap -> get weather data
+     */
     axios
       .get('http://api.openweathermap.org/data/2.5/onecall', {
         params: {
-          lat: 47.2173,
-          lon: -1.5534,
+          lat: lat,
+          lon: long,
           exclude: 'hourly' && 'minutely',
           appid: process.env.REACT_APP_AIR_WEATHER_KEY,
           units: 'metric',
@@ -31,11 +46,15 @@ function DashboardWCS() {
         setWeather(data.current.weather[0]);
         setTemperature(data.current);
       });
+
+    /**
+     * Call API air_pollution of openweathermap -> get air pollution data
+     */
     axios
       .get('http://api.openweathermap.org/data/2.5/air_pollution', {
         params: {
-          lat: 47.2173,
-          lon: -1.5534,
+          lat: lat,
+          lon: long,
           appid: process.env.REACT_APP_AIR_WEATHER_KEY,
         },
       })
@@ -43,6 +62,34 @@ function DashboardWCS() {
       .then((data) => {
         setPollution(data.list[0].main);
       });
+  }, []);
+
+  /**
+   * Recupération de supabase de la latitude & la longitude
+   * du campus choisi lors du sign up
+   */
+  async function fetchCampus() {
+    const { data, error } = await supabase
+      .from('user_campus')
+      .select('latitude', 'longitude')
+      .eq('user_id', id);
+
+    if (error) {
+      console.log(error);
+      return console.log('error');
+    }
+    console.log(data);
+    return data;
+  }
+
+  useEffect(async () => {
+    const getCampus = await fetchCampus();
+    campusCoordonates = getCampus;
+    if (campusCoordonates.length > 0) {
+      setLat(campusCoordonates[0]);
+      setLong(campusCoordonates[1]);
+    }
+    console.log(campusCoordonates);
   }, []);
 
   return (
