@@ -168,17 +168,17 @@ function Dash() {
       </div>
       <div className="flex flex-col flex-1 w-0 overflow-hidden">
         <main className="relative flex-1 overflow-y-auto focus:outline-none">
-          <div className="py-6">
-            <div className="px-4 mx-auto max-w-7xl sm:px-6 md:px-8">
+          <div>
+            <div className="px-4 mx-auto max-w-7xl sm:px-6 bg-gray-50">
               {/* DASHBOARD de la ville sélèctionnée par l'utilisateur */}
               <section>
-                <h1 className="text-3xl font-semibold leading-none tracking-tighter text-neutral-600 pl-2">
+                <h1 className="text-3xl font-semibold leading-none tracking-tighter text-neutral-600 pl-2 pt-5">
                   Hello, Utilisateur !
                 </h1>
               </section>
               <div className="py-4 pt-4">
                 <div className="rounded-lg bg-gray-50 h-110">
-                <section className="pl-4 pt-8">
+                <section className="pl-4 pt-10">
                 <h1 className="text-3xl font-semibold leading-none tracking-tighter text-neutral-600">
                   Nantes
                 </h1>
@@ -205,7 +205,7 @@ function Dash() {
               </div>
                {/* DASHBOARD CAMPUS VILLES */}
                <div className="py-4 pt-4 mt-6">
-                <div className="rounded-lg bg-gray-50 h-auto">
+                <div className="rounded-lg bg-white h-auto border border-gray-100">
                 <section className="pl-4 pt-8">
                 <h1 className="text-3xl font-semibold leading-none tracking-tighter text-neutral-600">
                   WCS CAMPUS

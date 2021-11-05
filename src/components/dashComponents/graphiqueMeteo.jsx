@@ -2,7 +2,7 @@ import React from 'react';
 
 function GraphiqueMeteo() {
   return (
-    <div className="rounded-lg bg-blue-300 h-100">
+    <div className="rounded-lg bg-blue-300 h-100 shadow-sm hover:shadow-md transition-all duration-300 ease-in-out">
       <div className="grid grid-row-2">
         <div>
           <h1>

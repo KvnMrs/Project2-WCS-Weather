@@ -2,7 +2,7 @@ import React from 'react';
 
 function GraphiqueAir() {
   return (
-    <div className="rounded-lg bg-blue-300 h-100 mb-5">
+    <div className="rounded-lg bg-blue-300 h-100 mb-5 shadow-sm hover:shadow-md transition-all duration-300 ease-in-out">
       <div className="grid grid-row-2">
         <div>
           <h1>

@@ -2,7 +2,7 @@ import React from 'react';
 
 function DashAirQuality() {
   return (
-    <div className="rounded-lg bg-green-50 h-full">
+    <div className="rounded-lg bg-green-50 h-full shadow-sm hover:shadow-md transition-all duration-300 ease-in-out">
       <section>
         <div className="container flex flex-col items-center px-5 py-8 mx-auto max-w-7xl sm:px-6 mb-5 lg:px-8">
           <div className="flex flex-col w-full max-w-3xl mx-auto prose text-left prose-blue">
