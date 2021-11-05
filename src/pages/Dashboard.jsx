@@ -4,6 +4,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable prefer-destructuring */
 /* eslint-disable object-shorthand */
+/* eslint-disable camelcase */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import DashCity from '../components/dashComponents/dashCityCampus';
@@ -18,7 +19,7 @@ import {
 } from '../components/DashboardCard';
 import supabase from '../services/supabaseClient';
 
-function DashboardWCS() {
+function Dash() {
   /**
   * get user Id from context
   */
@@ -75,30 +76,28 @@ function DashboardWCS() {
    * du campus choisi lors du sign up
    */
   async function fetchCampus() {
-    const { data, error } = await supabase
+    const { data: user_campus, error } = await supabase
       .from('user_campus')
-      .select('latitude', 'longitude')
+      .select('latitude , longitude')
       .eq('user_id', id);
 
     if (error) {
       console.log(error);
       return console.log('error');
     }
-    console.log(data);
-    return data;
+    console.log(user_campus);
+    return user_campus;
   }
 
   useEffect(async () => {
     const getCampus = await fetchCampus();
     campusCoordonates = getCampus;
-    if (campusCoordonates.length > 0) {
-      setLat(campusCoordonates[0]);
-      setLong(campusCoordonates[1]);
-    }
-    console.log(campusCoordonates);
+    setLat(campusCoordonates[0].latitude);
+    setLong(campusCoordonates[0].longitude);
+    console.log(campusCoordonates[0].latitude);
+    console.log(campusCoordonates[0].longitude);
   }, []);
 
-function Dash() {
   return (
     <div className="flex h-screen overflow-hidden bg-white rounded-lg">
       <div className="hidden md:flex md:flex-shrink-0">
@@ -128,7 +127,7 @@ function Dash() {
                 "
                 >
                   WCS Weather
-              </h2>
+                </h2>
               </a>
               <button className="hidden rounded-lg focus:outline-none focus:shadow-outline">
                 <svg fill="currentColor" viewBox="0 0 20 20" className="w-6 h-6">
@@ -193,8 +192,8 @@ function Dash() {
                     </a>
                   </li>
                   <li>
-                  <a
-                    className="
+                    <a
+                      className="
                       inline-flex
                       items-center
                       w-full
@@ -210,17 +209,17 @@ function Dash() {
                       focus:shadow-outline
                       hover:bg-gray-50
                     "
-                    href="#"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                    </svg>
-                    <span className="ml-4">User</span>
-                  </a>
+                      href="#"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                      </svg>
+                      <span className="ml-4">User</span>
+                    </a>
                   </li>
                   <li>
-                  <a
-                    className="
+                    <a
+                      className="
                       inline-flex
                       items-center
                       w-full
@@ -263,60 +262,60 @@ function Dash() {
               </section>
               <div className="py-4 pt-4">
                 <div className="rounded-lg bg-gray-50 h-110">
-                <section className="pl-4 pt-8">
-                <h1 className="text-3xl font-semibold leading-none tracking-tighter text-neutral-600">
-                  Nantes
-                </h1>
-                <div className="px-4 max-w-7xl sm:px-6 md:px-8">
-              <h1 className="text-lg text-neutral-600">France</h1>
-                </div>
-                </section>
-                <section className="m-2 p-2 row grid-cols md:grid grid-cols-2 gap-4">
-                <div>
-                <DashAirQuality />
-                   <div className="bg-green-300 w-60 m-auto">
-                  <DashboardCardPollution element={pollution} />
-                </div>
-                </div>
-                <div>
-                <DashMeteo />
-                     <div className="bg-gray-50 flex flex-row justify-around items-center w-60 m-auto">
-                  <div>
-                    <DashboardCardMeteo element={weather} />
-                  </div>
-                  <div className="border-gray-600 border-l-2">
-                    <DashboardCardTemperature element={temperature} />
-                  </div>
-                </div>
-                </div>
-                <div>
-                <GraphiqueAir />
-                </div>
-                <div>
-                    <GraphiqueMeteo />
-                </div>
-                </section>
-              {/* CONTENT HERE */}
+                  <section className="pl-4 pt-8">
+                    <h1 className="text-3xl font-semibold leading-none tracking-tighter text-neutral-600">
+                      Nantes
+                    </h1>
+                    <div className="px-4 max-w-7xl sm:px-6 md:px-8">
+                      <h1 className="text-lg text-neutral-600">France</h1>
+                    </div>
+                  </section>
+                  <section className="m-2 p-2 row grid-cols md:grid grid-cols-2 gap-4">
+                    <div>
+                      <DashAirQuality />
+                      <div className="bg-green-300 w-60 m-auto">
+                        <DashboardCardPollution element={pollution} />
+                      </div>
+                    </div>
+                    <div>
+                      <DashMeteo />
+                      <div className="bg-gray-50 flex flex-row justify-around items-center w-60 m-auto">
+                        <div>
+                          <DashboardCardMeteo element={weather} />
+                        </div>
+                        <div className="border-gray-600 border-l-2">
+                          <DashboardCardTemperature element={temperature} />
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <GraphiqueAir />
+                    </div>
+                    <div>
+                      <GraphiqueMeteo />
+                    </div>
+                  </section>
+                  {/* CONTENT HERE */}
                 </div>
               </div>
-               {/* DASHBOARD CAMPUS VILLES */}
-               <div className="py-4 pt-4 mt-6">
+              {/* DASHBOARD CAMPUS VILLES */}
+              <div className="py-4 pt-4 mt-6">
                 <div className="rounded-lg bg-gray-50 h-110">
-                <section className="pl-4 pt-8">
-                <h1 className="text-3xl font-semibold leading-none tracking-tighter text-neutral-600">
-                  WCS CAMPUS
-                </h1>
-                <div className="px-4 max-w-7xl sm:px-6 md:px-8">
-              <h1 className="text-lg text-neutral-600">in Nantes, France</h1>
+                  <section className="pl-4 pt-8">
+                    <h1 className="text-3xl font-semibold leading-none tracking-tighter text-neutral-600">
+                      WCS CAMPUS
+                    </h1>
+                    <div className="px-4 max-w-7xl sm:px-6 md:px-8">
+                      <h1 className="text-lg text-neutral-600">in Nantes, France</h1>
+                    </div>
+                  </section>
+                  <section className="m-2 p-2 row grid-cols md:grid grid-cols-1">
+                    <div>
+                      <DashCity />
+                    </div>
+                  </section>
                 </div>
-                </section>
-                <section className="m-2 p-2 row grid-cols md:grid grid-cols-1">
-                <div>
-                <DashCity />
-                </div>
-                </section>
-                </div>
-               </div>
+              </div>
             </div>
           </div>
         </main>
