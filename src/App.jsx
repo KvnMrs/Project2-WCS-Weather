@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Welcome from './pages/Welcome';
 import AboutUs from './pages/AboutUs';
+import Dash from './pages/Dashboard';
 import './Commun/StyleCommun.css';
 
 function App() {
@@ -43,6 +44,8 @@ function App() {
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/welcome" component={Welcome} />
         <Route exact path="/About" component={AboutUs} />
+        <Route path="/dashboard" component={Dash} />
+
       </Switch>
     </Router>
   );

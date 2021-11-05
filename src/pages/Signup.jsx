@@ -4,6 +4,7 @@
 /* eslint-disable arrow-body-style */
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import { useSpring, animated } from 'react-spring';
 import { useAuth } from '../services/Context';
 import tour from '../assets/tour-bretagne.jpg';
 
@@ -20,6 +21,8 @@ const Signup = () => {
     const { error } = await signUp({ email, password });
     if (error) {
       alert('An error occured, please verify your credentials and try again.');
+      // eslint-disable-next-line no-unused-expressions
+      console.error;
     } else if (password.length <= 5) {
       alert('Your password must be at least 6 characters long.');
     } else {
@@ -27,10 +30,22 @@ const Signup = () => {
     }
   }
 
+  const fade = useSpring({
+    from: {
+      opacity: 0,
+    },
+    to: {
+      opacity: 1,
+    },
+  });
+
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 h-screen">
+    <animated.div
+      className="grid grid-cols-1 lg:grid-cols-2 h-screen"
+      style={fade}
+    >
       <div className="relative flex flex-col py-24 justify-center items-center bg-gray-50">
-        <form className="grid grid-cols-1 w-auto">
+        <form className="grid grid-cols-1 w-auto px-6">
           <h1 className="text-left text-4xl tracking-tight text-gray-800 font-bold">
             Create your account
           </h1>
@@ -119,7 +134,7 @@ const Signup = () => {
         // eslint-disable-next-line no-undef
         style={{ backgroundImage: url + background }}
       />
-    </div>
+    </animated.div>
   );
 };
 
