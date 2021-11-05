@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Welcome from './pages/Welcome';
+import TestApp from './pages/TestApp';
 
 function App() {
   const [campusList, setCampusList] = useState([]);
@@ -36,10 +37,11 @@ function App() {
       </div> */}
 
       <Switch>
-        <Route exact path="/home" component={Home} />
+        <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/welcome" component={Welcome} />
+        <Route exact path="/testapp" component={TestApp} />
       </Switch>
     </Router>
   );
