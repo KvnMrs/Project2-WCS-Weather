@@ -1,12 +1,102 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/button-has-type */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
+/* eslint-disable no-unused-vars */
+/* eslint-disable prefer-destructuring */
+/* eslint-disable object-shorthand */
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import DashCity from '../components/dashComponents/dashCityCampus';
 import DashAirQuality from '../components/dashComponents/dashPrincipalAir';
 import DashMeteo from '../components/dashComponents/dashPrincipalMeteo';
 import GraphiqueAir from '../components/dashComponents/graphiqueAir';
 import GraphiqueMeteo from '../components/dashComponents/graphiqueMeteo';
+import {
+  DashboardCardPollution,
+  DashboardCardTemperature,
+  DashboardCardMeteo,
+} from '../components/DashboardCard';
+import supabase from '../services/supabaseClient';
+
+function DashboardWCS() {
+  /**
+  * get user Id from context
+  */
+  const user = supabase.auth.user();
+  const id = user.id;
+
+  /* Appel API */
+  const [weather, setWeather] = useState('');
+  const [temperature, setTemperature] = useState('');
+  const [pollution, setPollution] = useState('');
+  const [lat, setLat] = useState(2);
+  const [long, setLong] = useState(0);
+  const date = new Date(Date()).toLocaleDateString();
+  let campusCoordonates = [];
+  useEffect(() => {
+    /**
+     * Call API onecall of openweathermap -> get weather data
+     */
+    axios
+      .get('http://api.openweathermap.org/data/2.5/onecall', {
+        params: {
+          lat: lat,
+          lon: long,
+          exclude: 'hourly' && 'minutely',
+          appid: process.env.REACT_APP_AIR_WEATHER_KEY,
+          units: 'metric',
+        },
+      })
+      .then((response) => response.data)
+      .then((data) => {
+        setWeather(data.current.weather[0]);
+        setTemperature(data.current);
+      });
+
+    /**
+     * Call API air_pollution of openweathermap -> get air pollution data
+     */
+    axios
+      .get('http://api.openweathermap.org/data/2.5/air_pollution', {
+        params: {
+          lat: lat,
+          lon: long,
+          appid: process.env.REACT_APP_AIR_WEATHER_KEY,
+        },
+      })
+      .then((response) => response.data)
+      .then((data) => {
+        setPollution(data.list[0].main);
+      });
+  }, []);
+
+  /**
+   * Recupération de supabase de la latitude & la longitude
+   * du campus choisi lors du sign up
+   */
+  async function fetchCampus() {
+    const { data, error } = await supabase
+      .from('user_campus')
+      .select('latitude', 'longitude')
+      .eq('user_id', id);
+
+    if (error) {
+      console.log(error);
+      return console.log('error');
+    }
+    console.log(data);
+    return data;
+  }
+
+  useEffect(async () => {
+    const getCampus = await fetchCampus();
+    campusCoordonates = getCampus;
+    if (campusCoordonates.length > 0) {
+      setLat(campusCoordonates[0]);
+      setLong(campusCoordonates[1]);
+    }
+    console.log(campusCoordonates);
+  }, []);
 
 function Dash() {
   return (
@@ -26,23 +116,19 @@ function Dash() {
                 <h2 className="
                   block
                   p-2
-                  text-xl
+                  text-2xl
                   font-medium
                   tracking-tighter
-                  text-gray-900
+                  text-wild_red
                   transition
                   duration-500
                   ease-in-out
                   transform
                   cursor-pointer
-                  hover:text-gray-900
                 "
                 >
-                  {' '}
                   WCS Weather
-                  {' '}
-
-                </h2>
+              </h2>
               </a>
               <button className="hidden rounded-lg focus:outline-none focus:shadow-outline">
                 <svg fill="currentColor" viewBox="0 0 20 20" className="w-6 h-6">
@@ -63,13 +149,13 @@ function Dash() {
                       px-4
                       py-2
                       mt-1
-                      text-base text-gray-900
+                      text-base text-white
                       transition
                       duration-500
                       ease-in-out
                       transform
                       rounded-lg
-                      bg-gray-50
+                      bg-wild_red
                       focus:shadow-outline
                     "
                       href="#"
@@ -150,15 +236,14 @@ function Dash() {
                       focus:shadow-outline
                       hover:bg-gray-50
                     "
-                    href="#"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                    <span className="ml-4">Settings</span>
-
-                  </a>
+                      href="#"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                      <span className="ml-4">Settings</span>
+                    </a>
                   </li>
                 </ul>
               </nav>
@@ -189,9 +274,20 @@ function Dash() {
                 <section className="m-2 p-2 row grid-cols md:grid grid-cols-2 gap-4">
                 <div>
                 <DashAirQuality />
+                   <div className="bg-green-300 w-60 m-auto">
+                  <DashboardCardPollution element={pollution} />
+                </div>
                 </div>
                 <div>
                 <DashMeteo />
+                     <div className="bg-gray-50 flex flex-row justify-around items-center w-60 m-auto">
+                  <div>
+                    <DashboardCardMeteo element={weather} />
+                  </div>
+                  <div className="border-gray-600 border-l-2">
+                    <DashboardCardTemperature element={temperature} />
+                  </div>
+                </div>
                 </div>
                 <div>
                 <GraphiqueAir />
