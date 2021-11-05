@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Welcome from './pages/Welcome';
 import Dash from './pages/Dashboard';
+import './Commun/StyleCommun.css';
 
 function App() {
   const [campusList, setCampusList] = useState([]);
