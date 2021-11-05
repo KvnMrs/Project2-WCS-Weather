@@ -17,10 +17,10 @@ const Home = () => {
               <h2>Meteo and air pollution application</h2>
             </div>
             <p className="mb-8 text-base leading-relaxed text-gray-400 text-center">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus,
-              libero labore unde repellat mollitia quos voluptas in veritatis
-              repellendus obcaecati rerum. Ut voluptate laudantium facilis
-              similique sequi veritatis consectetur blanditiis..
+              This application allows students to know the air quality index in
+              the city where their WCS campus is located. The goal is also to
+              raise awareness about the underestimated problem of air pollution,
+              which we all need to live.
             </p>
             <div className="mt-0 lg:mt-6 max-w-7xl sm:flex self-center grid grid-cols-2 gap-2">
               <div className="mt-3 rounded-lg sm:mt-0 ">

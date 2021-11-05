@@ -11,7 +11,6 @@ import AboutUs from './pages/AboutUs';
 import Dash from './pages/Dashboard';
 import './Commun/StyleCommun.css';
 
-
 function App() {
   const [campusList, setCampusList] = useState([]);
 
@@ -48,7 +47,6 @@ function App() {
         <Route exact path="/testapp" component={TestApp} />
         <Route exact path="/About" component={AboutUs} />
         <Route path="/dashboard" component={Dash} />
-
 
       </Switch>
     </Router>
