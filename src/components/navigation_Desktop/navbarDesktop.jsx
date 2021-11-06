@@ -22,7 +22,7 @@ function NavBarDesktop() {
                   text-xl
                   font-medium
                   tracking-tighter
-                  text-gray-900
+                  text-wild_red
                   transition
                   duration-500
                   ease-in-out
