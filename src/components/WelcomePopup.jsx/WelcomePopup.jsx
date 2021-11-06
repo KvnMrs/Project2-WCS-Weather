@@ -9,12 +9,28 @@
 /* eslint-disable operator-linebreak */
 /* eslint-disable react/prop-types */
 import React from 'react';
+import { useSpring, animated, config } from 'react-spring';
+import supabase from '../../services/supabaseClient';
+import { useAuth } from '../../services/Context';
 
 const WelcomePopup = ({ item, handleHide }) => {
   const { name, country, flag, imageUrl } = item;
+
+  const FadeIn = useSpring({
+    to: { opacity: 1, y: 0 },
+    from: { opacity: 0, y: 15 },
+    config: config.gentle,
+  });
+
+  const handleConfirm = async () => {
+    const { data, error } = await supabase.useAuth
+      .from('user_campus')
+      .insert([{ some_column: 'someValue' }, { some_column: 'otherValue' }]);
+  };
+
   // WelcomePopup display the selected campus and ask for confirmation
   return (
-    <div className="fixed max-w-xl w-full">
+    <animated.div style={FadeIn} className="fixed max-w-xl w-full">
       <div className="flex w-full h-full flex-col justify-between bg-white z-50 p-14 shadow-2xl rounded-3xl">
         <div className="mb-8 text-center">
           <div className="relative mb-8">
@@ -42,7 +58,9 @@ const WelcomePopup = ({ item, handleHide }) => {
         </p>
         <div className="flex flex-col gap-y-2 sm:flex-row sm:gap-y-0 mt-8 gap-x-2">
           <button
-            onClick={() => handleHide()}
+            onClick={() => {
+              handleHide();
+            }}
             className="px-12 py-4 bg-gray-200 rounded-md font-bold tracking-wider text-gray-500 text-sm uppercase hover:bg-gray-300 transition-all transition-duration-150 ease-in-out"
           >
             Dismiss
@@ -55,7 +73,7 @@ const WelcomePopup = ({ item, handleHide }) => {
           </button>
         </div>
       </div>
-    </div>
+    </animated.div>
   );
 };
 
