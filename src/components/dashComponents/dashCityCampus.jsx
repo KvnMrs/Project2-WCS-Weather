@@ -17,7 +17,7 @@ function DashCity() {
           </h1>
         </div>
         <div />
-        <div className="bg-green-50 h-40  grid-cols-6 grid col-span-4">
+        <div className="bg-green-100 h-40  grid-cols-6 grid col-span-4">
           <div>
             <h1>
               <div className="justify-content-start">
