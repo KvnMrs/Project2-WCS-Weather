@@ -2,16 +2,21 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
+import CityCountryUser from '../components/cityUser/cityCountryUser';
 import DashCity from '../components/dashComponents/dashCityCampus';
 import DashAirQuality from '../components/dashComponents/dashPrincipalAir';
 import DashMeteo from '../components/dashComponents/dashPrincipalMeteo';
 import GraphiqueAir from '../components/dashComponents/graphiqueAir';
 import GraphiqueMeteo from '../components/dashComponents/graphiqueMeteo';
 import NavBarDesktop from '../components/navigation_Desktop/navbarDesktop';
+import UserWelcomemsg from '../components/userWelcome.jsx/userWelcomemsg';
 
 function Dash() {
   return (
     <div className="flex h-screen overflow-hidden bg-white rounded-lg">
+    {/** BACKGROUND COLOR FOR NAVBAR DESKTOP */}
+
+    {/** HERE IS THE NAVBAR DESKTOP VERSION */}
       <div>
         <NavBarDesktop />
       </div>
@@ -19,22 +24,15 @@ function Dash() {
         <main className="relative flex-1 overflow-y-auto focus:outline-none">
           <div>
             <div className="px-4 mx-auto max-w-7xl sm:px-6 bg-gray-50">
-              {/* DASHBOARD de la ville sélectionnée par l'utilisateur */}
-              <section>
-                <h1 className="text-3xl font-semibold leading-none tracking-tighter text-neutral-600 pl-2 pt-5">
-                  Hello, Utilisateur !
-                </h1>
-              </section>
+              {/* WELCOME MESSAGE WITH THE NAME OF THE USER */}
+              <div>
+                <UserWelcomemsg />
+              </div>
               <div className="py-4 pt-4">
                 <div className="rounded-lg bg-gray-50 h-110">
-                <section className="pl-4 pt-10">
-                <h1 className="text-3xl font-semibold leading-none tracking-tighter text-neutral-600">
-                  Nantes
-                </h1>
-                <div className="px-4 max-w-7xl sm:px-6 md:px-8">
-              <h1 className="text-lg text-neutral-600">France</h1>
+                <div>
+                <CityCountryUser />
                 </div>
-                </section>
                 <section className="m-2 p-2 row grid-cols md:grid grid-cols-2 gap-4">
                 <div>
                 <DashAirQuality />
@@ -46,7 +44,7 @@ function Dash() {
                 <GraphiqueAir />
                 </div>
                 <div>
-                    <GraphiqueMeteo />
+                <GraphiqueMeteo />
                 </div>
                 </section>
               {/* CONTENT HERE */}
