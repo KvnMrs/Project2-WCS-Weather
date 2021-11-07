@@ -8,8 +8,8 @@ const CityCountryUser = () => {
         <h1 className="text-3xl font-semibold leading-none tracking-tighter text-neutral-600">
           Nantes
         </h1>
-        <div className="px-4 max-w-7xl sm:px-6 md:px-8">
-          <h1 className="text-lg text-neutral-600">
+        <div>
+          <h1>
             France
           </h1>
         </div>

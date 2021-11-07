@@ -50,14 +50,15 @@ function Dash() {
               {/* CONTENT HERE */}
                 </div>
               </div>
-               {/* DASHBOARD CAMPUS VILLES */}
+               {/* DASHBOARD CAMPUS CITY */}
                <div className="py-4 pt-4 mt-6">
                 <div className="rounded-lg bg-white h-auto border border-gray-100">
                 <section className="pl-4 pt-8">
                 <h1 className="text-3xl font-semibold leading-none tracking-tighter text-neutral-600">
                   WCS CAMPUS
                 </h1>
-                <div className="px-4 max-w-7xl sm:px-6 md:px-8">
+                <div className="pl-1">
+                {/** CITY CHOOSEN */}
               <h1 className="text-lg text-neutral-600">in Nantes, France</h1>
                 </div>
                 </section>
