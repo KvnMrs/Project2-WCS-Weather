@@ -24,7 +24,7 @@ const AboutUs = () => {
             <div className="absolute right-0 mt-4">
               <div className="px-2 py-2 bg-white rounded-md shadow">
                 <Link
-                  to="/Home"
+                  to="/"
                   className="block px-4 py-2 mt-2 text-sm md:mt-0 text-dark_wild_red hover:bg-grey focus:outline-none focus:shadow-outline"
                 >
                   Home
@@ -62,7 +62,7 @@ const AboutUs = () => {
 
       <div className="container p-5 py-12 mx-auto">
         <div className="flex flex-wrap mx-auto md:flex-nowrap place-content-center">
-          <a href="https://www.facebook.com/" className="a-center w-full w-full">
+          <a href="https://www.facebook.com/" className="a-center w-full">
             <div className="flex w-full">
               <div className="relative w-full flex flex-col items-start m-1 transition duration-300 ease-in-out delay-150 transform bg-white shadow-2xl rounded-xl md:w-80 md:hover:-translate-x-16 md:hover:-translate-y-8 p-4">
                 <img
