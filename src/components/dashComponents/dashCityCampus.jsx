@@ -35,9 +35,11 @@ function DashCity() {
               </div>
             </h1>
           </div>
-          <div className="rounded-lg bg-red-200 h-24 align-items-center mt-7 ml-4 grid col-span-2 lg:grid col-span-1">
+          <div className="rounded-lg bg-red-200 h-24 align-items-center mt-7 ml-4 col-span-3 lg:col-span-1">
+            {/** EMOJI ABOUT TIME */}
             image
           </div>
+          {/** INFOS ABOUT AIR QUALITY */}
           <ul className="grid col-span-3 text-xs lg:text-sm">
             <li className="flex justify-between items-end mb-5 mr-1 ml-1 lg:mr-3">
               Carbon monoxyde:
@@ -59,6 +61,7 @@ function DashCity() {
             </li>
           </ul>
         </div>
+        {/** WEATHER ON 3 DAYS */}
         <div className="grid grid-cols-3 pt-1 lg:col-span-3">
           <TempToday />
           <TempTomorrow />

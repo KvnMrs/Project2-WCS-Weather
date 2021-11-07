@@ -29,11 +29,11 @@ function Dash() {
                 <UserWelcomemsg />
               </div>
               <div className="py-4 pt-4">
-                <div className="rounded-lg bg-gray-50 h-110">
+                <div className="rounded-lg bg-white h-110 border-gray-100">
                 <div>
                 <CityCountryUser />
                 </div>
-                <section className="m-2 p-2 row grid-cols md:grid grid-cols-2 gap-4">
+                <section className="m-2 p-2 row grid-cols md:grid grid-cols-2 gap-4 gap-y-9">
                 <div>
                 <DashAirQuality />
                 </div>
@@ -52,7 +52,7 @@ function Dash() {
               </div>
                {/* DASHBOARD CAMPUS CITY */}
                <div className="py-4 pt-4 mt-6">
-                <div className="rounded-lg bg-white h-auto border border-gray-100">
+                <div className="rounded-lg bg-white border-gray-100">
                 <section className="pl-4 pt-8">
                 <h1 className="text-3xl font-semibold leading-none tracking-tighter text-neutral-600">
                   WCS CAMPUS
@@ -60,6 +60,11 @@ function Dash() {
                 <div className="pl-1">
                 {/** CITY CHOOSEN */}
               <h1 className="text-lg text-neutral-600">in Nantes, France</h1>
+                </div>
+                </section>
+                <section className="m-2 p-2 row grid-cols md:grid grid-cols-1">
+                <div>
+                <DashCity />
                 </div>
                 </section>
                 <section className="m-2 p-2 row grid-cols md:grid grid-cols-1">
