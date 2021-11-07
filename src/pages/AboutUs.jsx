@@ -60,54 +60,116 @@ const AboutUs = () => {
         </div>
       </div>
 
-      <div className="card card-about-people text-center space-card">
-        <div className="card-body">
-          <img
-            src="https://th.bing.com/th/id/R.bbcc509890c5e4cc1baa2075543923ac?rik=rdyB29H1rY8IQA&pid=ImgRaw&r=0"
-            alt="People 1"
-            className="people"
-          />
-        </div>
-        <div>
-          <img
-            src="https://1000logos.net/wp-content/uploads/2017/03/Color-of-the-LinkedIn-Logo.jpg"
-            alt="Lindkedin"
-            className="logo-reseau"
-          />
-          <img
-            src="https://1000marcas.net/wp-content/uploads/2020/02/GitHub-Simbolo-1080x608.jpg"
-            alt="Lindkedin"
-            className="logo-reseau"
-          />
-          <div>
-            <h4 className="litle-margin"> Prénom - Nom</h4>
-            <p> Jr. Web Developer</p>
-          </div>
-        </div>
-      </div>
-      <div className="card card-about-people text-center m-auto space-card">
-        <div className="card-body">
-          <img
-            src="https://th.bing.com/th/id/R.bbcc509890c5e4cc1baa2075543923ac?rik=rdyB29H1rY8IQA&pid=ImgRaw&r=0"
-            alt="People 1"
-            className="people"
-          />
-        </div>
-        <div>
-          <img
-            src="https://1000logos.net/wp-content/uploads/2017/03/Color-of-the-LinkedIn-Logo.jpg"
-            alt="Lindkedin"
-            className="logo-reseau"
-          />
-          <img
-            src="https://1000marcas.net/wp-content/uploads/2020/02/GitHub-Simbolo-1080x608.jpg"
-            alt="Lindkedin"
-            className="logo-reseau"
-          />
-          <div>
-            <h4> Prénom - Nom</h4>
-            <p> Jr. Web Developer</p>
-          </div>
+      <div className="container p-5 py-12 mx-auto">
+        <div className="flex flex-wrap mx-auto md:flex-nowrap place-content-center">
+          <a href="https://www.facebook.com/" className="a-center w-full w-full">
+            <div className="flex w-full">
+              <div className="relative w-full flex flex-col items-start m-1 transition duration-300 ease-in-out delay-150 transform bg-white shadow-2xl rounded-xl md:w-80 md:hover:-translate-x-16 md:hover:-translate-y-8 p-4">
+                <img
+                  className="object-center w-40 place-self-center rounded-t-xl lg:h-48 md:h-36 people"
+                  src="https://th.bing.com/th/id/R.bbcc509890c5e4cc1baa2075543923ac?rik=rdyB29H1rY8IQA&pid=ImgRaw&r=0"
+                  alt="blog"
+                />
+                <div className="p-6 text-center mx-auto">
+                  <img
+                    src="https://1000logos.net/wp-content/uploads/2017/03/Color-of-the-LinkedIn-Logo.jpg"
+                    alt="Lindkedin"
+                    className="logo-reseau"
+                  />
+                  <img
+                    src="https://1000marcas.net/wp-content/uploads/2020/02/GitHub-Simbolo-1080x608.jpg"
+                    alt="Lindkedin"
+                    className="logo-reseau"
+                  />
+                  <div>
+                    <h4> Prénom - Nom</h4>
+                    <p> Jr. Web Developer</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a href="https://www.facebook.com/" className="a-center w-full">
+            <div className="flex w-full">
+              <div className="relative w-full flex flex-col items-start m-1 transition duration-300 ease-in-out delay-150 transform bg-white shadow-2xl rounded-xl md:w-80 md:hover:-translate-x-16 md:hover:-translate-y-8 p-4">
+                <img
+                  className="object-center w-40 place-self-center rounded-t-xl lg:h-48 md:h-36 people"
+                  src="https://th.bing.com/th/id/R.bbcc509890c5e4cc1baa2075543923ac?rik=rdyB29H1rY8IQA&pid=ImgRaw&r=0"
+                  alt="blog"
+                />
+                <div className="p-6 text-center mx-auto">
+                  <img
+                    src="https://1000logos.net/wp-content/uploads/2017/03/Color-of-the-LinkedIn-Logo.jpg"
+                    alt="Lindkedin"
+                    className="logo-reseau"
+                  />
+                  <img
+                    src="https://1000marcas.net/wp-content/uploads/2020/02/GitHub-Simbolo-1080x608.jpg"
+                    alt="Lindkedin"
+                    className="logo-reseau"
+                  />
+                  <div>
+                    <h4> Prénom - Nom</h4>
+                    <p> Jr. Web Developer</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a href="https://www.facebook.com/" className="a-center w-full">
+            <div className="flex w-full">
+              <div className="relative w-full flex flex-col items-start m-1 transition duration-300 ease-in-out delay-150 transform bg-white shadow-2xl rounded-xl md:w-80 md:hover:-translate-x-16 md:hover:-translate-y-8 p-4">
+                <img
+                  className="object-center w-40 place-self-center rounded-t-xl lg:h-48 md:h-36 people"
+                  src="https://th.bing.com/th/id/R.bbcc509890c5e4cc1baa2075543923ac?rik=rdyB29H1rY8IQA&pid=ImgRaw&r=0"
+                  alt="blog"
+                />
+                <div className="p-6 text-center mx-auto">
+                  <img
+                    src="https://1000logos.net/wp-content/uploads/2017/03/Color-of-the-LinkedIn-Logo.jpg"
+                    alt="Lindkedin"
+                    className="logo-reseau"
+                  />
+                  <img
+                    src="https://1000marcas.net/wp-content/uploads/2020/02/GitHub-Simbolo-1080x608.jpg"
+                    alt="Lindkedin"
+                    className="logo-reseau"
+                  />
+                  <div>
+                    <h4> Prénom - Nom</h4>
+                    <p> Jr. Web Developer</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a href="https://www.facebook.com/" className="a-center w-full">
+            <div className="flex w-full">
+              <div className="relative w-full flex flex-col items-start m-1 transition duration-300 ease-in-out delay-150 transform bg-white shadow-2xl rounded-xl md:w-80 md:hover:-translate-x-16 md:hover:-translate-y-8 p-4">
+                <img
+                  className="object-center w-40 place-self-center rounded-t-xl lg:h-48 md:h-36 people"
+                  src="https://th.bing.com/th/id/R.bbcc509890c5e4cc1baa2075543923ac?rik=rdyB29H1rY8IQA&pid=ImgRaw&r=0"
+                  alt="blog"
+                />
+                <div className="p-6 text-center mx-auto">
+                  <img
+                    src="https://1000logos.net/wp-content/uploads/2017/03/Color-of-the-LinkedIn-Logo.jpg"
+                    alt="Lindkedin"
+                    className="logo-reseau"
+                  />
+                  <img
+                    src="https://1000marcas.net/wp-content/uploads/2020/02/GitHub-Simbolo-1080x608.jpg"
+                    alt="Lindkedin"
+                    className="logo-reseau"
+                  />
+                  <div>
+                    <h4> Prénom - Nom</h4>
+                    <p> Jr. Web Developer</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
         </div>
       </div>
     </div>

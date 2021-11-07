@@ -23,6 +23,7 @@
 }
 .logo-reseau {
   width: 50px;
+  margin: auto;
 }
 
 .litle-margin {
@@ -35,4 +36,7 @@
 
 .no-border {
   border: none;
+}
+.a-center {
+  margin-inline: auto;
 }
