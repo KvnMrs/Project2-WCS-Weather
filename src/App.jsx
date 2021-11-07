@@ -19,7 +19,7 @@ function App() {
       .from('campus')
       .select('*')
       .order('id', { ascending: true });
-    // eslint-disable-next-line no-console
+
     if (error) console.log(error);
     else setCampusList(campus);
     return campusList;
@@ -47,7 +47,6 @@ function App() {
         <Route exact path="/testapp" component={TestApp} />
         <Route exact path="/About" component={AboutUs} />
         <Route path="/dashboard" component={Dash} />
-
       </Switch>
     </Router>
   );

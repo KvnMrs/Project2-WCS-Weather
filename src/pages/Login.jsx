@@ -1,7 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-alert */
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable arrow-body-style */
 import React, { useState } from 'react';
 import { useSpring, animated } from 'react-spring';
 import { Link, useHistory } from 'react-router-dom';
@@ -117,7 +113,6 @@ const Login = () => {
       </div>
       <div
         className="hidden h-full bg-cover bg-center lg:flex lg:flex-col lg:h-screen"
-        // eslint-disable-next-line no-undef
         style={{ backgroundImage: url + background }}
       />
     </animated.div>

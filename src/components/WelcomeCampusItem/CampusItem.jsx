@@ -1,11 +1,7 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable react/prop-types */
-/* eslint-disable arrow-body-style */
+/* eslint-disable */
 import React from 'react';
 
 const CampusItem = ({ item, functionShow }) => {
-  // eslint-disable-next-line object-curly-newline
   const { name, country, flag, imageUrl } = item;
 
   return (

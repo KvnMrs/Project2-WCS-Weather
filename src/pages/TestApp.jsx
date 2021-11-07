@@ -1,6 +1,3 @@
-/* eslint-disable camelcase */
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable arrow-body-style */
 import React, { useEffect, useState } from 'react';
 import supabase from '../services/supabaseClient';
 
@@ -9,7 +6,7 @@ const Home = () => {
   const userId = supabase.auth.user().id;
   console.log(user);
   console.log(userId);
-  // eslint-disable-next-line no-unused-vars
+
   const [userCampus, setUserCampus] = useState([]);
 
   const getUserCampus = async () => {
@@ -34,7 +31,8 @@ const Home = () => {
 
   return (
     <div>
-      Home Page :{user.email}
+      Home Page :
+      {user.email}
       <div>{userCampus.name}</div>
       <div>{userCampus.latitude}</div>
       <div>{userCampus.longitude}</div>
