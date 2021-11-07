@@ -1,3 +1,4 @@
+/* eslint-disable object-shorthand */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/button-has-type */
 /* eslint-disable object-curly-newline */
@@ -9,28 +10,42 @@
 /* eslint-disable operator-linebreak */
 /* eslint-disable react/prop-types */
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { useSpring, animated, config } from 'react-spring';
 import supabase from '../../services/supabaseClient';
-import { useAuth } from '../../services/Context';
 
 const WelcomePopup = ({ item, handleHide }) => {
-  const { name, country, flag, imageUrl } = item;
+  const userId = supabase.auth.user().id;
+  const { name, country, flag, imageUrl, id, latitude, longitude } = item;
+  const history = useHistory();
 
-  const FadeIn = useSpring({
-    to: { opacity: 1, y: 0 },
+  const fadeIn = useSpring({
     from: { opacity: 0, y: 15 },
+    to: { opacity: 1, y: 0 },
     config: config.gentle,
   });
 
-  const handleConfirm = async () => {
-    const { data, error } = await supabase.useAuth
-      .from('user_campus')
-      .insert([{ some_column: 'someValue' }, { some_column: 'otherValue' }]);
-  };
+  async function createUserCampus() {
+    const { data, error } = await supabase.from('user_campus').insert({
+      user_id: userId,
+      campus: id,
+      name: name,
+      country: country,
+      latitude: latitude,
+      longitude: longitude,
+    });
+    console.log(data);
+    if (error) {
+      console.log(error);
+    }
+
+    console.log('Post OK.');
+    history.push('/testapp');
+  }
 
   // WelcomePopup display the selected campus and ask for confirmation
   return (
-    <animated.div style={FadeIn} className="fixed max-w-xl w-full">
+    <animated.div style={fadeIn} className="fixed max-w-xl w-full">
       <div className="flex w-full h-full flex-col justify-between bg-white z-50 p-14 shadow-2xl rounded-3xl">
         <div className="mb-8 text-center">
           <div className="relative mb-8">
@@ -67,6 +82,7 @@ const WelcomePopup = ({ item, handleHide }) => {
           </button>
           <button
             type="submit"
+            onClick={createUserCampus}
             className="w-full px-4 py-4 bg-wild_red rounded-md font-bold tracking-wider text-white text-sm uppercase  hover:bg-dark_wild_red transition-all transition-duration-150 ease-in-out"
           >
             Yes, I confirm !
