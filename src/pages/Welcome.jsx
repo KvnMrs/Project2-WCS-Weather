@@ -14,7 +14,7 @@
 /* eslint-disable arrow-body-style */
 
 import React, { useEffect, useState } from 'react';
-import { useSpring, animated } from 'react-spring';
+import { motion } from 'framer-motion';
 import { WelcomeFetchCampus } from '../services/WelcomeFetchCampus/WelcomeFetchItems';
 import WelcomeHeader from '../components/WelcomeHeader/WelcomeHeader';
 import CampusGrid from '../components/WelcomeCampusGrid/CampusGrid';
@@ -50,26 +50,23 @@ const Welcome = () => {
     console.log('No data yet.');
   }
   //
-  // Animation
-  //
-  const fade = useSpring({
-    from: {
-      opacity: 0,
-    },
-    to: {
-      opacity: 1,
-    },
-  });
   //
   //
   return (
-    <animated.div className="static min-h-screen bg-gray-50" style={fade}>
-      <div className="static flex flex-col mx-auto max-w-6xl lg:max-w-7xl items-center">
-        <WelcomeHeader />
-        {loaded && data.length > 0 ? <CampusGrid data={data} /> : null}
-        <div className="pt-10">{loaded ? null : <WelcomeLoading />}</div>
+    <motion.div
+      initial={{ opacity: 0, scale: 1.05 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 1.05 }}
+      transition={{ duration: 0.3 }}
+    >
+      <div className="static min-h-screen bg-gray-50">
+        <div className="static flex flex-col mx-auto max-w-6xl lg:max-w-7xl items-center">
+          <WelcomeHeader />
+          {loaded && data.length > 0 ? <CampusGrid data={data} /> : null}
+          <div className="pt-10">{loaded ? null : <WelcomeLoading />}</div>
+        </div>
       </div>
-    </animated.div>
+    </motion.div>
   );
 };
 
