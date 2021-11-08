@@ -1,40 +1,38 @@
-.menu-btn {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 25px;
-  height: 25px;
-  cursor: pointer;
-  transition: all 0.5s ease-in-out;
-  /* border: solid black; */
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-right: 8px;
+.bg-page {
+  background-color: #e5e5e5;
 }
 
-.menu-btn-burger {
-  width: 15px;
-  height: 2px;
-  background: black;
-  border-radius: 5px;
-  /* box-shadow: 0 2px 5px rgb(255, 255, 255); */
-  transition: all 0.5s ease-in-out;
+.card {
+  width: 18rem;
+}
+.space-card {
+  margin-bottom: 1em;
+}
+.card-about-descript {
+  margin-inline: auto;
+}
+.card-about-people {
+  margin-inline: auto;
+  padding: 2em;
+}
+.people {
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  border: solid 1px #e5e7eb;
+}
+.logo-reseau {
+  width: 50px;
 }
 
-.menu-btn-burger::before,
-.menu-btn-burger::after {
-  content: '';
-  position: absolute;
-  width: 15px;
-  height: 2px;
-  background: black;
-  border-radius: 5px;
-  transition: all 0.5s ease-in-out;
+.litle-margin {
+  margin: 0.5em;
 }
-.menu-btn-burger::before {
-  transform: translateY(5px);
+.user-container {
+  border-bottom: solid 1px;
+  margin: 2em 3em;
 }
-.menu-btn-burger::after {
-  transform: translateY(-5px);
+
+.no-border {
+  border: none;
 }

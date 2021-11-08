@@ -1,20 +1,10 @@
-/* eslint-disable object-shorthand */
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable react/button-has-type */
-/* eslint-disable object-curly-newline */
-/* eslint-disable arrow-body-style */
-/* eslint-disable implicit-arrow-linebreak */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable no-unused-expressions */
-/* eslint-disable indent */
-/* eslint-disable operator-linebreak */
-/* eslint-disable react/prop-types */
 import React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import supabase from '../../services/supabaseClient';
 
 const WelcomePopup = ({ item, handleHide }) => {
+
   // Get user ID
   const userId = supabase.auth.user().id;
   // Get Campus data
@@ -42,6 +32,11 @@ const WelcomePopup = ({ item, handleHide }) => {
     history.push('/testapp');
   }
 
+
+  const {
+    name, country, flag, imageUrl,
+  } = item;
+  // WelcomePopup display the selected campus and ask for confirmation
   return (
     // Animation
     <AnimatePresence exitBeforeEnter>
@@ -99,8 +94,34 @@ const WelcomePopup = ({ item, handleHide }) => {
             </div>
           </div>
         </div>
+
       </motion.div>
     </AnimatePresence>
+
+        <div className="h-px bg-gray-300 mb-6" />
+        <p className="text-center text-gray-500 font-normal text-xl pt-2">
+          Can you confirm that you are in        
+          {name} 
+            ?
+        </p>
+        <div className="flex flex-col gap-y-2 sm:flex-row sm:gap-y-0 mt-8 gap-x-2">
+          <button
+            type="button"
+            onClick={() => handleHide()}
+            className="px-12 py-4 bg-gray-200 rounded-md font-bold tracking-wider text-gray-500 text-sm uppercase hover:bg-gray-300 transition-all transition-duration-150 ease-in-out"
+          >
+            Dismiss
+          </button>
+          <button
+            type="submit"
+            className="w-full px-4 py-4 bg-wild_red rounded-md font-bold tracking-wider text-white text-sm uppercase  hover:bg-dark_wild_red transition-all transition-duration-150 ease-in-out"
+          >
+            Yes, I confirm !
+          </button>
+        </div>
+      </div>
+    </div>
+
   );
 };
 

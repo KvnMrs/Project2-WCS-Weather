@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable arrow-body-style */
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './About.css';
@@ -41,6 +39,76 @@ const AboutUs = () => {
             </div>
           </div>
         )}
+      </div>
+      <div className="user-container">
+        <h1 className="text-center my-5">Hello Francois</h1>
+      </div>
+
+      <div className="container p-5 py-12 mx-auto">
+        <div className="mx-auto">
+          <div className="m-1 bg-white shadow-2xl rounded-xl px-6 py-8">
+            <h4 className="mt-4 text-2xl text-center font-semibold text-neutral-600">
+              About this Project
+            </h4>
+            <p className="mt-4 text-center font-normal text-gray-300 leading-relax">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus,
+              libero labore unde repellat mollitia quos voluptas in veritatis
+              repellendus obcaecati rerum. Ut voluptate laudantium facilis
+              similique sequi veritatis consectetur blanditiis.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="card card-about-people text-center space-card">
+        <div className="card-body">
+          <img
+            src="https://th.bing.com/th/id/R.bbcc509890c5e4cc1baa2075543923ac?rik=rdyB29H1rY8IQA&pid=ImgRaw&r=0"
+            alt="People 1"
+            className="people"
+          />
+        </div>
+        <div>
+          <img
+            src="https://1000logos.net/wp-content/uploads/2017/03/Color-of-the-LinkedIn-Logo.jpg"
+            alt="Lindkedin"
+            className="logo-reseau"
+          />
+          <img
+            src="https://1000marcas.net/wp-content/uploads/2020/02/GitHub-Simbolo-1080x608.jpg"
+            alt="Lindkedin"
+            className="logo-reseau"
+          />
+          <div>
+            <h4 className="litle-margin"> Prénom - Nom</h4>
+            <p> Jr. Web Developer</p>
+          </div>
+        </div>
+      </div>
+      <div className="card card-about-people text-center m-auto space-card">
+        <div className="card-body">
+          <img
+            src="https://th.bing.com/th/id/R.bbcc509890c5e4cc1baa2075543923ac?rik=rdyB29H1rY8IQA&pid=ImgRaw&r=0"
+            alt="People 1"
+            className="people"
+          />
+        </div>
+        <div>
+          <img
+            src="https://1000logos.net/wp-content/uploads/2017/03/Color-of-the-LinkedIn-Logo.jpg"
+            alt="Lindkedin"
+            className="logo-reseau"
+          />
+          <img
+            src="https://1000marcas.net/wp-content/uploads/2020/02/GitHub-Simbolo-1080x608.jpg"
+            alt="Lindkedin"
+            className="logo-reseau"
+          />
+          <div>
+            <h4> Prénom - Nom</h4>
+            <p> Jr. Web Developer</p>
+          </div>
+        </div>
       </div>
     </div>
   );
