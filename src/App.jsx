@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import supabase from './services/supabaseClient';
 import './App.css';
 import Home from './pages/Home';
@@ -12,6 +13,8 @@ import Dash from './pages/Dashboard';
 import './Commun/StyleCommun.css';
 
 function App() {
+  const location = useLocation();
+
   const [campusList, setCampusList] = useState([]);
 
   const getCampus = async () => {
@@ -30,16 +33,8 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      {/*       <div className="App">
-        {Robin}
-        <h1 className="text-2xl">Robin</h1>
-        {campusList.map((item) => (
-          <p>{item.name}</p>
-        ))}
-      </div> */}
-
-      <Switch>
+    <AnimatePresence exitBeforeEnter>
+      <Switch location={location} key={location.pathname}>
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
@@ -48,7 +43,7 @@ function App() {
         <Route exact path="/About" component={AboutUs} />
         <Route path="/dashboard" component={Dash} />
       </Switch>
-    </Router>
+    </AnimatePresence>
   );
 }
 

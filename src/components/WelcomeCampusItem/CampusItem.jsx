@@ -8,7 +8,7 @@ const CampusItem = ({ item, functionShow }) => {
     // Item for every Campus to Map into CampusGrid
     <div
       onClick={() => functionShow()}
-      className="group w-full flex flex-col pb-8 rounded-3xl bg-white border border-gray-200 hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 ease-in-out cursor-pointer hover:scale-105"
+      className="group w-full flex flex-col pb-8 rounded-3xl bg-white border border-gray-100 hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 ease-in-out cursor-pointer hover:scale-105"
     >
       <div className="relative mb-8">
         <img

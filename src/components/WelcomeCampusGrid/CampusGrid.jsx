@@ -1,5 +1,6 @@
 /* eslint-disable */
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import WelcomeSearch from '../WelcomeSearch/WelcomeSearch';
 import CampusItem from '../WelcomeCampusItem/CampusItem';
 import WelcomeNoResults from '../WelcomeNoResults/WelcomeNoResults';
@@ -24,15 +25,13 @@ const CampusGrid = ({ data }) => {
     <>
       {show ? (
         <div
-          onClick={() => handleHideChange()}
           className="fixed flex items-center justify-center h-full w-full bg-gray-800 bg-opacity-20 z-30"
+          onClick={handleHideChange}
         >
-          {show ? (
-            <WelcomePopup
-              item={popupItem}
-              handleHide={() => handleHideChange()}
-            />
-          ) : null}
+          <WelcomePopup
+            item={popupItem}
+            handleHide={() => handleHideChange()}
+          />
         </div>
       ) : null}
 
@@ -57,6 +56,21 @@ const CampusGrid = ({ data }) => {
                     || item.country
                       .toLocaleLowerCase()
                       .includes(search.toLocaleLowerCase()),
+                )
+                .map((item, i) => (
+                  <motion.div
+                    initial={{ opacity: 0, translateY: 5 }}
+                    animate={{ opacity: 1, translateY: 0 }}
+                    transition={{ duraton: 0.5, delay: i * 0.2 }}
+                  >
+                    <CampusItem
+                      item={item}
+                      key={item.id}
+                      functionShow={() => handleShowChange(item)}
+                    />
+                  </motion.div>
+                ))
+
               )
               .map((item) => (
                 <CampusItem
