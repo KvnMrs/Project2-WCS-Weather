@@ -21,8 +21,6 @@ const Signup = () => {
     const { error } = await signUp({ email, password });
     if (error) {
       alert('An error occured, please verify your credentials and try again.');
-      // eslint-disable-next-line no-unused-expressions
-      console.error;
     } else if (password.length <= 5) {
       alert('Your password must be at least 6 characters long.');
     } else {
@@ -129,6 +127,10 @@ const Signup = () => {
           style={{ backgroundImage: url + background }}
         />
       </div>
+      <div
+        className="hidden h-full bg-cover bg-center lg:flex lg:flex-col lg:h-screen"
+        style={{ backgroundImage: url + background }}
+      />
     </motion.div>
   );
 };
