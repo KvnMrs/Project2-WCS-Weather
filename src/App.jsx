@@ -22,7 +22,7 @@ function App() {
       .from('campus')
       .select('*')
       .order('id', { ascending: true });
-    // eslint-disable-next-line no-console
+
     if (error) console.log(error);
     else setCampusList(campus);
     return campusList;

@@ -1,7 +1,3 @@
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable no-alert */
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable arrow-body-style */
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -127,11 +123,8 @@ const Signup = () => {
           style={{ backgroundImage: url + background }}
         />
       </div>
-      <div
-        className="hidden h-full bg-cover bg-center lg:flex lg:flex-col lg:h-screen"
-        style={{ backgroundImage: url + background }}
-      />
-    </motion.div>
+    </motion.div>  
+
   );
 };
 

@@ -1,7 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-alert */
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable arrow-body-style */
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -115,7 +111,15 @@ const Login = () => {
           style={{ backgroundImage: url + background }}
         />
       </div>
+
     </motion.div>
+
+      <div
+        className="hidden h-full bg-cover bg-center lg:flex lg:flex-col lg:h-screen"
+        style={{ backgroundImage: url + background }}
+      />
+    </animated.div>
+
   );
 };
 
