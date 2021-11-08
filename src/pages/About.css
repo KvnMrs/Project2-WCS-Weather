@@ -1,0 +1,40 @@
+.menu-btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  /* border: solid black; */
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 8px;
+}
+
+.menu-btn-burger {
+  width: 15px;
+  height: 2px;
+  background: black;
+  border-radius: 5px;
+  /* box-shadow: 0 2px 5px rgb(255, 255, 255); */
+  transition: all 0.5s ease-in-out;
+}
+
+.menu-btn-burger::before,
+.menu-btn-burger::after {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 2px;
+  background: black;
+  border-radius: 5px;
+  transition: all 0.5s ease-in-out;
+}
+.menu-btn-burger::before {
+  transform: translateY(5px);
+}
+.menu-btn-burger::after {
+  transform: translateY(-5px);
+}
