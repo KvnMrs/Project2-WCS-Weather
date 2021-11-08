@@ -54,16 +54,15 @@ const WelcomePopup = ({ item, handleHide }) => {
         exit={{ opacity: 0, translateY: 15 }}
         transition={{ duration: 0.2 }}
       >
-        <div className="fixed max-w-xl w-full">
-          <div className="flex w-full h-full flex-col justify-between bg-white z-50 p-14 shadow-2xl rounded-3xl">
+        <div className="fixed px-4 max-w-xl w-full">
+          <div className="flex w-full h-full flex-col justify-between bg-white z-50 shadow-2xl rounded-3xl">
             <div className="mb-8 text-center">
               <div className="relative mb-8">
                 <img
-                  className="h-52 w-full rounded-3xl object-cover bg-center bg-blend-luminosity"
+                  className="h-52 w-full rounded-t-3xl object-cover bg-center bg-blend-luminosity"
                   src={imageUrl}
                   alt={name}
                 />
-                <div className="bg-gray-900 h-full w-full absolute inset-0 rounded-3xl bg-opacity-30 group-hover:bg-opacity-10 transition-all duration-200 ease-in-out" />
               </div>
 
               <div className="flex flex-col">
@@ -76,11 +75,11 @@ const WelcomePopup = ({ item, handleHide }) => {
                 <p className="text-5xl font-light text-gray-800">{name}</p>
               </div>
             </div>
-            <div className="h-px bg-gray-300 mb-6" />
-            <p className="text-center text-gray-500 font-normal text-xl pt-2">
+            <div className="h-px bg-gray-300 mb-6 mx-14" />
+            <p className="text-center text-gray-500 font-normal text-xl pt-2 px-14">
               Can you confirm that you are in {name} ?
             </p>
-            <div className="flex flex-col gap-y-2 sm:flex-row sm:gap-y-0 mt-8 gap-x-2">
+            <div className="flex flex-col px-14 pb-14 gap-y-2 sm:flex-row sm:gap-y-0 mt-8 gap-x-2">
               <button
                 onClick={() => {
                   handleHide();
