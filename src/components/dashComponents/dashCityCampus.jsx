@@ -5,7 +5,7 @@ import TempWeek from './tempWeek';
 
 function DashCity() {
   return (
-    <div className="rounded-lg bg-gray-50 h-100 mb-5 h-40 shadow-sm hover:shadow-md transition-all duration-300 ease-in-out">
+    <div className="rounded-lg bg-gray-50 h-100 mb-5 h-400 shadow-sm hover:shadow-md transition-all duration-300 ease-in-out">
       <div className="grid-rows lg:grid grid-cols-9">
         <div className="m-10">
 
@@ -22,6 +22,7 @@ function DashCity() {
         <div />
         <div className="bg-green-100 h-40  grid-cols-6 grid col-span-4">
           <div>
+            {/** INDEX */}
             <h1>
               <div className="justify-content-start">
                 <div className="mt-14 lg:mt-10 ml-2">
@@ -35,7 +36,7 @@ function DashCity() {
               </div>
             </h1>
           </div>
-          <div className="rounded-lg bg-red-200 h-24 align-items-center mt-7 ml-4 col-span-3 lg:col-span-1">
+          <div className="rounded-lg bg-red-200 h-24 align-items-center mt-7 ml-4 col-span-2 lg:col-span-1">
             {/** EMOJI ABOUT TIME */}
             image
           </div>
