@@ -1,3 +1,5 @@
+/* eslint-disable indent */
+/* eslint-disable react/jsx-indent */
 /* eslint-disable no-unused-vars */
 /* eslint-disable import/no-duplicates */
 /* eslint-disable import/named */
@@ -18,12 +20,12 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   //
   // Data State
-  const [data, setData] = useState([]);
+  const [ApiData, setApiData] = useState([]);
   //
   // Set Data handler
   function handleData(fetchedData) {
-    setData(fetchedData);
-    return fetchedData;
+    setApiData(fetchedData);
+    return ApiData;
   }
   //
   // InvokeFunction
@@ -51,7 +53,7 @@ const Home = () => {
   //
   return (
     <div>
-      <p>test</p>
+      <div>{ApiData ? console.log(ApiData.data) : null}</div>
     </div>
   );
 };
