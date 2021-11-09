@@ -9,14 +9,17 @@ import elephant from '../assets/elephant.jpg';
 import { useAuth } from '../services/Context';
 
 const Login = () => {
+  // Image Import
   const background = `(${elephant})`;
   const url = 'url';
 
+  // Login functions and states
   const { signIn } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const history = useHistory();
 
+  // Login function
   async function handleLogin(e) {
     e.preventDefault();
     const { error } = await signIn({ email, password });

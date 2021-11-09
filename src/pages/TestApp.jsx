@@ -5,18 +5,21 @@ import React, { useEffect, useState } from 'react';
 import supabase from '../services/supabaseClient';
 
 const Home = () => {
-  const user = supabase.auth.user();
-  const userId = supabase.auth.user().id;
-  console.log(user);
-  console.log(userId);
+  // Get current User and user Id
+  const currentUser = supabase.auth.user();
+  const currentUserId = currentUser.id;
+
+  console.log(currentUser);
+
   // eslint-disable-next-line no-unused-vars
   const [userCampus, setUserCampus] = useState([]);
 
+  // Get the currentUser's associeted campus in user_campus
   const getUserCampus = async () => {
     const { data: userCampusData, error } = await supabase
       .from('user_campus')
       .select('*')
-      .eq('user_id', userId);
+      .eq('user_id', currentUserId);
 
     if (error) {
       console.log(error);
@@ -25,6 +28,7 @@ const Home = () => {
     return userCampusData;
   };
 
+  // On mount, fetch user-campus
   useEffect(() => {
     (async () => {
       const data = await getUserCampus();
@@ -34,7 +38,7 @@ const Home = () => {
 
   return (
     <div>
-      Home Page :{user.email}
+      Home Page :{currentUser.email}
       <div>{userCampus.name}</div>
       <div>{userCampus.latitude}</div>
       <div>{userCampus.longitude}</div>
