@@ -1,5 +1,4 @@
 import React from 'react';
-import Smile from '../icones/smile.svg';
 
 function DashAirQuality() {
   return (
@@ -49,7 +48,6 @@ function DashAirQuality() {
                 <div className="h-auto">
                   <div className="rounded-lg bg-red-200 h-24">
                     {/** RANDOM EMOJI */}
-                    <img src={Smile} alt="Smiling Emoji" />
                   </div>
                 </div>
                 <h1 className="sm:m-auto text-2xl md:text-2xl">

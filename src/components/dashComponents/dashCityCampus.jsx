@@ -7,11 +7,11 @@ function DashCity() {
   return (
     <div className="rounded-lg bg-gray-50 h-100 mb-5 h-400 shadow-sm hover:shadow-md transition-all duration-300 ease-in-out">
       <div className="grid-rows lg:grid grid-cols-9">
-        <div className="m-10">
+        <div className="m-8 pt-8">
 
           {/** ALL CITY CAMPUS */}
 
-          <h1 className="text-center lg:text-start text-2xl">
+          <h1 className="flex items-center grid justify-items-center lg:text-start text-2xl">
             Lisbonne
             <br />
             <span className="text-sm">

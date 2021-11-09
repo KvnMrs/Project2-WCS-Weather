@@ -64,7 +64,7 @@ function Dash() {
               <h1 className="text-lg text-neutral-600">in Nantes, France</h1>
                 </div>
                 </section>
-
+                <div>
                 {/** SPACE FOR DASHBOARD OF EACH CAMPUS */}
                 <section className="m-2 p-2 row grid-cols  lg:grid grid-cols-1">
                 <div>
@@ -73,7 +73,20 @@ function Dash() {
                 <div>
                 <DashCity />
                 </div>
+                <div>
+                <DashCity />
+                </div>
+                <div>
+                <DashCity />
+                </div>
+                <div>
+                <DashCity />
+                </div>
+                <div>
+                <DashCity />
+                </div>
                 </section>
+                </div>
                 </div>
                </div>
             </div>
