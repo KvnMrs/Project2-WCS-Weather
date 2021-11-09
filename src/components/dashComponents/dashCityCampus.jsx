@@ -6,6 +6,7 @@ import SmileCampus from './icones_wcsCampus/smile_wcsCampus';
 
 function DashCity() {
   return (
+
     <div className="rounded-lg bg-gray-50 h-100 mb-5 h-400 shadow-sm hover:shadow-md transition-all duration-300 ease-in-out">
       <div className="grid-rows lg:grid grid-cols-9">
         <div className="m-8 pt-8">
