@@ -2,6 +2,7 @@ import React from 'react';
 import TempToday from './tempToday';
 import TempTomorrow from './tempTomorrow';
 import TempWeek from './tempWeek';
+import SmileCampus from './icones_wcsCampus/smile_wcsCampus';
 
 function DashCity() {
   return (
@@ -36,9 +37,9 @@ function DashCity() {
               </div>
             </h1>
           </div>
-          <div className="rounded-lg bg-red-200 h-24 align-items-center mt-7 ml-4 col-span-2 lg:col-span-1">
+          <div className="justify-items-center items-center mt-8 mr-3 pr-4 col-span-2 lg:col-span-1">
             {/** EMOJI ABOUT TIME */}
-            image
+            <SmileCampus />
           </div>
           {/** INFOS ABOUT AIR QUALITY */}
           <ul className="grid col-span-3 text-xs lg:text-sm">
