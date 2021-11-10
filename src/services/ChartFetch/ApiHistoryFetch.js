@@ -12,7 +12,7 @@ export const ApiHistoryFetch = ({ latitude, longitude, handleData }) => {
   //
   // Start & End Dates Parameters (UNIX format)
   const endDateUnix = getUnixTime(new Date());
-  const startDateUnix = endDateUnix - 2678400 / 2;
+  const startDateUnix = endDateUnix - 2678400;
   //
   // URL
   //
