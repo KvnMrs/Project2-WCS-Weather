@@ -1,5 +1,5 @@
 import React from 'react';
-import Smile from '../icones/smile';
+import Smile from '../Icones/Smile';
 
 function DashAirQuality() {
   return (

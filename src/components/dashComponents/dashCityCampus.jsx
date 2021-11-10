@@ -1,19 +1,15 @@
-
 import React from 'react';
-import TempToday from './tempToday';
-import TempTomorrow from './tempTomorrow';
-import TempWeek from './tempWeek';
-import SmileCampus from './icones_wcsCampus/smile_wcsCampus';
+import TempToday from './TempToday';
+import TempTomorrow from './TempTomorrow';
+import TempWeek from './TempWeek';
+import SmileCampus from './Icones_wcsCampus/Smile_wcsCampus';
 
 function DashCity() {
   return (
-
     <div className="rounded-lg bg-gray-50 h-100 mb-5 h-400 shadow-sm hover:shadow-md transition-all duration-300 ease-in-out">
       <div className="grid-rows lg:grid grid-cols-9">
         <div className="m-8 pt-8">
-
           {/** ALL CITY CAMPUS */}
-
           <h1 className="flex items-center grid justify-items-center lg:text-start text-2xl">
             Lisbonne
             <br />
