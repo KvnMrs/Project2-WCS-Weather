@@ -10,10 +10,11 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable arrow-body-style */
 //
-import React, { useEffect } from 'react';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { fromUnixTime } from 'date-fns';
 import { UserCampusFetch } from '../services/ChartFetch/UserCampusFetch';
 import { ApiHistoryFetch } from '../services/ChartFetch/ApiHistoryFetch';
+import IndexHistoryChart from '../components/IndexHistoryChart/IndexHistoryChart';
 
 const Home = () => {
   //
@@ -21,14 +22,16 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   //
   // Data State
-  const [ApiData, setApiData] = useState({});
-  //
-  // Final Data Array
-  const finalArr = [];
+  const [ApiData, setApiData] = useState([]);
   //
   // Set Data handler
+  /**
+   *
+   * @param {*} fetchedData
+   * @returns
+   */
   function handleData(fetchedData) {
-    setApiData(fetchedData);
+    setApiData(fetchedData?.data?.list);
     return ApiData;
   }
   //
@@ -39,57 +42,39 @@ const Home = () => {
       const fetchCampus = await UserCampusFetch();
       setLoading(true);
       const campus = fetchCampus;
-      console.log('Campus Array item =', campus);
-
       const userCampus = campus[0];
       const latitude = await userCampus.latitude;
       const longitude = await userCampus.longitude;
 
-      console.log(userCampus);
-      console.log(latitude);
-      console.log(longitude);
-
       ApiHistoryFetch({ latitude, longitude, handleData });
     }
-    initFetch();
+
+    // Invoke Functions
+    (async () => {
+      // start
+      const promiseData = await initFetch();
+      return promiseData;
+    })();
   }, []);
   //
   //
   return (
     <div>
-      <div>{ApiData ? console.log('ApiData =', ApiData) : null}</div>
-
-      <div>{ApiData ? console.log('ApiData Data =', ApiData.data) : null}</div>
-
-      <div>
-        {ApiData ? console.log('ApiData Data IF =', ApiData?.data?.list) : null}
-      </div>
-
       <div>
         {ApiData
-          ? ApiData?.data?.list.map((item, i) => (
-              <div className="p-6">
-                <p key={i}>{item.main.aqi}</p>
-                <p key={i + Math.random()}>{item.dt}</p>
-                <p key={i + Math.random()}>{item.components?.co}</p>
-                <p key={i + Math.random()}>{item.components?.no}</p>
-                <br />
-              </div>
-            ))
+          ? console.log(`TestApp Console = ${ApiData?.components}`)
           : null}
-      </div>
-
-      {/* <div>
-        {ApiData ? console.log('ApiData Data List =', ApiData.data.list) : null}
-      </div> */}
-
-      <div>
-        {ApiData
-          ? console.log(
-              'ApiData Data JSON stringify =',
-              JSON.stringify(ApiData, { space: 1 }),
-            )
-          : null}
+        {ApiData ? <IndexHistoryChart data={ApiData} /> : null}
+        {ApiData.map((item) => (
+          <div>
+            <p>________________</p>
+            <p>{item.components.co}</p>
+            <p>{item.components.pm2_5}</p>
+            <p>{item.components.pm10}</p>
+            <p>at </p>
+            <p>{item.dt}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
