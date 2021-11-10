@@ -7,14 +7,14 @@
 /* eslint-disable camelcase */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import DashCity from '../components/dashComponents/dashCityCampus';
-import DashAirQuality from '../components/dashComponents/dashPrincipalAir';
-import DashMeteo from '../components/dashComponents/dashPrincipalMeteo';
-import GraphiqueAir from '../components/dashComponents/graphiqueAir';
-import GraphiqueMeteo from '../components/dashComponents/graphiqueMeteo';
+import DashCity from '../components/DashComponents/dashCityCampus';
+import DashAirQuality from '../components/DashComponents/dashPrincipalAir';
+import DashMeteo from '../components/DashComponents/dashPrincipalMeteo';
+import GraphiqueAir from '../components/DashComponents/graphiqueAir';
+import GraphiqueMeteo from '../components/DashComponents/graphiqueMeteo';
 import {
   AirPollutionCard,
-} from '../components/dashComponents/DashboardCard';
+} from '../components/DashComponents/DashboardCard';
 import supabase from '../services/supabaseClient';
 
 function Dash() {
@@ -75,6 +75,9 @@ function Dash() {
 
   return (
     <div className="flex h-screen overflow-hidden bg-white rounded-lg">
+    {/** BACKGROUND COLOR FOR NAVBAR DESKTOP */}
+
+    {/** HERE IS THE NAVBAR DESKTOP VERSION */}
       <div className="hidden md:flex md:flex-shrink-0">
         <div className="flex flex-col w-64">
           <div className="
