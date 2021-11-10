@@ -7,17 +7,17 @@
 /* eslint-disable camelcase */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import DashCity from '../components/dashComponents/dashCityCampus';
-import DashAirQuality from '../components/dashComponents/dashPrincipalAir';
-import DashMeteo from '../components/dashComponents/dashPrincipalMeteo';
-import GraphiqueAir from '../components/dashComponents/graphiqueAir';
-import GraphiqueMeteo from '../components/dashComponents/graphiqueMeteo';
+import DashCity from '../components/dashComponents/DashCityCampus';
+import DashAirQuality from '../components/dashComponents/DashPrincipalAir';
+import DashMeteo from '../components/dashComponents/DashPrincipalMeteo';
+import GraphiqueAir from '../components/dashComponents/GraphiqueAir';
+import GraphiqueMeteo from '../components/dashComponents/GraphiqueMeteo';
 import {
   AirPollutionCard,
 } from '../components/dashComponents/DashboardCard';
 import supabase from '../services/supabaseClient';
 
-function Dash() {
+const Dash = () => {
   /**
   * get user Id from context
   */
@@ -289,6 +289,6 @@ function Dash() {
       </div>
     </div>
   );
-}
+};
 
 export default Dash;
