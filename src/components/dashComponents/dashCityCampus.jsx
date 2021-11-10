@@ -1,8 +1,8 @@
 import React from 'react';
-import TempToday from './tempToday';
-import TempTomorrow from './tempTomorrow';
+import TempToday from './TempToday';
+import TempTomorrow from './TempTomorrow';
 import TempWeek from './tempWeek';
-import SmileCampus from './icones_wcsCampus/smile_wcsCampus';
+import SmileCampus from './Icones_wcsCampus/Smile_wcsCampus';
 
 function DashCity() {
   return (

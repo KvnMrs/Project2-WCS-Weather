@@ -2,14 +2,14 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import CityCountryUser from '../components/cityUser/cityCountryUser';
-import DashCity from '../components/dashComponents/dashCityCampus';
-import DashAirQuality from '../components/dashComponents/dashPrincipalAir';
-import DashMeteo from '../components/dashComponents/dashPrincipalMeteo';
-import GraphiqueAir from '../components/dashComponents/graphiqueAir';
-import GraphiqueMeteo from '../components/dashComponents/graphiqueMeteo';
-import NavBarDesktop from '../components/navigation_Desktop/navbarDesktop';
-import UserWelcomemsg from '../components/userWelcome.jsx/userWelcomemsg';
+import CityCountryUser from '../components/CityUser/cityCountryUser';
+import DashCity from '../components/dashComponents/DashCityCampus';
+import DashAirQuality from '../components/dashComponents/DashPrincipalAir';
+import DashMeteo from '../components/dashComponents/DashPrincipalMeteo';
+import GraphiqueAir from '../components/dashComponents/GraphiqueAir';
+import GraphiqueMeteo from '../components/dashComponents/GraphiqueMeteo';
+import NavBarDesktop from '../components/Navigation_Desktop/NavbarDesktop';
+import UserWelcomemsg from '../components/UserWelcome.jsx/UserWelcomemsg';
 
 function Dash() {
   return (
