@@ -15,7 +15,7 @@ export const CurrentWeatherCard = ({ weather, temperature }) => {
           <br />
         </h1>
       </div>
-      <div className="justify-self-center self-center ml-9 sm:pt-8">
+      <div className="justify-self-center self-center ml-9 sm:pt-4">
         <div className="sm: grid grid-row-span-3 mt-2">
           <h2 className="text-3xl md:text-4xl">{Math.round(temperature.temp)} °C</h2>
         </div>
