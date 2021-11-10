@@ -11,7 +11,6 @@
 /* eslint-disable arrow-body-style */
 //
 import React, { useEffect, useState } from 'react';
-import { fromUnixTime } from 'date-fns';
 import { UserCampusFetch } from '../services/ChartFetch/UserCampusFetch';
 import { ApiHistoryFetch } from '../services/ChartFetch/ApiHistoryFetch';
 import IndexHistoryChart from '../components/IndexHistoryChart/IndexHistoryChart';
@@ -31,6 +30,7 @@ const Home = () => {
    * @returns
    */
   function handleData(fetchedData) {
+    // Conditional Chaining for setting ApiData
     setApiData(fetchedData?.data?.list);
     return ApiData;
   }
@@ -65,16 +65,6 @@ const Home = () => {
           ? console.log(`TestApp Console = ${ApiData?.components}`)
           : null}
         {ApiData ? <IndexHistoryChart data={ApiData} /> : null}
-        {ApiData.map((item) => (
-          <div>
-            <p>________________</p>
-            <p>{item.components.co}</p>
-            <p>{item.components.pm2_5}</p>
-            <p>{item.components.pm10}</p>
-            <p>at </p>
-            <p>{item.dt}</p>
-          </div>
-        ))}
       </div>
     </div>
   );
