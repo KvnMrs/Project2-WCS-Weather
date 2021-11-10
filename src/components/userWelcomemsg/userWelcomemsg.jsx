@@ -6,7 +6,7 @@ const UserWelcomemsg = () => {
     <div>
       <section>
         <h1 className="text-3xl font-semibold leading-none tracking-tighter text-neutral-600 pl-2 pt-5">
-          Hello, Utilisateur !
+          Hello, Wilder !
         </h1>
       </section>
     </div>
