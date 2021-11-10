@@ -23,7 +23,7 @@ const Login = () => {
     if (error) {
       alert('An error occured, please verify your credentials and try again.');
     } else {
-      history.push('/home');
+      history.push('/dashboard');
     }
   }
 

@@ -13,10 +13,8 @@ import DashMeteo from '../components/dashComponents/dashPrincipalMeteo';
 import GraphiqueAir from '../components/dashComponents/graphiqueAir';
 import GraphiqueMeteo from '../components/dashComponents/graphiqueMeteo';
 import {
-  DashboardCardPollution,
-  DashboardCardTemperature,
-  DashboardCardMeteo,
-} from '../components/DashboardCard';
+  AirPollutionCard,
+} from '../components/dashComponents/DashboardCard';
 import supabase from '../services/supabaseClient';
 
 function Dash() {
@@ -27,33 +25,12 @@ function Dash() {
   const id = user.id;
 
   /* Appel API */
-  const [weather, setWeather] = useState('');
-  const [temperature, setTemperature] = useState('');
   const [pollution, setPollution] = useState('');
   const [lat, setLat] = useState(2);
   const [long, setLong] = useState(0);
-  const date = new Date(Date()).toLocaleDateString();
+  const [campus, setCampus] = useState('');
   let campusCoordonates = [];
   useEffect(() => {
-    /**
-     * Call API onecall of openweathermap -> get weather data
-     */
-    axios
-      .get('http://api.openweathermap.org/data/2.5/onecall', {
-        params: {
-          lat: lat,
-          lon: long,
-          exclude: 'hourly' && 'minutely',
-          appid: process.env.REACT_APP_AIR_WEATHER_KEY,
-          units: 'metric',
-        },
-      })
-      .then((response) => response.data)
-      .then((data) => {
-        setWeather(data.current.weather[0]);
-        setTemperature(data.current);
-      });
-
     /**
      * Call API air_pollution of openweathermap -> get air pollution data
      */
@@ -78,14 +55,13 @@ function Dash() {
   async function fetchCampus() {
     const { data: user_campus, error } = await supabase
       .from('user_campus')
-      .select('latitude , longitude')
+      .select('latitude , longitude, name')
       .eq('user_id', id);
 
     if (error) {
       console.log(error);
       return console.log('error');
     }
-    console.log(user_campus);
     return user_campus;
   }
 
@@ -94,8 +70,7 @@ function Dash() {
     campusCoordonates = getCampus;
     setLat(campusCoordonates[0].latitude);
     setLong(campusCoordonates[0].longitude);
-    console.log(campusCoordonates[0].latitude);
-    console.log(campusCoordonates[0].longitude);
+    setCampus(campusCoordonates[0].name);
   }, []);
 
   return (
@@ -257,14 +232,14 @@ function Dash() {
               {/* 1er DASHBOARD */}
               <section>
                 <h1 className="text-3xl font-semibold leading-none tracking-tighter text-neutral-600 pl-2">
-                  Hello, Utilisateur !
+                  Hello, Wilder !
                 </h1>
               </section>
               <div className="py-4 pt-4">
                 <div className="rounded-lg bg-gray-50 h-110">
                   <section className="pl-4 pt-8">
                     <h1 className="text-3xl font-semibold leading-none tracking-tighter text-neutral-600">
-                      Nantes
+                      {campus}
                     </h1>
                     <div className="px-4 max-w-7xl sm:px-6 md:px-8">
                       <h1 className="text-lg text-neutral-600">France</h1>
@@ -274,19 +249,11 @@ function Dash() {
                     <div>
                       <DashAirQuality />
                       <div className="bg-green-300 w-60 m-auto">
-                        <DashboardCardPollution element={pollution} />
+                        <AirPollutionCard element={pollution} />
                       </div>
                     </div>
                     <div>
                       <DashMeteo />
-                      <div className="bg-gray-50 flex flex-row justify-around items-center w-60 m-auto">
-                        <div>
-                          <DashboardCardMeteo element={weather} />
-                        </div>
-                        <div className="border-gray-600 border-l-2">
-                          <DashboardCardTemperature element={temperature} />
-                        </div>
-                      </div>
                     </div>
                     <div>
                       <GraphiqueAir />
