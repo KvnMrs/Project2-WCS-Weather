@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable indent */
 /* eslint-disable react/jsx-indent */
 /* eslint-disable no-unused-vars */
@@ -20,7 +21,10 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   //
   // Data State
-  const [ApiData, setApiData] = useState([]);
+  const [ApiData, setApiData] = useState({});
+  //
+  // Final Data Array
+  const finalArr = [];
   //
   // Set Data handler
   function handleData(fetchedData) {
@@ -53,7 +57,40 @@ const Home = () => {
   //
   return (
     <div>
-      <div>{ApiData ? console.log(ApiData.data) : null}</div>
+      <div>{ApiData ? console.log('ApiData =', ApiData) : null}</div>
+
+      <div>{ApiData ? console.log('ApiData Data =', ApiData.data) : null}</div>
+
+      <div>
+        {ApiData ? console.log('ApiData Data IF =', ApiData?.data?.list) : null}
+      </div>
+
+      <div>
+        {ApiData
+          ? ApiData?.data?.list.map((item, i) => (
+              <div className="p-6">
+                <p key={i}>{item.main.aqi}</p>
+                <p key={i + Math.random()}>{item.dt}</p>
+                <p key={i + Math.random()}>{item.components?.co}</p>
+                <p key={i + Math.random()}>{item.components?.no}</p>
+                <br />
+              </div>
+            ))
+          : null}
+      </div>
+
+      {/* <div>
+        {ApiData ? console.log('ApiData Data List =', ApiData.data.list) : null}
+      </div> */}
+
+      <div>
+        {ApiData
+          ? console.log(
+              'ApiData Data JSON stringify =',
+              JSON.stringify(ApiData, { space: 1 }),
+            )
+          : null}
+      </div>
     </div>
   );
 };
