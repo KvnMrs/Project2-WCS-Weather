@@ -1,8 +1,6 @@
 import React from 'react';
-import TempToday from './TempToday';
-import TempTomorrow from './TempTomorrow';
-import TempWeek from './TempWeek';
 import SmileCampus from './Icones_wcsCampus/Smile_wcsCampus';
+import { TempToday } from './TempWeek';
 
 function DashCity() {
   return (
@@ -64,8 +62,6 @@ function DashCity() {
         {/** WEATHER ON 3 DAYS */}
         <div className="grid grid-cols-3 pt-1 lg:col-span-3">
           <TempToday />
-          <TempTomorrow />
-          <TempWeek />
         </div>
       </div>
     </div>
