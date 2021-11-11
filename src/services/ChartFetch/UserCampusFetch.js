@@ -10,7 +10,6 @@ export const UserCampusFetch = async (id) => {
     .select('*')
     .eq('user_id', id);
   if (error) {
-    console.log(error);
     return ErrorEvent.toString;
   }
   // Return the user_campus

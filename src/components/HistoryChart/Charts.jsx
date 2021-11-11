@@ -6,6 +6,8 @@
 import React, { useEffect, useState } from 'react';
 import { ApiHistoryFetch } from '../../services/ChartFetch/ApiHistoryFetch';
 import COchart from '../COchart/COchart';
+import PMchart from '../PMchart/PMcharts';
+import AQIchart from '../AQIchart/AQIchart';
 
 const Charts = () => {
   const [chartData, setChartData] = useState([]);
@@ -21,10 +23,14 @@ const Charts = () => {
       <div className="h-full bg-gray-50">
         History Charts
         {chartData.length > 0 ? console.log('ChartData = ', chartData) : null}
-        {chartData ? <p>1. THERE IS DATAAA !</p> : null}
+        {chartData ? <p>THERE IS DATAAA !</p> : null}
         {chartData ? (
-          <div>
-            <COchart items={chartData} />
+          <div className="grid grid-cols-1 grid-rows-2">
+            <AQIchart items={chartData} />
+            <div className="grid grid-cols-2 gap-4 mt-4">
+              <COchart items={chartData} />
+              <PMchart items={chartData} />
+            </div>
           </div>
         ) : null}
       </div>

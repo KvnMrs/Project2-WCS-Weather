@@ -29,7 +29,13 @@ async function getData(userCampus) {
 async function createItems(RowData) {
   const newItems = RowData.map((item) => ({
     aqi: item.main.aqi,
-    dt: formatRFC7231(fromUnixTime(item.dt)),
+    dt: new Date(formatRFC7231(fromUnixTime(item.dt))).toLocaleDateString(
+      'fr-FR',
+      {
+        month: 'short',
+        day: 'numeric',
+      },
+    ),
     co: item.components.co,
     pm10: item.components.pm10,
   }));

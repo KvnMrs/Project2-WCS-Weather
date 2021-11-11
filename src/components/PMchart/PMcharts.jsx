@@ -11,12 +11,12 @@ import {
   Tooltip,
 } from 'recharts';
 
-const COchart = (items) => {
+const PMchart = (items) => {
   return (
     <div className="py-10 pr-10 pl-6 bg-white border border-gray-100 rounded-xl hover:shadow-md hover:-translate-y-1 transition-all transform duration-200">
       <div className="flex flex-col mb-12">
         <h1 className="pl-5 text-xl font-semibold text-gray-700">
-          Carbon Monoxide (μg/m3)
+          Coarse Particules Matter (μg/m3)
         </h1>
         <p className="pl-6 pt-1 uppercase text-sm font-medium text-gray-500">
           last 30 days
@@ -58,7 +58,7 @@ const COchart = (items) => {
           />
 
           <Area
-            dataKey="co"
+            dataKey="pm10"
             strokeWidth="2"
             stroke="#F87171"
             fill="url(#color-co)"
@@ -73,4 +73,4 @@ const COchart = (items) => {
   );
 };
 
-export default COchart;
+export default PMchart;

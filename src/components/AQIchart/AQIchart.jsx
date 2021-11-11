@@ -11,7 +11,7 @@ import {
   Tooltip,
 } from 'recharts';
 
-const COchart = (items) => {
+const AQIchart = (items) => {
   return (
     <div className="py-10 pr-10 pl-6 bg-white border border-gray-100 rounded-xl hover:shadow-md hover:-translate-y-1 transition-all transform duration-200">
       <div className="flex flex-col mb-12">
@@ -25,12 +25,18 @@ const COchart = (items) => {
       <ResponsiveContainer width="100%" height={300}>
         <AreaChart data={items.items}>
           <defs>
-            <linearGradient id="color-co" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#DC2626" stopOpacity="1" />
-              <stop offset="80" stopColor="#DC2626" stopOpacity="0.00" />
+            <linearGradient id="color-aqi" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#5B21B6" stopOpacity="1" />
+              <stop offset="20%" stopColor="#9D174D" stopOpacity="1" />
+              <stop offset="40%" stopColor="#DC2626" stopOpacity="1" />
+              <stop offset="75%" stopColor="#F59E0B" stopOpacity="1" />
+              <stop offset="90%" stopColor="#10B981" stopOpacity="1" />
             </linearGradient>
           </defs>
+
           <YAxis
+            type="number"
+            domain={[0, 5]}
             style={{
               fontSize: '14px',
               fontFamily: 'Inter',
@@ -55,13 +61,14 @@ const COchart = (items) => {
             axisLine={false}
             padding={{ left: 30, right: 30, top: 30 }}
             tickMargin="15"
+            tickCount="10"
           />
 
           <Area
-            dataKey="co"
+            dataKey="aqi"
             strokeWidth="2"
             stroke="#F87171"
-            fill="url(#color-co)"
+            fill="url(#color-aqi)"
             yAxisId="left"
             type="monotone"
             activeDot="true"
@@ -73,4 +80,4 @@ const COchart = (items) => {
   );
 };
 
-export default COchart;
+export default AQIchart;
