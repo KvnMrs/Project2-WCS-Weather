@@ -14,6 +14,8 @@ import {
   ResponsiveContainer,
   AreaChart,
   Area,
+  BarChart,
+  Bar,
   XAxis,
   YAxis,
   Tooltip,
@@ -28,7 +30,6 @@ const IndexHistoryChart = ({ data }) => {
         aqi: item.main.aqi,
         dt: formatRFC7231(fromUnixTime(item.dt)).substr(4, 8),
         co: item.components.co,
-        pm25: item.components.pm2_5,
         pm10: item.components.pm10,
       };
 
@@ -48,8 +49,8 @@ const IndexHistoryChart = ({ data }) => {
             <div className="flex flex-col">
               <h1>Air Quality Index, last 31 days.</h1>
               <br />
-              <ResponsiveContainer width="100%" height={400}>
-                <AreaChart data={items}>
+              <ResponsiveContainer width="100%" height={300}>
+                <BarChart data={items}>
                   <defs>
                     <linearGradient
                       id="color-index"
@@ -66,13 +67,14 @@ const IndexHistoryChart = ({ data }) => {
                   </defs>
 
                   <YAxis
+                    interval="0"
+                    domain={[0, 5]}
                     yAxisId="left"
                     orientation="left"
-                    height="5"
                     axisLine={false}
                   />
 
-                  <Area
+                  <Bar
                     yAxisId="left"
                     strokeWidth="2"
                     stroke="#F87171"
@@ -83,13 +85,10 @@ const IndexHistoryChart = ({ data }) => {
                   />
 
                   <Tooltip />
-                </AreaChart>
+                </BarChart>
               </ResponsiveContainer>
             </div>
           </div>
-
-          <br />
-          <br />
 
           <br />
           <br />
@@ -104,7 +103,7 @@ const IndexHistoryChart = ({ data }) => {
                 </p>
               </div>
               <div className="h-4 my-5" />
-              <ResponsiveContainer width="100%" height={400}>
+              <ResponsiveContainer width="100%" height={300}>
                 <AreaChart data={items}>
                   <defs>
                     <linearGradient id="color-co" x1="0" y1="0" x2="0" y2="1">
@@ -171,7 +170,7 @@ const IndexHistoryChart = ({ data }) => {
                 </p>
               </div>
               <div className="h-4 my-5" />
-              <ResponsiveContainer width="100%" height={400}>
+              <ResponsiveContainer width="100%" height={300}>
                 <AreaChart data={items}>
                   <defs>
                     <linearGradient id="color-co" x1="0" y1="0" x2="0" y2="1">

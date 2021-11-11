@@ -1,28 +1,18 @@
 /* eslint-disable import/prefer-default-export */
 import supabase from '../supabaseClient';
 
-// This file fetch the weather API with the current campus latitude and longitude.
+// This file fetch the current user user_campus
 
-export const UserCampusFetch = async () => {
-  //
-  // Get User and Id from current session
-  //
-  const userId = supabase.auth.user().id;
-  console.log(userId);
-  //
+export const UserCampusFetch = async (id) => {
   // Get current user_campus
-  //
   const { data: userCampus, error } = await supabase
     .from('user_campus')
     .select('*')
-    .eq('user_id', userId);
+    .eq('user_id', id);
   if (error) {
     console.log(error);
     return ErrorEvent.toString;
   }
-  //
-  // Return Campus to parent
-  //
-  console.log(userCampus);
+  // Return the user_campus
   return userCampus;
 };
