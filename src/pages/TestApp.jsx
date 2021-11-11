@@ -13,7 +13,6 @@
 import React, { useEffect, useState } from 'react';
 import { UserCampusFetch } from '../services/ChartFetch/UserCampusFetch';
 import { ApiHistoryFetch } from '../services/ChartFetch/ApiHistoryFetch';
-import IndexHistoryChart from '../components/IndexHistoryChart/IndexHistoryChart';
 
 const Home = () => {
   //
@@ -60,12 +59,7 @@ const Home = () => {
   //
   return (
     <div>
-      <div>
-        {ApiData
-          ? console.log(`TestApp Console = ${ApiData?.components}`)
-          : null}
-        {ApiData ? <IndexHistoryChart data={ApiData} /> : null}
-      </div>
+      <div>testapp</div>
     </div>
   );
 };
