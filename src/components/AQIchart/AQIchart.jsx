@@ -13,7 +13,7 @@ import {
 
 const AQIchart = (items) => {
   return (
-    <div className="py-10 pr-10 pl-6 bg-white border border-gray-100 rounded-xl hover:shadow-md hover:-translate-y-1 transition-all transform duration-200">
+    <div className="py-10 pr-10 pl-6 bg-white border border-gray-100 rounded-xl hover:shadow-md transition-all transform duration-200">
       <div className="flex flex-col mb-12">
         <h1 className="pl-5 text-xl font-semibold text-gray-700">
           Carbon Monoxide (μg/m3)
