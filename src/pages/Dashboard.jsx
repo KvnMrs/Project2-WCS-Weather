@@ -19,7 +19,7 @@ import supabase from '../services/supabaseClient';
 import UserWelcomemsg from '../components/UserWelcomemsg/UserWelcomemsg';
 import NavBarDesktop from '../components/Navigation_Desktop/NavbarDesktop';
 
-function Dash() {
+const Dash = () => {
   /**
   * get user Id from context
   */
@@ -149,6 +149,6 @@ function Dash() {
       </div>
     </div>
   );
-}
+};
 
 export default Dash;
