@@ -1,67 +1,122 @@
-import React from 'react';
+/* eslint-disable prefer-destructuring */
+/* eslint-disable object-shorthand */
+/* eslint-disable camelcase */
+/* eslint-disable no-plusplus */
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import supabase from '../../services/supabaseClient';
+import {
+  CurrentWeatherCard,
+  ForecastCard,
+} from './DashboardCard';
 
-function DashMeteo() {
+const DashMeteo = () => {
+  /**
+  * get user Id from context
+  */
+  const user = supabase.auth.user();
+  const id = user.id;
+
+  /**
+   * Definition useState
+   */
+  const [currentWeather, setcurrentWeather] = useState({ weather: [] });
+  const [forecast, setForecast] = useState([]);
+  const [lat, setLat] = useState(2);
+  const [long, setLong] = useState(0);
+  let campusCoordonates = [];
+
+  /**
+  * Call API onecall of openweathermap -> get weather data
+  */
+  async function oneCallWeatherApi() {
+    await axios
+      .get('http://api.openweathermap.org/data/2.5/onecall', {
+        params: {
+          lat: lat,
+          lon: long,
+          exclude: 'hourly,minutely',
+          appid: process.env.REACT_APP_AIR_WEATHER_KEY,
+          units: 'metric',
+        },
+      })
+      .then((response) => response.data)
+      .then((data) => {
+        setcurrentWeather(data.current);
+        setForecast(data.daily);
+        console.log(data.current);
+        console.log(data.daily);
+      });
+  }
+
+  useEffect(() => {
+    oneCallWeatherApi();
+  }, []);
+  /**
+ * Hook to render 3 forecastCard components for 3day weather forecast
+ */
+  function forecastDiv() {
+    const forcastItem = [];
+    if (forecast.length > 0) {
+      for (let i = 0; i < 3; i++) {
+        forcastItem.push(
+          <ForecastCard
+            day={forecast[i]}
+            weather={forecast[i].weather[0]}
+            temperature={forecast[i].temp}
+          />,
+        );
+      }
+    }
+    console.log(forcastItem);
+    return forcastItem;
+  }
+
+  /**
+   * Recupération de supabase de la latitude & la longitude
+   * du campus choisi lors du sign up
+   */
+  async function fetchCampus() {
+    const { data: user_campus, error } = await supabase
+      .from('user_campus')
+      .select('latitude , longitude')
+      .eq('user_id', id);
+
+    if (error) {
+      console.log(error);
+      return console.log('error');
+    }
+    return user_campus;
+  }
+  useEffect(async () => {
+    const getCampus = await fetchCampus();
+    campusCoordonates = getCampus;
+    setLat(campusCoordonates[0].latitude);
+    setLong(campusCoordonates[0].longitude);
+  }, []);
+
   return (
-    <div className="rounded-lg bg-white h-100">
+    <div className="rounded-lg bg-white h-full">
       <section>
         <div className="container flex flex-col items-center px-5 py-8 mx-auto max-w-7xl sm:px-6 mb-5 lg:px-8">
           <div className="flex flex-col w-full max-w-3xl mx-auto prose text-left prose-blue">
+            <div>
+              {currentWeather.weather.length > 0
+                ? (
+                  <CurrentWeatherCard
+                    weather={currentWeather.weather[0]}
+                    temperature={currentWeather}
+                  />
+                ) : ''}
+            </div>
             <div className="grid grid-cols-3 gap-4">
-              <div className="grid-rows-2 sm:pt-8">
-                <h1 className="pt-3">
-                  MOSTLY SUNNY
-                  <br />
-                </h1>
-                <div>
-                  <p className="pt-7 col-span-2">
-                    Carbon monoxyde:
-                    <span className="pl-5">
-                      infos
-                    </span>
-                  </p>
-                  <p className="pt-5 col-span-2">
-                    Fines particules:
-                    <span className="pl-5">
-                      infos
-                    </span>
-                  </p>
-                  <p className="pt-5 col-span-2">
-                    Coarse particules:
-                    <span className="pl-5">
-                      infos
-                    </span>
-                  </p>
-                </div>
-              </div>
-              <div className="ml-9">
-                <div className="sm: grid grid-row-span-3 mt-2">
-                  <h1 className="text-5xl md:text-6xl">
-                    25°
-                  </h1>
-                </div>
-              </div>
-              <div className="grid grid-cols-1 px-7 justify-items-center">
-                <div className="h-auto">
-                  <h1>Today</h1>
-                  <div className="rounded-lg bg-red-200 h-24 ">
-                    image
-                  </div>
-                </div>
-                <h1 className="text-center">12°C to 23°C</h1>
-                <div className="h-auto pt-2">
-                  <h1>Tomorrow</h1>
-                  <div className="rounded-lg bg-red-200 h-24 ">
-                    image
-                  </div>
-                </div>
-                <h1 className="text-center">12°C to 23°C</h1>
-              </div>
+              {forecastDiv()}
             </div>
           </div>
         </div>
       </section>
     </div>
   );
-}
+};
 
 export default DashMeteo;

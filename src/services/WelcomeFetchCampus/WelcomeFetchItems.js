@@ -12,5 +12,6 @@ export const WelcomeFetchCampus = async () => {
     console.log(error);
     return ErrorEvent.toString;
   }
+  console.log(campus);
   return campus;
 };

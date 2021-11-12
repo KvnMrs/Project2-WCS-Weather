@@ -9,13 +9,17 @@ import { useAuth } from '../services/Context';
 import tour from '../assets/tour-bretagne.jpg';
 
 const Signup = () => {
+  // Image import
   const background = `(${tour})`;
   const url = 'url';
+
+  // Login function and states
   const { signUp } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const history = useHistory();
 
+  // Login fucntion
   async function handleSignup(e) {
     e.preventDefault();
     const { error } = await signUp({ email, password });
