@@ -1,5 +1,5 @@
 import React from 'react';
-import SmileCampus from './Icones_wcsCampus/Smile_wcsCampus';
+import SmileCampus from './icones_wcsCampus/Smile_wcsCampus';
 import { TempToday } from './TempWeek';
 
 function DashCity() {
