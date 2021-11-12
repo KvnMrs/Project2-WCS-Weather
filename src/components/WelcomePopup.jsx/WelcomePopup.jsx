@@ -39,7 +39,7 @@ const WelcomePopup = ({ item, handleHide }) => {
     }
 
     console.log('Post OK.');
-    history.push('/testapp');
+    history.push('/charts');
   }
 
   return (

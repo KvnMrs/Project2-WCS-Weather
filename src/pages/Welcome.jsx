@@ -37,12 +37,14 @@ const Welcome = () => {
   }
   //
   // Await Data
+  //
   useEffect(() => {
     (async () => {
       await promisedData();
     })();
   }, []);
   //
+  // Loading Message
   //
   if (data.length > 0) {
     console.log(data);
