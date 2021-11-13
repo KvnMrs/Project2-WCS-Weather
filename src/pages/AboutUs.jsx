@@ -2,6 +2,7 @@
 /* eslint-disable arrow-body-style */
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import UserWelcomemsg from '../components/userWelcomemsg/UserWelcomemsg';
 import './About.css';
 
 // import supabase from '../services/supabaseClient';
@@ -41,6 +42,27 @@ const AboutUs = () => {
             </div>
           </div>
         )}
+      </div>
+
+      <UserWelcomemsg />
+
+      <div className="flex w-80 m-auto">
+        <div className="flex flex-col m-auto bg-white shadow-2xl rounded-xl">
+          <div className="px-6 py-8">
+            <h4 className="mt-4 text-2xl font-semibold text-neutral-600 text-center">
+              About this <span className=""> project </span>
+            </h4>
+            <p className="mt-4 text-base font-normal text-gray-300 leading-relax">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
+              perspiciatis ab eum voluptates eligendi aperiam, eos odit nam.
+              Eius aperiam nemo, voluptatem ea delectus dolores? Adipisci dolor
+              ipsa delectus minima.Lorem ipsum dolor sit amet consectetur
+              adipisicing elit. Voluptas perspiciatis ab eum voluptates eligendi
+              aperiam, eos odit nam. Eius aperiam nemo, voluptatem ea delectus
+              dolores? Adipisci dolor ipsa delectus minima.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
