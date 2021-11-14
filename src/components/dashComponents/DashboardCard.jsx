@@ -42,10 +42,41 @@ export const ForecastCard = ({ day, weather, temperature }) => {
   );
 };
 
-export const AirPollutionCard = ({ element }) => {
+export const AirPollutionCard = ({ airIndice }) => {
   return (
-    <div>
-      {element.aqi} / 5
+    <div className="sm: grid grid-row-span-3 mt-2">
+      <h1 className="text-6xl md:text-7xl">
+        {airIndice.main.aqi}
+        <span className="text-xl">
+        / 5
+        </span>
+      </h1>
+    </div>
+  );
+};
+
+export const AirPollutionCompositionCard = ({ AirComposition }) => {
+  return(
+    <div className="grid-rows-2 sm:pt-9">
+      <h1 className="pt-3">
+        AIR QUALITY
+        <br />
+        <span>Index(A.Q.I)</span>
+      </h1>
+      <div>
+        <p className="pt-7 col-span-2">
+          Carbon monoxyde:
+          <span className="pl-5">
+            {AirComposition.components.co}
+          </span>
+        </p>
+        <p className="pt-5 col-span-2">
+          Fines particules:
+          <span className="pl-5">
+            {AirComposition.components.pm2_5}
+          </span>
+        </p>
+      </div>
     </div>
   );
 };

@@ -1,49 +1,79 @@
 import React from 'react';
 import Smile from '../icones/Smile';
+import {
+  AirPollutionCard,
+  AirPollutionCompositionCard
+} from './DashboardCard';
 
-function DashAirQuality() {
+const DashAirQuality = () => {
+    /**
+   * Definition useState
+   */
+  const [pollution, setPollution] = useState([]);
+  const [lat, setLat] = useState(2);
+  const [long, setLong] = useState(0);
+  let campusCoordonates = [];
+
+  /**
+  * Call API air_pollution of openweathermap -> get air pollution data
+  */
+  async function airPollutionApi() {
+    await axios
+      .get('http://api.openweathermap.org/data/2.5/air_pollution', {
+        params: {
+          lat: lat,
+          lon: long,
+          appid: process.env.REACT_APP_AIR_WEATHER_KEY,
+        },
+      })
+      .then((response) => response.data)
+      .then((data) => {
+        setPollution(data.list[0]);
+        console.console.log(data.list[0]);
+      });
+  }
+    useEffect(() => {
+      airPollutionApi();
+  }, []);
+
+  /**
+  * get user Id from context
+  */
+  const user = supabase.auth.user();
+  const id = user.id;
+
+  /**
+   * Recupération de supabase de la latitude & la longitude
+   * du campus choisi lors du sign up
+   */
+  async function fetchCampus() {
+    const { data: user_campus, error } = await supabase
+      .from('user_campus')
+      .select('latitude , longitude')
+      .eq('user_id', id);
+
+    if (error) {
+      console.log(error);
+      return console.log('error');
+    }
+    return user_campus;
+  }
+  useEffect(async () => {
+    const getCampus = await fetchCampus();
+    campusCoordonates = getCampus;
+    setLat(campusCoordonates[0].latitude);
+    setLong(campusCoordonates[0].longitude);
+  }, []);
+
   return (
     <div className="rounded-lg bg-green-50 h-full">
       <section>
         <div className="container flex flex-col items-center px-5 py-8 mx-auto max-w-7xl sm:px-6 mb-5 lg:px-8">
           <div className="flex flex-col w-full max-w-3xl mx-auto prose text-left prose-blue">
             <div className="grid grid-cols-3 gap-4">
-              <div className="grid-rows-2 sm:pt-9">
-                <h1 className="pt-3">
-                  AIR QUALITY
-                  <br />
-                  <span>Index(A.Q.I)</span>
-                </h1>
-                <div>
-                  <p className="pt-7 col-span-2">
-                    Carbon monoxyde:
-                    <span className="pl-5">
-                      infos
-                    </span>
-                  </p>
-                  <p className="pt-5 col-span-2">
-                    Fines particules:
-                    <span className="pl-5">
-                      infos
-                    </span>
-                  </p>
-                  <p className="pt-5 col-span-2">
-                    Coarse particules:
-                    <span className="pl-5">
-                      infos
-                    </span>
-                  </p>
-                </div>
-              </div>
+              <AirPollutionCompositionCard AirComposition={pollution}/>
               <div className="ml-9">
-                <div className="sm: grid grid-row-span-3 mt-2">
-                  <h1 className="text-6xl md:text-7xl">
-                    1
-                    <span className="text-xl">
-                      /5
-                    </span>
-                  </h1>
-                </div>
+                <AirPollutionCard airIndice={pollution}/>
               </div>
               <div className="grid grid-cols-1 px-7 justify-items-center">
                 <div className="h-auto">
@@ -62,6 +92,6 @@ function DashAirQuality() {
       </section>
     </div>
   );
-}
+};
 
 export default DashAirQuality;
