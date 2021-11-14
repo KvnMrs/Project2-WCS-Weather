@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import UserWelcomemsg from '../components/userWelcomemsg/UserWelcomemsg';
 import './About.css';
+import NavBarDesktop from '../components/navigation_Desktop/NavbarDesktop';
 
 // import supabase from '../services/supabaseClient';
 
@@ -13,7 +14,7 @@ const AboutUs = () => {
 
   return (
     <div>
-      <div className="flex flex-row items-center justify-between lg:justify-start p-4">
+      <div className="flex flex-row items-center justify-between lg:hidden p-4">
         <Link
           href="/Home"
           className="text-lg font-bold tracking-tighter text-wild_red transition duration-500 ease-in-out transform tracking-relaxed"
@@ -44,14 +45,17 @@ const AboutUs = () => {
           </div>
         )}
       </div>
+      
+      <NavBarDesktop />
+      
 
       <UserWelcomemsg />
 
-      <div className="flex w-80 m-auto">
+      <div className="container flex w-full p-5 m-auto">
         <div className="flex flex-col m-auto bg-white shadow-2xl rounded-xl">
           <div className="px-6 py-8">
             <h4 className="mt-4 text-2xl font-semibold text-neutral-600 text-center">
-              About this <span className=""> project </span>
+              About this project{' '}
             </h4>
             <p className="mt-4 text-base font-normal text-gray-300 leading-relax">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
@@ -62,6 +66,118 @@ const AboutUs = () => {
               aperiam, eos odit nam. Eius aperiam nemo, voluptatem ea delectus
               dolores? Adipisci dolor ipsa delectus minima.
             </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="container p-5 mx-auto md:p-20 max-w-7xl">
+        <div className="flex flex-wrap mx-auto md:flex-nowrap">
+          <div className="flex w-full">
+            <div className="relative flex flex-col m-1 p-4 transition duration-300 ease-in-out delay-150 transform bg-white shadow-2xl rounded-xl md:w-80 md:hover:-translate-x-16 md:hover:-translate-y-8">
+              <img
+                className="object-cover object-center w-full rounded-t-xl lg:h-48 md:h-36"
+                src="https://th.bing.com/th/id/OIP.Ghae4OEdb4UmC3hkqpFvLAHaGd?pid=ImgDet&rs=1"
+                alt="blog"
+              />
+              <div className="px-6 py-4">
+                <h4 className="mt-4 text-2xl font-semibold text-neutral-600 text-center">
+                  Camille Hautois
+                </h4>
+                <a>
+                  <img
+                    src="https://th.bing.com/th/id/R.6887faf2095ba8705ceb01787c3f9c93?rik=UJ6IgpvP19ePsA&pid=ImgRaw&r=0"
+                    className="w-16 m-auto mt-4"
+                  />
+                </a>
+                <a>
+                  <img
+                    src="https://loptimisme.pro/wp-content/uploads/2019/08/Logo-LinkedIn-rond-300x300.png"
+                    className="w-10 m-auto mt-4"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex w-full">
+            <div className="relative flex flex-col items-start m-1 p-4 transition duration-300 ease-in-out delay-150 transform bg-white shadow-2xl rounded-xl md:w-80 md:-ml-16 md:hover:-translate-x-16 md:hover:-translate-y-8">
+              <img
+                className="object-cover object-center w-full rounded-t-xl lg:h-48 md:h-36"
+                src="https://th.bing.com/th/id/OIP.Ghae4OEdb4UmC3hkqpFvLAHaGd?pid=ImgDet&rs=1"
+                alt="blog"
+              />
+              <div className="px-6 py-8 m-auto">
+                <h4 className="mt-4 text-2xl font-semibold text-neutral-600 text-center">
+                  Francois Chatelier
+                </h4>
+                <a>
+                  <img
+                    src="https://th.bing.com/th/id/R.6887faf2095ba8705ceb01787c3f9c93?rik=UJ6IgpvP19ePsA&pid=ImgRaw&r=0"
+                    className="w-16 m-auto mt-4"
+                  />
+                </a>
+                <a>
+                  <img
+                    src="https://loptimisme.pro/wp-content/uploads/2019/08/Logo-LinkedIn-rond-300x300.png"
+                    className="w-10 m-auto mt-4"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex w-full">
+            <div className="relative flex flex-col items-start m-1 p-4 transition duration-300 ease-in-out delay-150 transform bg-white shadow-2xl rounded-xl md:w-80 md:-ml-16 md:hover:-translate-x-16 md:hover:-translate-y-8">
+              <img
+                className="object-cover object-center w-full rounded-t-xl lg:h-48 md:h-36"
+                src="https://th.bing.com/th/id/OIP.Ghae4OEdb4UmC3hkqpFvLAHaGd?pid=ImgDet&rs=1"
+                alt="blog"
+              />
+              <div className="px-6 py-8 m-auto">
+                <h4 className="mt-4 text-2xl font-semibold text-neutral-600 text-center">
+                  Robin Beaudru
+                </h4>
+                <a>
+                  <img
+                    src="https://th.bing.com/th/id/R.6887faf2095ba8705ceb01787c3f9c93?rik=UJ6IgpvP19ePsA&pid=ImgRaw&r=0"
+                    className="w-16 m-auto mt-4"
+                  />
+                </a>
+                <a>
+                  <img
+                    src="https://loptimisme.pro/wp-content/uploads/2019/08/Logo-LinkedIn-rond-300x300.png"
+                    className="w-10 m-auto mt-4"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex w-full">
+            <div className="relative flex flex-col items-start m-1 p-4 transition duration-300 ease-in-out delay-150 transform bg-white shadow-2xl rounded-xl md:w-80 md:-ml-16 md:hover:-translate-x-16 md:hover:-translate-y-8">
+              <img
+                className="object-cover object-center w-full rounded-t-xl lg:h-48 md:h-36"
+                src="https://th.bing.com/th/id/OIP.Ghae4OEdb4UmC3hkqpFvLAHaGd?pid=ImgDet&rs=1"
+                alt="blog"
+              />
+              <div className="px-6 py-8 m-auto">
+                <h4 className="mt-4 text-2xl font-semibold text-neutral-600 text-center">
+                  Kévin Marais
+                </h4>
+                <a>
+                  <img
+                    src="https://th.bing.com/th/id/R.6887faf2095ba8705ceb01787c3f9c93?rik=UJ6IgpvP19ePsA&pid=ImgRaw&r=0"
+                    className="w-16 m-auto mt-4"
+                  />
+                </a>
+                <a>
+                  <img
+                    src="https://loptimisme.pro/wp-content/uploads/2019/08/Logo-LinkedIn-rond-300x300.png"
+                    className="w-10 m-auto mt-4"
+                  />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
