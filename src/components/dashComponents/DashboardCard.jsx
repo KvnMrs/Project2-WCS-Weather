@@ -46,17 +46,17 @@ export const AirPollutionCard = ({ airIndice }) => {
   return (
     <div className="sm: grid grid-row-span-3 mt-2">
       <h1 className="text-6xl md:text-7xl">
-        {airIndice.main.aqi}
+        {airIndice.aqi}
         <span className="text-xl">
-        / 5
+          / 5
         </span>
       </h1>
     </div>
   );
 };
 
-export const AirPollutionCompositionCard = ({ AirComposition }) => {
-  return(
+export const AirPollutionCompositionCard = ({ airComposition }) => {
+  return (
     <div className="grid-rows-2 sm:pt-9">
       <h1 className="pt-3">
         AIR QUALITY
@@ -67,13 +67,15 @@ export const AirPollutionCompositionCard = ({ AirComposition }) => {
         <p className="pt-7 col-span-2">
           Carbon monoxyde:
           <span className="pl-5">
-            {AirComposition.components.co}
+            {airComposition.co}
+            μg/m3
           </span>
         </p>
         <p className="pt-5 col-span-2">
-          Fines particules:
+          Coarse particules:
           <span className="pl-5">
-            {AirComposition.components.pm2_5}
+            {airComposition.pm10}
+            μg/m3
           </span>
         </p>
       </div>

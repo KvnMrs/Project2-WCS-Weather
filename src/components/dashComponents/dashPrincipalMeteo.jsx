@@ -44,8 +44,6 @@ const DashMeteo = () => {
       .then((data) => {
         setcurrentWeather(data.current);
         setForecast(data.daily);
-        console.log(data.current);
-        console.log(data.daily);
       });
   }
 
@@ -68,7 +66,6 @@ const DashMeteo = () => {
         );
       }
     }
-    console.log(forcastItem);
     return forcastItem;
   }
 

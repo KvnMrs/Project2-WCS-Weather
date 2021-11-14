@@ -1,14 +1,19 @@
-import React from 'react';
+/* eslint-disable object-shorthand */
+/* eslint-disable camelcase */
+/* eslint-disable prefer-destructuring */
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import supabase from '../../services/supabaseClient';
 import Smile from '../icones/Smile';
 import {
   AirPollutionCard,
-  AirPollutionCompositionCard
+  AirPollutionCompositionCard,
 } from './DashboardCard';
 
 const DashAirQuality = () => {
-    /**
-   * Definition useState
-   */
+/**
+* Definition useState
+*/
   const [pollution, setPollution] = useState([]);
   const [lat, setLat] = useState(2);
   const [long, setLong] = useState(0);
@@ -28,12 +33,12 @@ const DashAirQuality = () => {
       })
       .then((response) => response.data)
       .then((data) => {
-        setPollution(data.list[0]);
-        console.console.log(data.list[0]);
+        setPollution(data.list);
+        console.console.log(data.list);
       });
   }
-    useEffect(() => {
-      airPollutionApi();
+  useEffect(() => {
+    airPollutionApi();
   }, []);
 
   /**
@@ -71,9 +76,15 @@ const DashAirQuality = () => {
         <div className="container flex flex-col items-center px-5 py-8 mx-auto max-w-7xl sm:px-6 mb-5 lg:px-8">
           <div className="flex flex-col w-full max-w-3xl mx-auto prose text-left prose-blue">
             <div className="grid grid-cols-3 gap-4">
-              <AirPollutionCompositionCard AirComposition={pollution}/>
+              {pollution.length > 0
+                ? (
+                  <AirPollutionCompositionCard airComposition={pollution[0].components} />
+                ) : ''}
               <div className="ml-9">
-                <AirPollutionCard airIndice={pollution}/>
+                {pollution.length > 0
+                  ? (
+                    <AirPollutionCard airIndice={pollution[0].main} />
+                  ) : ''}
               </div>
               <div className="grid grid-cols-1 px-7 justify-items-center">
                 <div className="h-auto">

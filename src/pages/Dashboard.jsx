@@ -12,9 +12,6 @@ import DashAirQuality from '../components/dashComponents/DashPrincipalAir';
 import DashMeteo from '../components/dashComponents/DashPrincipalMeteo';
 import GraphiqueAir from '../components/dashComponents/GraphiqueAir';
 import GraphiqueMeteo from '../components/dashComponents/GraphiqueMeteo';
-import {
-  AirPollutionCard,
-} from '../components/dashComponents/DashboardCard';
 import supabase from '../services/supabaseClient';
 import UserWelcomemsg from '../components/userWelcomemsg/UserWelcomemsg';
 import NavBarDesktop from '../components/navigation_Desktop/NavbarDesktop';
@@ -27,29 +24,8 @@ const Dash = () => {
   const id = user.id;
 
   /* Appel API */
-  const [pollution, setPollution] = useState('');
-  const [lat, setLat] = useState(2);
-  const [long, setLong] = useState(0);
   const [campus, setCampus] = useState('');
-  let campusCoordonates = [];
-  useEffect(() => {
-    /**
-     * Call API air_pollution of openweathermap -> get air pollution data
-     */
-    axios
-      .get('http://api.openweathermap.org/data/2.5/air_pollution', {
-        params: {
-          lat: lat,
-          lon: long,
-          appid: process.env.REACT_APP_AIR_WEATHER_KEY,
-        },
-      })
-      .then((response) => response.data)
-      .then((data) => {
-        setPollution(data.list[0].main);
-      });
-  }, []);
-
+  let campusName = [];
   /**
    * Recupération de supabase de la latitude & la longitude
    * du campus choisi lors du sign up
@@ -57,7 +33,7 @@ const Dash = () => {
   async function fetchCampus() {
     const { data: user_campus, error } = await supabase
       .from('user_campus')
-      .select('latitude , longitude, name')
+      .select('name')
       .eq('user_id', id);
 
     if (error) {
@@ -69,10 +45,8 @@ const Dash = () => {
 
   useEffect(async () => {
     const getCampus = await fetchCampus();
-    campusCoordonates = getCampus;
-    setLat(campusCoordonates[0].latitude);
-    setLong(campusCoordonates[0].longitude);
-    setCampus(campusCoordonates[0].name);
+    campusName = getCampus;
+    setCampus(campusName[0].name);
   }, []);
 
   return (
@@ -102,9 +76,6 @@ const Dash = () => {
                   <section className="m-2 p-2 row grid-cols md:grid grid-cols-2 gap-4">
                     <div>
                       <DashAirQuality />
-                      <div className="bg-green-300 w-60 m-auto">
-                        <AirPollutionCard element={pollution} />
-                      </div>
                     </div>
                     <div>
                       <DashMeteo />
