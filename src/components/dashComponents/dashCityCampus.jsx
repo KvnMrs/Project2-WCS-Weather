@@ -11,7 +11,9 @@ function DashCity() {
           <h1 className="flex items-center grid justify-items-center lg:text-start text-2xl">
             Lisbonne
             <br />
-            <span className="text-sm">Portugal</span>
+            <span className="text-sm">
+              Portugal
+            </span>
           </h1>
         </div>
         <div />
@@ -23,7 +25,9 @@ function DashCity() {
                 <div className="mt-14 lg:mt-10 ml-2">
                   <h1 className="text-6xl md:text-7xl">
                     1
-                    <span className="text-xl">/5</span>
+                    <span className="text-xl">
+                      /5
+                    </span>
                   </h1>
                 </div>
               </div>
@@ -37,15 +41,21 @@ function DashCity() {
           <ul className="grid col-span-3 text-xs lg:text-sm">
             <li className="flex justify-between items-end mb-5 mr-1 ml-1 lg:mr-3">
               Carbon monoxyde:
-              <span>infos</span>
+              <span>
+                infos
+              </span>
             </li>
             <li className="flex justify-between items-end mb-5 mr-1 ml-1 lg:mr-3">
               Fines particules:
-              <span>infos</span>
+              <span>
+                infos
+              </span>
             </li>
             <li className="flex justify-between items-end mb-5 mr-1 ml-1 lg:mr-3">
               Coarses particules:
-              <span>infos</span>
+              <span>
+                infos
+              </span>
             </li>
           </ul>
         </div>

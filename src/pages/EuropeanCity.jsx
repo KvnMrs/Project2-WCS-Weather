@@ -9,12 +9,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import DashCity from '../components/dashComponents/DashCityCampus';
-import DashAirQuality from '../components/dashComponents/DashPrincipalAir';
-import DashMeteo from '../components/dashComponents/DashPrincipalMeteo';
-import GraphiqueAir from '../components/dashComponents/GraphiqueAir';
-import GraphiqueMeteo from '../components/dashComponents/GraphiqueMeteo';
-import { AirPollutionCard } from '../components/dashComponents/DashboardCard';
-import supabase from '../services/supabaseClient';
+// import DashAirQuality from '../components/dashComponents/DashPrincipalAir';
+// import DashMeteo from '../components/dashComponents/DashPrincipalMeteo';
+// import GraphiqueAir from '../components/dashComponents/GraphiqueAir';
+// import GraphiqueMeteo from '../components/dashComponents/GraphiqueMeteo';
+// import { AirPollutionCard } from '../components/dashComponents/DashboardCard';
+// import supabase from '../services/supabaseClient';
 import UserWelcomemsg from '../components/userWelcomemsg/UserWelcomemsg';
 import NavBarDesktop from '../components/navigation_Desktop/NavbarDesktop';
 // import EuroCityMap from '../components/EuroCityMap/EuroCityMap'
