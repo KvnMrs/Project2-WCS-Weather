@@ -94,7 +94,7 @@ function NavBarDesktop() {
                       focus:shadow-outline
                       hover:bg-wild_red
                     "
-                    href="#"
+                    href="/dashboard"
                   >
                     {/** LINK FOR CAMPUS CHOOSEN BY USER */}
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -123,7 +123,7 @@ function NavBarDesktop() {
                       focus:shadow-outline
                       hover:bg-wild_red
                     "
-                    href="#"
+                    href="/europeancity"
                   >
                     {/** LINK FOR ALL EUROPEEAN CITIES */}
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -150,7 +150,7 @@ function NavBarDesktop() {
                       focus:shadow-outline
                       hover:bg-wild_red
                     "
-                    href="#"
+                    href="/About"
                   >
                     {/** LINK FOR ABOUT PAGE */}
                     <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
