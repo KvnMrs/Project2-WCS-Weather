@@ -50,7 +50,7 @@ export const ForecastCard = ({ day, weather, temperature }) => {
         <img src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`} alt="weather icon" />
       </div>
       <div>
-        <h2 className="text-center">{`${Math.round(temperature.min)} °C to ${Math.round(temperature.max)} °C`}</h2>
+        <h2 className="text-center">{`${Math.round(temperature.min)}°C to ${Math.round(temperature.max)}°C`}</h2>
       </div>
     </div>
   );

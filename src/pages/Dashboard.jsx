@@ -19,14 +19,18 @@ import NavBarDesktop from '../components/navigation_Desktop/NavbarDesktop';
 
 const Dash = () => {
   /**
+  * Definition useState
+  */
+  const [campus, setCampus] = useState('');
+  let campusCoordonates = [];
+  let campusName = [];
+
+  /**
   * get user Id from context
   */
   const user = supabase.auth.user();
   const id = user.id;
 
-  /* Appel API */
-  const [campus, setCampus] = useState('');
-  let campusName = [];
   /**
    * Recupération de supabase de la latitude & la longitude
    * du campus choisi lors du sign up
@@ -43,12 +47,48 @@ const Dash = () => {
     }
     return user_campus;
   }
-
   useEffect(async () => {
-    const getCampus = await fetchCampus();
-    campusName = getCampus;
+    const getCampusName = await fetchCampus();
+    campusName = getCampusName;
     setCampus(campusName[0].name);
   }, []);
+  /**
+ * Recupération de supabase de la latitude, la longitude, le nom et le pays
+ * des différents campus de la Wild Code School
+ */
+  const fetchAllCampus = async () => {
+    const { data: allCampus, error } = await supabase
+      .from('campus')
+      .select('name, country, latitude , longitude');
+
+    if (error) {
+      console.log(error);
+      return console.log('error');
+    }
+    return allCampus;
+  };
+  useEffect(async () => {
+    const getCampusCoordinate = await fetchAllCampus();
+    campusCoordonates = getCampusCoordinate;
+    wildCity();
+  }, []);
+
+  const wildCity = () => {
+    const cityItems = [];
+    if (campusCoordonates.length > 0) {
+      for (let i = 0; i < campusCoordonates.length; i++) {
+        cityItems.push(
+          <DashCity
+            latitude={campusCoordonates[i].latitude}
+            longitude={campusCoordonates[i].longitude}
+            cityName={campusCoordonates[i].name}
+            country={campusCoordonates[i].country}
+          />
+        );
+      }
+    }
+    return cityItems;
+  }
 
   return (
     <div className="flex h-screen overflow-hidden bg-white rounded-lg">
@@ -71,7 +111,9 @@ const Dash = () => {
                       {campus}
                     </h1>
                     <div className="px-4 max-w-7xl sm:px-6 md:px-8">
-                      <h1 className="text-lg text-neutral-600">France</h1>
+                      <h1 className="text-lg text-neutral-600">
+                        {campus.country}
+                      </h1>
                     </div>
                   </section>
                   <section className="m-2 p-2 row grid-cols md:grid grid-cols-2 gap-4">
@@ -98,20 +140,10 @@ const Dash = () => {
                     <h1 className="text-3xl font-semibold leading-none tracking-tighter text-neutral-600">
                       WCS CAMPUS
                     </h1>
-                    <div className="px-4 max-w-7xl sm:px-6 md:px-8">
-                      <h1 className="text-lg text-neutral-600">in Nantes, France</h1>
-                    </div>
+                    <div className="px-4 max-w-7xl sm:px-6 md:px-8" />
                   </section>
                   <section className="m-2 p-2 row grid-cols md:grid grid-cols-1">
-                    <div>
-                      <DashCity />
-                    </div>
-                    <div>
-                      <DashCity />
-                    </div>
-                    <div>
-                      <DashCity />
-                    </div>
+                    {campusCoordonates.length > 0 ? wildCity() : ''}
                   </section>
                 </div>
               </div>
