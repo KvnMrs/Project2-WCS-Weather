@@ -9,70 +9,18 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import DashCity from '../components/dashComponents/DashCityCampus';
-// import DashAirQuality from '../components/dashComponents/DashPrincipalAir';
-// import DashMeteo from '../components/dashComponents/DashPrincipalMeteo';
-// import GraphiqueAir from '../components/dashComponents/GraphiqueAir';
-// import GraphiqueMeteo from '../components/dashComponents/GraphiqueMeteo';
-// import { AirPollutionCard } from '../components/dashComponents/DashboardCard';
+import DashAirQuality from '../components/dashComponents/DashPrincipalAir';
+import DashMeteo from '../components/dashComponents/DashPrincipalMeteo';
+import GraphiqueAir from '../components/dashComponents/GraphiqueAir';
+import GraphiqueMeteo from '../components/dashComponents/GraphiqueMeteo';
+import { AirPollutionCard } from '../components/dashComponents/DashboardCard';
 import supabase from '../services/supabaseClient';
 import UserWelcomemsg from '../components/userWelcomemsg/UserWelcomemsg';
 import NavBarDesktop from '../components/navigation_Desktop/NavbarDesktop';
+// import EuroCityMap from '../components/EuroCityMap/EuroCityMap'
+import Map from '../components/EuroCityMap/EuroCityMap';
 
 const EuropeanCity = () => {
-  /**
-   * get user Id from context
-   */
-  const user = supabase.auth.user();
-  const id = user.id;
-
-  /* Appel API */
-  const [pollution, setPollution] = useState('');
-  const [lat, setLat] = useState(2);
-  const [long, setLong] = useState(0);
-  const [campus, setCampus] = useState('');
-  let campusCoordonates = [];
-  useEffect(() => {
-    /**
-     * Call API air_pollution of openweathermap -> get air pollution data
-     */
-    axios
-      .get('http://api.openweathermap.org/data/2.5/air_pollution', {
-        params: {
-          lat: lat,
-          lon: long,
-          appid: process.env.REACT_APP_AIR_WEATHER_KEY,
-        },
-      })
-      .then((response) => response.data)
-      .then((data) => {
-        setPollution(data.list[0].main);
-      });
-  }, []);
-
-  /**
-   * Recupération de supabase de la latitude & la longitude
-   * du campus choisi lors du sign up
-   */
-  async function fetchCampus() {
-    const { data: user_campus, error } = await supabase
-      .from('user_campus')
-      .select('latitude , longitude, name')
-      .eq('user_id', id);
-
-    if (error) {
-      console.log(error);
-      return console.log('error');
-    }
-    return user_campus;
-  }
-
-  useEffect(async () => {
-    const getCampus = await fetchCampus();
-    campusCoordonates = getCampus;
-    setLat(campusCoordonates[0].latitude);
-    setLong(campusCoordonates[0].longitude);
-    setCampus(campusCoordonates[0].name);
-  }, []);
 
   return (
     <div className="flex h-screen overflow-hidden bg-white rounded-lg">
@@ -90,8 +38,9 @@ const EuropeanCity = () => {
               <UserWelcomemsg />
               <div className="py-4 pt-4">
                 <div className="rounded-lg bg-gray-50 h-110">
-                  
-                  
+                  <div className="w3/4 h-56 mx-auto mt-4 rounded-lg">
+                    <Map />
+                  </div>
                   {/* CONTENT HERE */}
                 </div>
               </div>
