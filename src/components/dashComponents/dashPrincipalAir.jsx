@@ -1,4 +1,3 @@
-
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable object-shorthand */
 /* eslint-disable camelcase */
@@ -14,8 +13,8 @@ import {
 
 const DashAirQuality = () => {
   /**
-  * Definition useState
-  */
+   * Definition useState
+   */
   const [pollution, setPollution] = useState([]);
   const [lat, setLat] = useState(2);
   const [long, setLong] = useState(0);
@@ -23,10 +22,10 @@ const DashAirQuality = () => {
   let campusCoordonates = [];
 
   /**
-  * Call API air_pollution of openweathermap -> get air pollution data
-  * if (pollution.length > 0) -> this part is to define the background color
-  * according to air pollution indice (aqi)
-  */
+   * Call API air_pollution of openweathermap -> get air pollution data
+   * if (pollution.length > 0) -> this part is to define the background color
+   * according to air pollution indice (aqi)
+   */
   const airPollutionApi = async () => {
     await axios
       .get('http://api.openweathermap.org/data/2.5/air_pollution', {
@@ -58,8 +57,8 @@ const DashAirQuality = () => {
   }, []);
 
   /**
-  * get user Id from context
-  */
+   * get user Id from context
+   */
   const user = supabase.auth.user();
   const id = user.id;
 
@@ -85,29 +84,32 @@ const DashAirQuality = () => {
     setLat(campusCoordonates[0].latitude);
     setLong(campusCoordonates[0].longitude);
   }, []);
-  
+
   return (
     <div className={`rounded-lg ${bgColor} h-full`}>
       <section>
         <div className="container flex flex-col items-center px-5 py-32 mx-auto max-w-7xl sm:px-6 mb-5 lg:px-8">
           <div className="flex flex-col w-full max-w-3xl mx-auto prose text-left prose-blue">
-
             <div className="grid grid-cols-3 gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {pollution.length > 0
-                ? (
-                  <AirPollutionCompositionCard airComposition={pollution[0].components} />
-                ) : ''}
+              {pollution.length > 0 ? (
+                <AirPollutionCompositionCard
+                  airComposition={pollution[0].components}
+                />
+              ) : (
+                ''
+              )}
               <div className="ml-9 sm:ml-7 md:ml-7">
-                {pollution.length > 0
-                  ? (
-                    <AirPollutionCard airIndice={pollution[0].main} />
-                  ) : ''}
-
+                {pollution.length > 0 ? (
+                  <AirPollutionCard airIndice={pollution[0].main} />
+                ) : (
+                  ''
+                )}
               </div>
-              {pollution.length > 0
-                ? (
-                  <AirPollutionIconCard airIndice={pollution[0].main} />
-                ) : ''}
+              {pollution.length > 0 ? (
+                <AirPollutionIconCard airIndice={pollution[0].main} />
+              ) : (
+                ''
+              )}
             </div>
           </div>
         </div>

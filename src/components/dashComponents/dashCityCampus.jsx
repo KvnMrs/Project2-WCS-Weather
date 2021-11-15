@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
-import SmileCampus from './icones_wcsCampus/smile_wcsCampus';
-import { TempToday } from './tempWeek';
+import SmileCampus from './icones_wcsCampus/Smile_wcsCampus';
+import { TempToday } from './TempWeek';
 
 function DashCity() {
   return (
