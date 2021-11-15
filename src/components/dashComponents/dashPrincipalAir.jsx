@@ -1,5 +1,6 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
-import Smile from '../icones/Smile';
+import Smile from '../icones/smile';
 
 function DashAirQuality() {
   return (
@@ -17,31 +18,22 @@ function DashAirQuality() {
                 <div>
                   <p className="pt-7 col-span-2">
                     Carbon monoxyde:
-                    <span className="pl-5">
-                      infos
-                    </span>
+                    <span className="pl-5">infos</span>
                   </p>
                   <p className="pt-5 col-span-2">
                     Fines particules:
-                    <span className="pl-5">
-                      infos
-                    </span>
+                    <span className="pl-5">infos</span>
                   </p>
                   <p className="pt-5 col-span-2">
                     Coarse particules:
-                    <span className="pl-5">
-                      infos
-                    </span>
+                    <span className="pl-5">infos</span>
                   </p>
                 </div>
               </div>
               <div className="ml-9">
                 <div className="sm: grid grid-row-span-3 mt-2">
                   <h1 className="text-6xl md:text-7xl">
-                    1
-                    <span className="text-xl">
-                      /5
-                    </span>
+                    1<span className="text-xl">/5</span>
                   </h1>
                 </div>
               </div>
@@ -52,9 +44,7 @@ function DashAirQuality() {
                     <Smile />
                   </div>
                 </div>
-                <h1 className="sm:m-auto text-2xl md:text-2xl">
-                  GOOD
-                </h1>
+                <h1 className="sm:m-auto text-2xl md:text-2xl">GOOD</h1>
               </div>
             </div>
           </div>
