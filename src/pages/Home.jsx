@@ -29,8 +29,7 @@ const Home = () => {
                     type="button"
                     className="px-4 py-4 bg-wild_red rounded-md font-bold tracking-wider text-white text-sm uppercase mt-8 hover:bg-dark_wild_red transition-all transition-duration-150 ease-in-out"
                   >
-                    {' '}
-                    <Link to="/signUp">Get started</Link>
+                    <Link to="/signup">Get started</Link>
                   </button>
                 </div>
               </div>

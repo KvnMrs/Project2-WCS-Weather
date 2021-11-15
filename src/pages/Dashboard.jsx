@@ -8,19 +8,20 @@
 /* eslint-disable camelcase */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+
 import DashCity from '../components/dashComponents/DashCityCampus';
 import DashAirQuality from '../components/dashComponents/DashPrincipalAir';
 import DashMeteo from '../components/dashComponents/DashPrincipalMeteo';
 import GraphiqueAir from '../components/dashComponents/GraphiqueAir';
 import GraphiqueMeteo from '../components/dashComponents/GraphiqueMeteo';
 import supabase from '../services/supabaseClient';
-import UserWelcomemsg from '../components/userWelcomemsg/UserWelcomemsg';
-import NavBarDesktop from '../components/navigation_Desktop/NavbarDesktop';
+import UserWelcomemsg from '../components/userWelcomemsg/userWelcomemsg';
+import NavBarDesktop from '../components/navigation_Desktop/navbarDesktop';
 
 const Dash = () => {
   /**
-  * get user Id from context
-  */
+   * get user Id from context
+   */
   const user = supabase.auth.user();
   const id = user.id;
 
@@ -99,7 +100,9 @@ const Dash = () => {
                       WCS CAMPUS
                     </h1>
                     <div className="px-4 max-w-7xl sm:px-6 md:px-8">
-                      <h1 className="text-lg text-neutral-600">in Nantes, France</h1>
+                      <h1 className="text-lg text-neutral-600">
+                        in Nantes, France
+                      </h1>
                     </div>
                   </section>
                   <section className="m-2 p-2 row grid-cols md:grid grid-cols-1">
