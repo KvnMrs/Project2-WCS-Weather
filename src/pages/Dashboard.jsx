@@ -14,7 +14,7 @@ import DashMeteo from '../components/dashComponents/DashPrincipalMeteo';
 import GraphiqueAir from '../components/dashComponents/GraphiqueAir';
 import GraphiqueMeteo from '../components/dashComponents/GraphiqueMeteo';
 import supabase from '../services/supabaseClient';
-import UserWelcomemsg from '../components/userWelcomemsg/UserWelcomemsg';
+import UserWelcomemsg from '../components/welcomeComponents/UserWelcomemsg';
 import NavBarDesktop from '../components/navigation_Desktop/NavbarDesktop';
 
 const Dash = () => {

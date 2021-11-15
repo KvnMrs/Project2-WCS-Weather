@@ -3,7 +3,7 @@
 /* eslint-disable */
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import UserWelcomemsg from '../components/userWelcomemsg/UserWelcomemsg';
+import UserWelcomemsg from '../components/welcomeComponents/UserWelcomemsg';
 import './About.css';
 import NavBarDesktop from '../components/navigation_Desktop/NavbarDesktop';
 
@@ -46,7 +46,7 @@ const AboutUs = () => {
         )}
       </div>
       <div>
-        <NavBarDesktop />        
+        <NavBarDesktop />
       </div>
       <div className="flex flex-col flex-1 w-0 lg:overflow-hidden">
         <main className="relative flex-1 overflow-y-auto focus:outline-none">
