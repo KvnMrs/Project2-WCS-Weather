@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable arrow-body-style */
-/* eslint-disable react/jsx-one-expression-per-line */
 
 import React from 'react';
 import Smile from '../icones/Smile';
@@ -23,7 +22,10 @@ export const CurrentWeatherCard = ({ weather, temperature }) => {
           <div className="justify-self-center grid-rows-2 sm:pt-4">
             <img src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`} alt="weather icon" />
           </div>
-          <h2 className="whitespace-nowrap text-center text-3xl md:text-4xl">{Math.round(temperature.temp)} °C</h2>
+          <h2 className="whitespace-nowrap text-center text-3xl md:text-4xl">
+            {Math.round(temperature.temp)}
+            °C
+          </h2>
         </div>
         <br />
       </div>
@@ -112,7 +114,7 @@ export const AirPollutionCompositionCard = ({ airComposition }) => {
  */
 export const AirPollutionIconCard = ({ airIndice }) => {
   const icons = [];
-  if (airIndice.aqi === 1) {
+  if (airIndice.aqi < 2) {
     icons.push(
       <div className="grid grid-rows-1 px-7 md:px-12 lg:px-7 justify-items-center">
         <div className="h-auto self-center">

@@ -17,7 +17,7 @@ const DashAirQuality = () => {
   const [pollution, setPollution] = useState([]);
   const [lat, setLat] = useState(2);
   const [long, setLong] = useState(0);
-  const [bgColor, setBgColor] = useState('bg-green-50');
+  const [bgColor, setBgColor] = useState('');
   let campusCoordonates = [];
 
   /**
@@ -39,7 +39,7 @@ const DashAirQuality = () => {
         setPollution(data.list);
         if (pollution.length > 0) {
           const aqi = pollution[0].main.aqi;
-          if (aqi === 1) {
+          if (aqi < 2) {
             setBgColor('bg-green-50');
           }
           if (aqi > 3) {
@@ -94,7 +94,7 @@ const DashAirQuality = () => {
                 ? (
                   <AirPollutionCompositionCard airComposition={pollution[0].components} />
                 ) : ''}
-              <div className="ml-9 md:ml-7">
+              <div className="ml-9 sm:ml-7 md:ml-7">
                 {pollution.length > 0
                   ? (
                     <AirPollutionCard airIndice={pollution[0].main} />
