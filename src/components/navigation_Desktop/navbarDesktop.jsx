@@ -66,7 +66,7 @@ function NavBarDesktop() {
                       focus:shadow-outline
                       hover:bg-wild_red
                     "
-                    href="#"
+                    href="/dashboard"
                   >
 
                     {/** LINK FOR DASHBOARD */}
