@@ -12,6 +12,7 @@ import AboutUs from './pages/AboutUs';
 import Dash from './pages/Dashboard';
 import './Commun/StyleCommun.css';
 import Charts from './components/HistoryChart/Charts';
+import EuropeanCity from './pages/EuropeanCity';
 
 function App() {
   const location = useLocation();
@@ -44,6 +45,7 @@ function App() {
         <Route exact path="/About" component={AboutUs} />
         <Route path="/dashboard" component={Dash} />
         <Route path="/charts" component={Charts} />
+        <Route path="/europeancity" component={EuropeanCity} />
       </Switch>
     </AnimatePresence>
   );
