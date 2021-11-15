@@ -14,9 +14,9 @@ export const CapitalesFetch = async () => {
     };
     return query;
   });
-  await queries();
-  console.log(queries);
-  return queries();
+  const data = queries;
+  console.log(data);
+  return data;
 };
 
 /* const data = await capitales.map((item) => {
