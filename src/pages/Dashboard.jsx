@@ -16,8 +16,8 @@ import {
   AirPollutionCard,
 } from '../components/dashComponents/DashboardCard';
 import supabase from '../services/supabaseClient';
-import UserWelcomemsg from '../components/userWelcomemsg/UserWelcomemsg';
-import NavBarDesktop from '../components/navigation_Desktop/NavbarDesktop';
+import UserWelcomemsg from '../components/UserWelcomemsg/UserWelcomemsg';
+import NavBarDesktop from '../components/Navigation_Desktop/NavbarDesktop';
 
 const Dash = () => {
   /**

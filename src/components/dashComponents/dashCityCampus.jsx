@@ -1,5 +1,6 @@
+/* eslint-disable */
 import React from 'react';
-import SmileCampus from './icones_wcsCampus/Smile_wcsCampus';
+import SmileCampus from './IconeswcsCampus/Smile_wcsCampus';
 import { TempToday } from './TempWeek';
 
 function DashCity() {
@@ -8,7 +9,7 @@ function DashCity() {
       <div className="grid-rows lg:grid grid-cols-9">
         <div className="m-8 pt-8">
           {/** ALL CITY CAMPUS */}
-          <h1 className="flex items-center grid justify-items-center lg:text-start text-2xl">
+          <h1 className="items-center grid justify-items-center lg:text-start text-2xl">
             Lisbonne
             <br />
             <span className="text-sm">
