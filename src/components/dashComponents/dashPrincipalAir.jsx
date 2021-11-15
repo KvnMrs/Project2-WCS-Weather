@@ -22,7 +22,8 @@ const DashAirQuality = () => {
 
   /**
   * Call API air_pollution of openweathermap -> get air pollution data
-  * if (pollution.length > 0) -> this part is to define the background color according to air pollution indice (aqi)
+  * if (pollution.length > 0) -> this part is to define the background color
+  * according to air pollution indice (aqi)
   */
   const airPollutionApi = async () => {
     await axios
