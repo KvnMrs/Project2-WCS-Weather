@@ -29,7 +29,7 @@ const DashMeteo = () => {
   /**
   * Call API onecall of openweathermap -> get weather data
   */
-  async function oneCallWeatherApi() {
+  const oneCallWeatherApi = async () => {
     await axios
       .get('http://api.openweathermap.org/data/2.5/onecall', {
         params: {
@@ -45,7 +45,7 @@ const DashMeteo = () => {
         setcurrentWeather(data.current);
         setForecast(data.daily);
       });
-  }
+  };
 
   useEffect(() => {
     oneCallWeatherApi();
@@ -53,7 +53,7 @@ const DashMeteo = () => {
   /**
  * Hook to render 3 forecastCard components for 3day weather forecast
  */
-  function forecastDiv() {
+  const forecastDiv = () => {
     const forcastItem = [];
     if (forecast.length > 0) {
       for (let i = 0; i < 3; i++) {
@@ -67,13 +67,13 @@ const DashMeteo = () => {
       }
     }
     return forcastItem;
-  }
+  };
 
   /**
    * Recupération de supabase de la latitude & la longitude
    * du campus choisi lors du sign up
    */
-  async function fetchCampus() {
+  const fetchCampus = async () => {
     const { data: user_campus, error } = await supabase
       .from('user_campus')
       .select('latitude , longitude')
@@ -84,7 +84,7 @@ const DashMeteo = () => {
       return console.log('error');
     }
     return user_campus;
-  }
+  };
   useEffect(async () => {
     const getCampus = await fetchCampus();
     campusCoordonates = getCampus;

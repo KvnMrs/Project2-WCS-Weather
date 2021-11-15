@@ -51,10 +51,10 @@ const Dash = () => {
 
   return (
     <div className="flex h-screen overflow-hidden bg-white rounded-lg">
-    {/** BACKGROUND COLOR FOR NAVBAR DESKTOP */}
+      {/** BACKGROUND COLOR FOR NAVBAR DESKTOP */}
 
-    {/** HERE IS THE NAVBAR DESKTOP VERSION */}
-      <div>
+      {/** HERE IS THE NAVBAR DESKTOP VERSION */}
+      <div className="md:w-40 lg:w-auto">
         <NavBarDesktop />
       </div>
       <div className="flex flex-col flex-1 w-0 overflow-hidden">

@@ -4,25 +4,26 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import supabase from '../../services/supabaseClient';
-import Smile from '../icones/Smile';
 import {
   AirPollutionCard,
   AirPollutionCompositionCard,
+  AirPollutionIconCard,
 } from './DashboardCard';
 
 const DashAirQuality = () => {
-/**
-* Definition useState
-*/
+  /**
+  * Definition useState
+  */
   const [pollution, setPollution] = useState([]);
   const [lat, setLat] = useState(2);
   const [long, setLong] = useState(0);
+  const [bgColor, setBgColor] = useState('bg-green-50');
   let campusCoordonates = [];
 
   /**
   * Call API air_pollution of openweathermap -> get air pollution data
   */
-  async function airPollutionApi() {
+  const airPollutionApi = async () => {
     await axios
       .get('http://api.openweathermap.org/data/2.5/air_pollution', {
         params: {
@@ -34,9 +35,20 @@ const DashAirQuality = () => {
       .then((response) => response.data)
       .then((data) => {
         setPollution(data.list);
-        console.console.log(data.list);
+        if (pollution.length > 0) {
+          const aqi = pollution[0].main.aqi;
+          if (aqi === 1) {
+            setBgColor('bg-green-50');
+          }
+          if (aqi > 3) {
+            setBgColor('bg-red-50');
+          }
+          if (aqi > 1 && aqi < 4) {
+            setBgColor('bg-yellow-50');
+          }
+        }
       });
-  }
+  };
   useEffect(() => {
     airPollutionApi();
   }, []);
@@ -51,7 +63,7 @@ const DashAirQuality = () => {
    * Recupération de supabase de la latitude & la longitude
    * du campus choisi lors du sign up
    */
-  async function fetchCampus() {
+  const fetchCampus = async () => {
     const { data: user_campus, error } = await supabase
       .from('user_campus')
       .select('latitude , longitude')
@@ -62,7 +74,7 @@ const DashAirQuality = () => {
       return console.log('error');
     }
     return user_campus;
-  }
+  };
   useEffect(async () => {
     const getCampus = await fetchCampus();
     campusCoordonates = getCampus;
@@ -71,32 +83,25 @@ const DashAirQuality = () => {
   }, []);
 
   return (
-    <div className="rounded-lg bg-green-50 h-full">
+    <div className={`rounded-lg ${bgColor} h-full`}>
       <section>
-        <div className="container flex flex-col items-center px-5 py-8 mx-auto max-w-7xl sm:px-6 mb-5 lg:px-8">
+        <div className="container flex flex-col items-center px-5 py-32 mx-auto max-w-7xl sm:px-6 mb-5 lg:px-8">
           <div className="flex flex-col w-full max-w-3xl mx-auto prose text-left prose-blue">
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-4 md:grid-cols-2 lg:grid-cols-3">
               {pollution.length > 0
                 ? (
                   <AirPollutionCompositionCard airComposition={pollution[0].components} />
                 ) : ''}
-              <div className="ml-9">
+              <div className="ml-9 md:ml-7">
                 {pollution.length > 0
                   ? (
                     <AirPollutionCard airIndice={pollution[0].main} />
                   ) : ''}
               </div>
-              <div className="grid grid-cols-1 px-7 justify-items-center">
-                <div className="h-auto">
-                  {/** RANDOM EMOJI */}
-                  <div>
-                    <Smile />
-                  </div>
-                </div>
-                <h1 className="sm:m-auto text-2xl md:text-2xl">
-                  GOOD
-                </h1>
-              </div>
+              {pollution.length > 0
+                ? (
+                  <AirPollutionIconCard airIndice={pollution[0].main} />
+                ) : ''}
             </div>
           </div>
         </div>
