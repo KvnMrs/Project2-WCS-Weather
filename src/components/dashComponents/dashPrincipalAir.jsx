@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable object-shorthand */
 /* eslint-disable prefer-destructuring */
 /* eslint-disable react/prop-types */
@@ -11,15 +12,16 @@ import {
 
 const DashAirQuality = ({ campus }) => {
   /**
-  * Definition useState
-  */
+   * Definition useState
+   */
   const [pollution, setPollution] = useState([]);
   const [bgColor, setBgColor] = useState('');
 
-  /** Call API air_pollution of openweathermap -> get air pollution data
-  * if (pollution.length > 0) -> this part is to define the background color
-  * according to air pollution indice (aqi)
-  */
+  /**
+   * Call API air_pollution of openweathermap -> get air pollution data
+   * if (pollution.length > 0) -> this part is to define the background color
+   * according to air pollution indice (aqi)
+   */
   const airPollutionApi = async () => {
     await axios
       .get('http://api.openweathermap.org/data/2.5/air_pollution', {
@@ -55,20 +57,25 @@ const DashAirQuality = ({ campus }) => {
         <div className="container flex flex-col items-center px-5 py-32 mx-auto max-w-7xl sm:px-6 mb-5 lg:px-8">
           <div className="flex flex-col w-full max-w-3xl mx-auto prose text-left prose-blue">
             <div className="grid grid-cols-3 gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {pollution.length > 0
-                ? (
-                  <AirPollutionCompositionCard airComposition={pollution[0].components} />
-                ) : ''}
+              {pollution.length > 0 ? (
+                <AirPollutionCompositionCard
+                  airComposition={pollution[0].components}
+                />
+              ) : (
+                ''
+              )}
               <div className="ml-9 sm:ml-7 md:ml-7">
-                {pollution.length > 0
-                  ? (
-                    <AirPollutionCard airIndice={pollution[0].main} />
-                  ) : ''}
+                {pollution.length > 0 ? (
+                  <AirPollutionCard airIndice={pollution[0].main} />
+                ) : (
+                  ''
+                )}
               </div>
-              {pollution.length > 0
-                ? (
-                  <AirPollutionIconCard airIndice={pollution[0].main} />
-                ) : ''}
+              {pollution.length > 0 ? (
+                <AirPollutionIconCard airIndice={pollution[0].main} />
+              ) : (
+                ''
+              )}
             </div>
           </div>
         </div>

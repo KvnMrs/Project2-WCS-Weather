@@ -20,14 +20,11 @@ const Charts = () => {
 
   return (
     <>
-      <div className="h-full bg-gray-50">
-        History Charts
-        {chartData.length > 0 ? console.log('ChartData = ', chartData) : null}
-        {chartData ? <p>THERE IS DATAAA !</p> : null}
+      <div className="bg-gray-50">
         {chartData ? (
-          <div className="grid grid-cols-1 grid-rows-2">
+          <div className="flex flex-col">
             <AQIchart items={chartData} />
-            <div className="grid grid-cols-2 gap-4 mt-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
               <COchart items={chartData} />
               <PMchart items={chartData} />
             </div>

@@ -16,9 +16,9 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { WelcomeFetchCampus } from '../services/WelcomeFetchCampus/WelcomeFetchItems';
-import WelcomeHeader from '../components/WelcomeHeader/WelcomeHeader';
-import CampusGrid from '../components/WelcomeCampusGrid/CampusGrid';
-import WelcomeLoading from '../components/WelcomeLoading/WelcomeLoading';
+import WelcomeHeader from '../components/welcomeComponents/WelcomeHeader';
+import CampusGrid from '../components/welcomeComponents/CampusGrid';
+import WelcomeLoading from '../components/welcomeComponents/WelcomeLoading';
 
 const Welcome = () => {
   //

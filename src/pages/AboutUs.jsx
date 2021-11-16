@@ -3,6 +3,7 @@
 /* eslint-disable */
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import UserWelcomemsg from '../components/welcomeComponents/UserWelcomemsg';
 import './About.css';
 import UserWelcomemsg from '../components/userWelcomemsg/UserWelcomemsg';
 import NavBarDesktop from '../components/navigation_Desktop/NavbarDesktop';
@@ -86,16 +87,18 @@ const AboutUs = () => {
                       <h4 className="mt-4 text-2xl font-semibold text-neutral-600 text-center">
                         Camille Hautois
                       </h4>
-                      <a href="">
+                      <a href="https://github.com/Camille1993">
                         <img
                           src="https://th.bing.com/th/id/R.6887faf2095ba8705ceb01787c3f9c93?rik=UJ6IgpvP19ePsA&pid=ImgRaw&r=0"
                           className="w-16 m-auto mt-4"
+                          alt="lien github"
                         />
                       </a>
-                      <a href="">
+                      <a href="https://www.linkedin.com/in/camille-hautois-075633146/">
                         <img
                           src="https://loptimisme.pro/wp-content/uploads/2019/08/Logo-LinkedIn-rond-300x300.png"
                           className="w-10 m-auto mt-4"
+                          alt="lien linkedin"
                         />
                       </a>
                     </div>
@@ -111,18 +114,20 @@ const AboutUs = () => {
                     />
                     <div className="px-6 py-8 m-auto">
                       <h4 className="mt-4 text-2xl font-semibold text-neutral-600 text-center">
-                        Francois Chatelier
+                        François Chatelier
                       </h4>
-                      <a href="">
+                      <a href="https://github.com/Francois-Chatelier">
                         <img
                           src="https://th.bing.com/th/id/R.6887faf2095ba8705ceb01787c3f9c93?rik=UJ6IgpvP19ePsA&pid=ImgRaw&r=0"
                           className="w-16 m-auto mt-4"
+                          alt="lien github"
                         />
                       </a>
-                      <a href="">
+                      <a href="https://www.linkedin.com/in/francois-chatelier">
                         <img
                           src="https://loptimisme.pro/wp-content/uploads/2019/08/Logo-LinkedIn-rond-300x300.png"
                           className="w-10 m-auto mt-4"
+                          alt="lien linkedin"
                         />
                       </a>
                     </div>
@@ -140,16 +145,18 @@ const AboutUs = () => {
                       <h4 className="mt-4 text-2xl font-semibold text-neutral-600 text-center">
                         Robin Beaudru
                       </h4>
-                      <a href="">
+                      <a href="https://github.com/robinbdru">
                         <img
                           src="https://th.bing.com/th/id/R.6887faf2095ba8705ceb01787c3f9c93?rik=UJ6IgpvP19ePsA&pid=ImgRaw&r=0"
                           className="w-16 m-auto mt-4"
+                          alt="lien github"
                         />
                       </a>
-                      <a href="">
+                      <a href="https://www.linkedin.com/in/robinbeaudru/">
                         <img
                           src="https://loptimisme.pro/wp-content/uploads/2019/08/Logo-LinkedIn-rond-300x300.png"
                           className="w-10 m-auto mt-4"
+                          alt="lien linkedin"
                         />
                       </a>
                     </div>
@@ -167,16 +174,18 @@ const AboutUs = () => {
                       <h4 className="mt-4 text-2xl font-semibold text-neutral-600 text-center">
                         Kévin Marais
                       </h4>
-                      <a href="">
+                      <a href="https://github.com/KvnMrs">
                         <img
                           src="https://th.bing.com/th/id/R.6887faf2095ba8705ceb01787c3f9c93?rik=UJ6IgpvP19ePsA&pid=ImgRaw&r=0"
                           className="w-16 m-auto mt-4"
+                          alt="lien github"
                         />
                       </a>
-                      <a href="">
+                      <a href="https://www.linkedin.com/in/k%C3%A9vin-marais-861314216/">
                         <img
                           src="https://loptimisme.pro/wp-content/uploads/2019/08/Logo-LinkedIn-rond-300x300.png"
                           className="w-10 m-auto mt-4"
+                          alt="lien linkedin"
                         />
                       </a>
                     </div>
