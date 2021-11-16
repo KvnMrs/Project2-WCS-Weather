@@ -3,7 +3,7 @@
 /* eslint-disable */
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import UserWelcomemsg from '../components/userWelcomemsg/UserWelcomemsg';
+import UserWelcomemsg from '../components/welcomeComponents/UserWelcomemsg';
 import './About.css';
 import NavBarDesktop from '../components/navigation_Desktop/NavbarDesktop';
 
