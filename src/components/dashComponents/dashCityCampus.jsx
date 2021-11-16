@@ -1,11 +1,11 @@
 /* eslint-disable */
 import React from 'react';
 import SmileCampus from './iconesWcsCampus/Smile_wcsCampus';
-import { TempToday } from './TempWeek';
+import { TempToday, TempTomorrow, TempWeek } from './TempWeek';
 
 const DashCity = ({ weather, temperature}) => {
   return (
-    <div className="rounded-lg bg-gray-50 h-100 mb-5 h-400 shadow-sm hover:shadow-md transition-all duration-300 ease-in-out">
+    <div className="rounded-lg bg-white h-100 mb-5 h-400 shadow-sm hover:shadow-md transition-all duration-300 ease-in-out">
       <div className="grid-rows lg:grid grid-cols-9">
         <div className="m-8 pt-8">
           {/** ALL CITY CAMPUS */}
@@ -63,6 +63,8 @@ const DashCity = ({ weather, temperature}) => {
         {/** WEATHER ON 3 DAYS */}
         <div className="grid grid-cols-3 pt-1 lg:col-span-3">
           <TempToday />
+          <TempTomorrow />
+          <TempWeek />
         </div>
       </div>
     </div>
