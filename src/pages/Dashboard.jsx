@@ -5,12 +5,12 @@
 /* eslint-disable object-shorthand */
 /* eslint-disable no-plusplus */
 import React, { useEffect, useState } from 'react';
+import supabase from '../services/supabaseClient';
 import DashCity from '../components/dashComponents/DashCityCampus';
 import DashAirQuality from '../components/dashComponents/DashPrincipalAir';
 import DashMeteo from '../components/dashComponents/DashPrincipalMeteo';
 import GraphiqueAir from '../components/dashComponents/GraphiqueAir';
 import GraphiqueMeteo from '../components/dashComponents/GraphiqueMeteo';
-import supabase from '../services/supabaseClient';
 import UserWelcomemsg from '../components/userWelcomemsg/UserWelcomemsg';
 import NavBarDesktop from '../components/navigation_Desktop/NavbarDesktop';
 
@@ -47,10 +47,11 @@ const Dash = () => {
     const MyCampus = await fetchCampus();
     setCampus(MyCampus);
   }, []);
+
   /**
- * Recupération de supabase de la latitude, la longitude, le nom et le pays
- * des différents campus de la Wild Code School
- */
+  * Recupération de supabase de la latitude, la longitude, le nom et le pays
+  * des différents campus de la Wild Code School
+  */
   const fetchAllCampus = async () => {
     const { data: allCampus, error } = await supabase
       .from('campus')
@@ -100,11 +101,11 @@ const Dash = () => {
                 <div className="rounded-lg bg-gray-50 h-110">
                   <section className="pl-4 pt-8">
                     <h1 className="text-3xl font-semibold leading-none tracking-tighter text-neutral-600">
-                      {campus.name}
+                      {campus[0].name}
                     </h1>
                     <div className="px-4 max-w-7xl sm:px-6 md:px-8">
                       <h1 className="text-lg text-neutral-600">
-                        {campus.country}
+                        {campus[0].country}
                       </h1>
                     </div>
                   </section>
@@ -128,7 +129,6 @@ const Dash = () => {
                       <GraphiqueMeteo />
                     </div>
                   </section>
-                  {/* CONTENT HERE */}
                 </div>
               </div>
               {/* DASHBOARD CAMPUS VILLES */}
