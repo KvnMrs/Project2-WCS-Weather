@@ -33,7 +33,7 @@ function Slider() {
     },
   ];
 
-  return <Carousel autoPlay={3000}>
+  return <Carousel autoPlay={3000} transitionTime={2000}infiniteLoop={true}>
     {datasImg.map(img => (
       <div key={img.id} className="h-80">
         <img className="object-cover object-center mx-auto rounded-lg shadow-2xl" src={img.imgUrl}/>
