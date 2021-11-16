@@ -6,7 +6,7 @@
 /* eslint-disable prefer-destructuring */
 /* eslint-disable object-shorthand */
 /* eslint-disable camelcase */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 
 import DashCity from '../components/dashComponents/DashCityCampus';
@@ -50,6 +50,7 @@ const Dash = () => {
     campusName = getCampus;
     setCampus(campusName[0].name);
   }, []);
+
 
   return (
     <div className="flex h-screen overflow-hidden bg-white rounded-lg">
@@ -105,29 +106,15 @@ const Dash = () => {
                       </h1>
                     </div>
                   </section>
-                  <section className="m-2 p-2 row grid-cols md:grid grid-cols-1">
-                    <div>
+                  <div className="overflow-auto h-72 hide-scrollbar">
                       <DashCity />
-                    </div>
-                    <div>
                       <DashCity />
-                    </div>
-                    <div>
                       <DashCity />
-                    </div>
-                    <div>
                       <DashCity />
-                    </div>
-                    <div>
                       <DashCity />
-                    </div>
-                    <div>
                       <DashCity />
-                    </div>
-                    <div>
                       <DashCity />
-                    </div>
-                  </section>
+                      </div>
                 </div>
               </div>
             </div>
