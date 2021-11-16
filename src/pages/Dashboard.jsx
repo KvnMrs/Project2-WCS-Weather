@@ -1,13 +1,10 @@
-/* eslint-disable */
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/button-has-type */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable no-unused-vars */
 /* eslint-disable prefer-destructuring */
 /* eslint-disable object-shorthand */
-/* eslint-disable camelcase */
+/* eslint-disable no-plusplus */
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import DashCity from '../components/dashComponents/DashCityCampus';
 import DashAirQuality from '../components/dashComponents/DashPrincipalAir';
 import DashMeteo from '../components/dashComponents/DashPrincipalMeteo';
@@ -21,9 +18,8 @@ const Dash = () => {
   /**
   * Definition useState
   */
-  const [campus, setCampus] = useState('');
-  let campusCoordonates = [];
-  let campusName = [];
+  const [campus, setCampus] = useState([]);
+  const [wildCampus, setWildCampus] = useState([]);
 
   /**
   * get user Id from context
@@ -32,25 +28,24 @@ const Dash = () => {
   const id = user.id;
 
   /**
-   * Recupération de supabase de la latitude & la longitude
-   * du campus choisi lors du sign up
+   * Recupération de supabase du nom, du pays, de la latitude
+   * & de la longitude du campus choisi lors du sign up
    */
   async function fetchCampus() {
-    const { data: user_campus, error } = await supabase
+    const { data: userCampus, error } = await supabase
       .from('user_campus')
-      .select('name')
+      .select('name, country, latitude, longitude')
       .eq('user_id', id);
 
     if (error) {
       console.log(error);
       return console.log('error');
     }
-    return user_campus;
+    return userCampus;
   }
   useEffect(async () => {
-    const getCampusName = await fetchCampus();
-    campusName = getCampusName;
-    setCampus(campusName[0].name);
+    const MyCampus = await fetchCampus();
+    setCampus(MyCampus);
   }, []);
   /**
  * Recupération de supabase de la latitude, la longitude, le nom et le pays
@@ -68,27 +63,24 @@ const Dash = () => {
     return allCampus;
   };
   useEffect(async () => {
-    const getCampusCoordinate = await fetchAllCampus();
-    campusCoordonates = getCampusCoordinate;
-    wildCity();
+    const campusWild = await fetchAllCampus();
+    setWildCampus(campusWild);
   }, []);
 
   const wildCity = () => {
-    const cityItems = [];
-    if (campusCoordonates.length > 0) {
-      for (let i = 0; i < campusCoordonates.length; i++) {
-        cityItems.push(
+    const wildCities = [];
+    if (wildCampus.length > 0) {
+      for (let i = 0; i < wildCampus.length; i++) {
+        wildCities.push(
           <DashCity
-            latitude={campusCoordonates[i].latitude}
-            longitude={campusCoordonates[i].longitude}
-            cityName={campusCoordonates[i].name}
-            country={campusCoordonates[i].country}
-          />
+            key={[i]}
+            campus={wildCampus[i]}
+          />,
         );
       }
     }
-    return cityItems;
-  }
+    return wildCities;
+  };
 
   return (
     <div className="flex h-screen overflow-hidden bg-white rounded-lg">
@@ -108,7 +100,7 @@ const Dash = () => {
                 <div className="rounded-lg bg-gray-50 h-110">
                   <section className="pl-4 pt-8">
                     <h1 className="text-3xl font-semibold leading-none tracking-tighter text-neutral-600">
-                      {campus}
+                      {campus.name}
                     </h1>
                     <div className="px-4 max-w-7xl sm:px-6 md:px-8">
                       <h1 className="text-lg text-neutral-600">
@@ -118,10 +110,16 @@ const Dash = () => {
                   </section>
                   <section className="m-2 p-2 row grid-cols md:grid grid-cols-2 gap-4">
                     <div>
-                      <DashAirQuality />
+                      {campus.length > 0
+                        ? (
+                          <DashAirQuality campus={campus[0]} />
+                        ) : ''}
                     </div>
                     <div>
-                      <DashMeteo />
+                      {campus.length > 0
+                        ? (
+                          <DashMeteo campus={campus[0]} />
+                        ) : ''}
                     </div>
                     <div>
                       <GraphiqueAir />
@@ -142,8 +140,8 @@ const Dash = () => {
                     </h1>
                     <div className="px-4 max-w-7xl sm:px-6 md:px-8" />
                   </section>
-                  <section className="m-2 p-2 row grid-cols md:grid grid-cols-1">
-                    {campusCoordonates.length > 0 ? wildCity() : ''}
+                  <section className="m-2 overflow-scroll h-96 p-2 row grid-cols md:grid grid-cols-1">
+                    {wildCity()}
                   </section>
                 </div>
               </div>

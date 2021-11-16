@@ -12,12 +12,7 @@ import {
   AirPollutionIconCard,
 } from './DashboardCard';
 
-const DashCity = ({
-  latitude,
-  longitude,
-  cityName,
-  country,
-}) => {
+const DashCity = ({ campus }) => {
   /**
    * Definition useState
    */
@@ -32,8 +27,8 @@ const DashCity = ({
     await axios
       .get('http://api.openweathermap.org/data/2.5/onecall', {
         params: {
-          lat: { latitude },
-          lon: { longitude },
+          lat: parseFloat(campus.latitude),
+          lon: parseFloat(campus.longitude),
           exclude: 'hourly,minutely',
           appid: process.env.REACT_APP_AIR_WEATHER_KEY,
           units: 'metric',
@@ -48,8 +43,8 @@ const DashCity = ({
     await axios
       .get('http://api.openweathermap.org/data/2.5/air_pollution', {
         params: {
-          lat: { latitude },
-          lon: { longitude },
+          lat: parseFloat(campus.latitude),
+          lon: parseFloat(campus.longitude),
           appid: process.env.REACT_APP_AIR_WEATHER_KEY,
         },
       })
@@ -57,22 +52,21 @@ const DashCity = ({
       .then((data) => {
         setPollution(data.list);
         if (pollution.length > 0) {
-          const aqi = pollution[0].main.aqi;
-          if (aqi < 2) {
+          if (pollution[0].main.aqi < 2) {
             setBgColor('bg-green-50');
           }
-          if (aqi > 3) {
+          if (pollution[0].main.aqi > 3) {
             setBgColor('bg-red-50');
           }
-          if (aqi > 1 && aqi < 4) {
+          if (pollution[0].main.aqi > 1 && pollution[0].main.aqi < 4) {
             setBgColor('bg-yellow-50');
           }
         }
       });
   };
-  useEffect(() => {
-    oneCallWeatherApi();
-    airPollutionApi();
+  useEffect(async () => {
+    await oneCallWeatherApi();
+    await airPollutionApi();
   }, []);
 
   /**
@@ -100,10 +94,10 @@ const DashCity = ({
         <div className="m-8 pt-8">
           {/** ALL CITY CAMPUS */}
           <h1 className="flex items-center grid justify-items-center lg:text-start text-2xl">
-            {cityName}
+            {campus.name}
             <br />
             <span className="text-sm">
-              {country}
+              {campus.country}
             </span>
           </h1>
         </div>
@@ -117,7 +111,7 @@ const DashCity = ({
               ) : ''}
           </div>
           <div className="mt-4 mr-3 pr-4 col-span-2 lg:col-span-2">
-            {/** EMOJI ABOUT TIME */}
+            {/** EMOJI ABOUT AQI */}
             {pollution.length > 0
               ? (
                 <AirPollutionIconCard airIndice={pollution[0].main} />

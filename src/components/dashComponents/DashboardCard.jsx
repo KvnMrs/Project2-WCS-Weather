@@ -65,7 +65,7 @@ export const AirPollutionCard = ({ airIndice }) => {
   return (
     <div className="sm: grid row-span-3 mt-2 md:row-span-2">
       <h1 className="text-6xl md:text-5xl">
-        {airIndice.aqi}
+        {parseFloat(airIndice.aqi)}
         <span className="text-xl">
           / 5
         </span>
@@ -114,33 +114,33 @@ export const AirPollutionCompositionCard = ({ airComposition }) => {
  */
 export const AirPollutionIconCard = ({ airIndice }) => {
   const icons = [];
-  if (airIndice.aqi < 2) {
+  if (parseFloat(airIndice.aqi) < 2) {
     icons.push(
       <div className="grid grid-rows-1 px-7 md:px-12 lg:px-7 justify-items-center">
         <div className="h-auto self-center">
-          <Smile />
+          <Smile key="good" />
         </div>
         <h1 className="sm:m-auto text-2xl md:text-2xl">
           GOOD
         </h1>
       </div>,
     );
-  } if (airIndice.aqi > 3) {
+  } if (parseFloat(airIndice.aqi) > 3) {
     icons.push(
       <div className="grid grid-rows-1 px-7 md:px-12 lg:px-7 justify-items-center">
         <div className="h-auto self-center">
-          <Sad />
+          <Sad key="danger" />
         </div>
         <h1 className="sm:m-auto text-2xl md:text-2xl">
           DANGER
         </h1>
       </div>,
     );
-  } if (airIndice.aqi > 1 && airIndice.aqi < 4) {
+  } if (parseFloat(airIndice.aqi) > 1 && parseFloat(airIndice.aqi) < 4) {
     icons.push(
       <div className="grid grid-rows-1 px-7 md:px-12 lg:px-7 justify-items-center">
         <div className="h-auto self-center">
-          <Neutral />
+          <Neutral key="bad" />
         </div>
         <h1 className="sm:m-auto text-2xl md:text-2xl">
           BAD
