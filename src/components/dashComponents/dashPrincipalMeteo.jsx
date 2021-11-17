@@ -1,40 +1,31 @@
 /* eslint-disable prefer-destructuring */
 /* eslint-disable object-shorthand */
-/* eslint-disable camelcase */
 /* eslint-disable no-plusplus */
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import supabase from '../../services/supabaseClient';
 import {
   CurrentWeatherCard,
   ForecastCard,
 } from './DashboardCard';
 
-const DashMeteo = () => {
-  /**
-  * get user Id from context
-  */
-  const user = supabase.auth.user();
-  const id = user.id;
-
+const DashMeteo = ({ campus }) => {
   /**
    * Definition useState
    */
   const [currentWeather, setcurrentWeather] = useState({ weather: [] });
   const [forecast, setForecast] = useState([]);
-  const [lat, setLat] = useState(2);
-  const [long, setLong] = useState(0);
-  let campusCoordonates = [];
 
   /**
   * Call API onecall of openweathermap -> get weather data
+  * lat & long call by prop campus text in base -> parseFloat to have number
   */
   const oneCallWeatherApi = async () => {
     await axios
       .get('http://api.openweathermap.org/data/2.5/onecall', {
         params: {
-          lat: lat,
-          lon: long,
+          lat: parseFloat(campus.latitude),
+          lon: parseFloat(campus.longitude),
           exclude: 'hourly,minutely',
           appid: process.env.REACT_APP_AIR_WEATHER_KEY,
           units: 'metric',
@@ -59,6 +50,7 @@ const DashMeteo = () => {
       for (let i = 0; i < 3; i++) {
         forcastItem.push(
           <ForecastCard
+            key={[i]}
             day={forecast[i]}
             weather={forecast[i].weather[0]}
             temperature={forecast[i].temp}
@@ -68,29 +60,6 @@ const DashMeteo = () => {
     }
     return forcastItem;
   };
-
-  /**
-   * Recupération de supabase de la latitude & la longitude
-   * du campus choisi lors du sign up
-   */
-  const fetchCampus = async () => {
-    const { data: user_campus, error } = await supabase
-      .from('user_campus')
-      .select('latitude , longitude')
-      .eq('user_id', id);
-
-    if (error) {
-      console.log(error);
-      return console.log('error');
-    }
-    return user_campus;
-  };
-  useEffect(async () => {
-    const getCampus = await fetchCampus();
-    campusCoordonates = getCampus;
-    setLat(campusCoordonates[0].latitude);
-    setLong(campusCoordonates[0].longitude);
-  }, []);
 
   return (
     <div className="rounded-lg bg-white h-full">
