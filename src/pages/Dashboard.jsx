@@ -3,6 +3,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable prefer-destructuring */
 /* eslint-disable object-shorthand */
+/* eslint-disable camelcase */
 /* eslint-disable no-plusplus */
 import React, { useEffect, useState } from 'react';
 import supabase from '../services/supabaseClient';
@@ -140,7 +141,7 @@ const Dash = () => {
                     </h1>
                     <div className="px-4 max-w-7xl sm:px-6 md:px-8" />
                   </section>
-                  <section className="m-2 overflow-scroll h-96 p-2 row grid-cols md:grid grid-cols-1">
+                  <section className="m-2 overflow-scroll h-96 hide-scrollbar p-2 row grid-cols md:grid grid-cols-1">
                     {wildCity()}
                   </section>
                 </div>
