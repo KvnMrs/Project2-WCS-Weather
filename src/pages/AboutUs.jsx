@@ -4,7 +4,7 @@
 import React, { useState } from 'react';
 import UserWelcomemsg from '../components/welcomeComponents/UserWelcomemsg';
 import './About.css';
-import NavBarDesktop from '../components/navigation_Desktop/navbarDesktop';
+import NavBarDesktop from '../components/navigation_Desktop/NavbarDesktop';
 
 const AboutUs = () => {
   const [isOpen, setIsOpen] = useState(false);
