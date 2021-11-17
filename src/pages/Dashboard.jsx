@@ -4,7 +4,6 @@
 /* eslint-disable prefer-destructuring */
 /* eslint-disable object-shorthand */
 /* eslint-disable camelcase */
-/* eslint-disable no-plusplus */
 import React, { useEffect, useState } from 'react';
 import supabase from '../services/supabaseClient';
 import DashCity from '../components/dashComponents/dashCityCampus';
@@ -14,6 +13,7 @@ import Charts from '../components/HistoryChart/Charts';
 import UserWelcomemsg from '../components/welcomeComponents/UserWelcomemsg';
 import NavBarDesktop from '../components/navigationComponents/NavbarDesktop';
 import NavbarMobile from '../components/navigationComponents/NavbarMobile';
+
 
 const Dash = () => {
   /**
@@ -73,8 +73,13 @@ const Dash = () => {
   const wildCity = () => {
     const wildCities = [];
     if (wildCampus.length > 0) {
-      for (let i = 0; i < wildCampus.length; i++) {
-        wildCities.push(<DashCity key={[i]} campus={wildCampus[i]} />);
+      for (let i = 0; i < wildCampus.length; i += 1) {
+        wildCities.push(
+          <DashCity
+            key={[i]}
+            campus={wildCampus[i]}
+          />,
+        );
       }
     }
     return wildCities;
