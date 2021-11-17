@@ -7,9 +7,9 @@
 /* eslint-disable object-shorthand */
 /* eslint-disable camelcase */
 import React, { useEffect, useState } from 'react';
-import DashCity from '../components/dashComponents/dashCityCampus';
+import DashCity from '../components/dashComponents/DashCityCampus';
 import UserWelcomemsg from '../components/welcomeComponents/UserWelcomemsg';
-import NavBarDesktop from '../components/navigation_Desktop/navbarDesktop';
+import NavBarDesktop from '../components/navigation_Desktop/NavbarDesktop';
 // import EuroCityMap from '../components/EuroCityMap/EuroCityMap'
 import Map from '../components/EuroCityMap/EuroCityMap';
 import { capitales } from '../services/CapitalesFetch/CapitalesJSON';
