@@ -12,11 +12,10 @@ import axios from 'axios';
 import DashCity from '../components/dashComponents/DashCityCampus';
 import DashAirQuality from '../components/dashComponents/DashPrincipalAir';
 import DashMeteo from '../components/dashComponents/DashPrincipalMeteo';
-import GraphiqueAir from '../components/dashComponents/GraphiqueAir';
-import GraphiqueMeteo from '../components/dashComponents/GraphiqueMeteo';
 import supabase from '../services/supabaseClient';
 import UserWelcomemsg from '../components/userWelcomemsg/UserWelcomemsg';
 import NavBarDesktop from '../components/navigation_Desktop/NavbarDesktop';
+import Charts from '../components/HistoryChart/Charts';
 
 const Dash = () => {
   /**
@@ -83,13 +82,11 @@ const Dash = () => {
                     <div>
                       <DashMeteo />
                     </div>
-                    <div>
-                      <GraphiqueAir />
-                    </div>
-                    <div>
-                      <GraphiqueMeteo />
-                    </div>
                   </section>
+                    <div className="m-2 p-2 md:grid grid-cols-1">
+                      <Charts />
+                    </div>
+
                   {/* CONTENT HERE */}
                 </div>
               </div>
