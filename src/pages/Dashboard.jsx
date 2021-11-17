@@ -81,7 +81,7 @@ const Dash = () => {
   };
 
   return (
-    <div className="flex h-screen overflow-hidden bg-white rounded-lg">
+    <div className="relative flex h-screen overflow-hidden bg-white rounded-lg">
       {/** BACKGROUND COLOR FOR NAVBAR DESKTOP */}
       <NavbarMobile />
       {/** HERE IS THE NAVBAR DESKTOP VERSION */}

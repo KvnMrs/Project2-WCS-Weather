@@ -42,7 +42,7 @@ function App() {
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/welcome" component={Welcome} />
         <Route exact path="/testapp" component={TestApp} />
-        <Route exact path="/About" component={AboutUs} />
+        <Route exact path="/about" component={AboutUs} />
         <Route path="/dashboard" component={Dash} />
         <Route path="/charts" component={Charts} />
         <Route path="/europeancity" component={EuropeanCity} />
