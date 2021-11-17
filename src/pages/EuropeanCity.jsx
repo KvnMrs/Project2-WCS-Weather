@@ -15,7 +15,7 @@ import DashCity from '../components/dashComponents/DashCityCampus';
 // import GraphiqueMeteo from '../components/dashComponents/GraphiqueMeteo';
 // import { AirPollutionCard } from '../components/dashComponents/DashboardCard';
 // import supabase from '../services/supabaseClient';
-import UserWelcomemsg from '../components/userWelcomemsg/UserWelcomemsg';
+import UserWelcomemsg from '../components/welcomeComponents/UserWelcomemsg';
 import NavBarDesktop from '../components/navigation_Desktop/NavbarDesktop';
 // import EuroCityMap from '../components/EuroCityMap/EuroCityMap'
 import Map from '../components/EuroCityMap/EuroCityMap';
