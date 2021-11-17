@@ -10,7 +10,6 @@ import supabase from '../services/supabaseClient';
 import DashCity from '../components/dashComponents/DashCityCampus';
 import DashAirQuality from '../components/dashComponents/DashPrincipalAir';
 import DashMeteo from '../components/dashComponents/DashPrincipalMeteo';
-import GraphiqueMeteo from '../components/dashComponents/GraphiqueMeteo';
 import UserWelcomemsg from '../components/welcomeComponents/UserWelcomemsg';
 import NavBarDesktop from '../components/navigation_Desktop/NavbarDesktop';
 /* CHARTS ABOUT CITY OF THE USER */
@@ -126,9 +125,6 @@ const Dash = () => {
                     </div>
                     <div>
                       <Charts />
-                    </div>
-                    <div>
-                      <GraphiqueMeteo />
                     </div>
                   </section>
                 </div>
