@@ -192,6 +192,11 @@ const AboutUs = () => {
                 </div>
               </div>
             </div>
+            <p className="text-center">
+            <a href="http://127.0.0.1:5500/src/components/Terms/TermsAndConditions.html" target="_blank" >
+            Terms and Conditions
+            </a>
+            </p>
           </div>
         </main>
       </div>
