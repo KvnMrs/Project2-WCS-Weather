@@ -10,10 +10,10 @@ import supabase from '../services/supabaseClient';
 import DashCity from '../components/dashComponents/dashCityCampus';
 import DashAirQuality from '../components/dashComponents/dashPrincipalAir';
 import DashMeteo from '../components/dashComponents/dashPrincipalMeteo';
-import GraphiqueAir from '../components/dashComponents/GraphiqueAir';
-import GraphiqueMeteo from '../components/dashComponents/GraphiqueMeteo';
+import Charts from '../components/HistoryChart/Charts';
 import UserWelcomemsg from '../components/welcomeComponents/UserWelcomemsg';
 import NavBarDesktop from '../components/navigation_Desktop/navbarDesktop';
+
 
 const Dash = () => {
   /**
@@ -130,13 +130,11 @@ const Dash = () => {
                           <DashMeteo campus={campus[0]} />
                         ) : ''}
                     </div>
-                    <div>
-                      <GraphiqueAir />
-                    </div>
-                    <div>
-                      <GraphiqueMeteo />
-                    </div>
                   </section>
+                    <div className="m-2 p-2 md:grid grid-cols-1">
+                      <Charts />
+                    </div>
+                  {/* CONTENT HERE */}
                 </div>
               </div>
               {/* DASHBOARD CAMPUS VILLES */}
