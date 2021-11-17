@@ -37,6 +37,10 @@ const EuropeanCity = () => {
                   <div className="w3/4 h-96 mx-auto mt-4 rounded-lg">
                     <Map />
                   </div>
+                  <div>
+                  <button type="button" className="">Campus</button>
+                  <button type="button" className="">Capitales</button>
+                  </div>
                   {/* CONTENT HERE */}
                 </div>
               </div>

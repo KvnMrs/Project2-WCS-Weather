@@ -2,7 +2,7 @@ import { capitales } from './CapitalesJSON';
 
 const key = 'ae8db554743a0d9e76dda942a3f3fb05';
 
-export const CapitalesFetch = async () => {
+const CapitalesFetch = async () => {
   const queries = capitales.map((item) => {
     const query = {
       city: item.name,
@@ -15,3 +15,5 @@ export const CapitalesFetch = async () => {
   const data = queries;
   return data;
 };
+
+export default CapitalesFetch;
