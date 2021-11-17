@@ -4,7 +4,7 @@
 import React from 'react';
 import Smile from '../icones/Smile';
 import Sad from '../icones/Sad';
-import Neutral from '../icones/Neutral';
+import Neutral from '../icones/neutral';
 
 /**
  * display current weather card -> description, icon & temperature
