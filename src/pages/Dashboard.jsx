@@ -10,10 +10,11 @@ import supabase from '../services/supabaseClient';
 import DashCity from '../components/dashComponents/DashCityCampus';
 import DashAirQuality from '../components/dashComponents/DashPrincipalAir';
 import DashMeteo from '../components/dashComponents/DashPrincipalMeteo';
-import GraphiqueAir from '../components/dashComponents/GraphiqueAir';
 import GraphiqueMeteo from '../components/dashComponents/GraphiqueMeteo';
 import UserWelcomemsg from '../components/welcomeComponents/UserWelcomemsg';
 import NavBarDesktop from '../components/navigation_Desktop/NavbarDesktop';
+/* CHARTS ABOUT CITY OF THE USER */
+import Charts from '../components/HistoryChart/Charts';
 
 const Dash = () => {
   /**
@@ -124,7 +125,7 @@ const Dash = () => {
                         ) : ''}
                     </div>
                     <div>
-                      <GraphiqueAir />
+                      <Charts />
                     </div>
                     <div>
                       <GraphiqueMeteo />
