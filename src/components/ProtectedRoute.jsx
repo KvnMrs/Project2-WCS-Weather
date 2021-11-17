@@ -5,10 +5,9 @@ import { AuthContext } from '../services/Context';
 const ProtectedRoute = ({ component: Component }) => {
   const { user } = useContext(AuthContext);
   console.log(user);
-  // console.log(component);
 
   return (
-    user.id ? <Component /> : <Redirect to="/" />
+    user ? <Component /> : <Redirect to="/" />
   );
 };
 
