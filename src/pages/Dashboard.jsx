@@ -6,7 +6,7 @@
 /* eslint-disable prefer-destructuring */
 /* eslint-disable object-shorthand */
 /* eslint-disable camelcase */
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import DashCity from '../components/dashComponents/DashCityCampus';
