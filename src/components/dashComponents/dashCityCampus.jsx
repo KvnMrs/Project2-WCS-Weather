@@ -37,6 +37,7 @@ const DashCity = ({ campus }) => {
       .then((response) => response.data)
       .then((data) => {
         setForecast(data.daily);
+        console.log(campus);
       });
   };
   const airPollutionApi = async () => {
@@ -94,15 +95,21 @@ const DashCity = ({ campus }) => {
         <div className="m-8 pt-8">
           {/** ALL CITY CAMPUS */}
           <h1 className="flex items-center grid justify-items-center lg:text-start text-2xl">
-            {campus.name}
+            {campus !== undefined
+              ? (
+                campus.name
+              ) : ''}
             <br />
             <span className="text-sm">
-              {campus.country}
+              {campus !== undefined
+                ? (
+                  campus.country
+                ) : ''}
             </span>
           </h1>
         </div>
         <div />
-        <div className={`${bgColor} h-full  grid-cols-6 grid col-span-4 content-center`}>
+        <div className={`${bgColor} h-full  grid-cols-5 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-6 grid col-span-4 content-center`}>
           <div className="self-center">
             {/** INDEX */}
             {pollution.length > 0
