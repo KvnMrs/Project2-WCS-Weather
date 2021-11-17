@@ -1,6 +1,4 @@
-/* eslint-disable no-shadow */
-/* eslint-disable react/prop-types */
-/* eslint-disable object-curly-newline */
+/* eslint-disable */
 import React, { useContext, useState, useEffect, createContext } from 'react';
 import supabase from './supabaseClient';
 

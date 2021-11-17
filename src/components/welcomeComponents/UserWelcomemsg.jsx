@@ -21,7 +21,7 @@ const UserWelcomemsg = () => {
   return (
     <div>
       <section className="grid grid-rows-1 grid-cols-2">
-        <h1 className=" text-center lg:text-left text-3xl font-semibold leading-none tracking-tighter text-neutral-600 pl-2 pt-5">
+        <h1 className=" text-center mt-12 sm:mt-0 sm:text-left text-3xl font-semibold leading-none tracking-tighter text-neutral-600 pl-2 pt-5">
           Hello, Wilder !
         </h1>
         <button type="submit" onClick={handleSingout} className="bg-wild_red hover:bg-dark_wild_red rounded-lg text-white w-24 h-8 justify-self-end self-center">log out</button>
