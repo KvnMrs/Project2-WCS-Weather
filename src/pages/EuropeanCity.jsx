@@ -1,31 +1,18 @@
 /* eslint-disable */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/button-has-type */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable no-unused-vars */
-/* eslint-disable prefer-destructuring */
-/* eslint-disable object-shorthand */
-/* eslint-disable camelcase */
 import React, { useEffect, useState } from 'react';
 import DashCity from '../components/dashComponents/dashCityCampus';
 import UserWelcomemsg from '../components/welcomeComponents/UserWelcomemsg';
-import NavBarDesktop from '../components/navigation_Desktop/NavbarDesktop';
-// import EuroCityMap from '../components/EuroCityMap/EuroCityMap'
+import NavBarDesktop from '../components/navigationComponents/NavbarDesktop';
 import Map from '../components/EuroCityMap/EuroCityMap';
 import { capitales } from '../services/CapitalesFetch/CapitalesJSON';
+import NavbarMobile from '../components/navigationComponents/NavbarMobile';
 
 const EuropeanCity = () => {
-
   const EuropeanCapital = () => {
     const EuropeanCapitals = [];
     if (capitales.length > 0) {
       for (let i = 0; i < capitales.length; i++) {
-        EuropeanCapitals.push(
-          <DashCity
-            key={[i]}
-            campus={capitales[i]}
-          />,
-        );
+        EuropeanCapitals.push(<DashCity key={[i]} campus={capitales[i]} />);
       }
     }
     return EuropeanCapitals;
@@ -34,7 +21,7 @@ const EuropeanCity = () => {
   return (
     <div className=" flex h-screen overflow-hidden bg-white rounded-lg">
       {/** BACKGROUND COLOR FOR NAVBAR DESKTOP */}
-
+      <NavbarMobile />
       {/** HERE IS THE NAVBAR DESKTOP VERSION */}
       <div>
         <NavBarDesktop />

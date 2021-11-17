@@ -4,8 +4,8 @@ import React from 'react';
 
 function NavBarDesktop() {
   return (
-    <div className="hidden md:flex md:flex-shrink-0">
-      <div className="flex flex-col w-64">
+    <div className="hidden sm:flex sm:flex-shrink-0">
+      <div className="flex flex-col sm:w-60 md:w-64">
         <div
           className="
             flex flex-col flex-grow

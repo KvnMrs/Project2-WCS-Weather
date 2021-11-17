@@ -12,7 +12,8 @@ import DashAirQuality from '../components/dashComponents/dashPrincipalAir';
 import DashMeteo from '../components/dashComponents/dashPrincipalMeteo';
 import Charts from '../components/HistoryChart/Charts';
 import UserWelcomemsg from '../components/welcomeComponents/UserWelcomemsg';
-import NavBarDesktop from '../components/navigation_Desktop/NavbarDesktop';
+import NavBarDesktop from '../components/navigationComponents/NavbarDesktop';
+import NavbarMobile from '../components/navigationComponents/NavbarMobile';
 
 const Dash = () => {
   /**
@@ -82,7 +83,7 @@ const Dash = () => {
   return (
     <div className="flex h-screen overflow-hidden bg-white rounded-lg">
       {/** BACKGROUND COLOR FOR NAVBAR DESKTOP */}
-
+      <NavbarMobile />
       {/** HERE IS THE NAVBAR DESKTOP VERSION */}
       <div className="md:w-40 lg:w-auto">
         <NavBarDesktop />
