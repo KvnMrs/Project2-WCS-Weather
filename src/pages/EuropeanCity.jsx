@@ -1,12 +1,10 @@
-/* eslint-disable */
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/button-has-type */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable no-unused-vars */
 /* eslint-disable prefer-destructuring */
 /* eslint-disable object-shorthand */
 /* eslint-disable camelcase */
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import DashCity from '../components/dashComponents/dashCityCampus';
 import UserWelcomemsg from '../components/welcomeComponents/UserWelcomemsg';
 import NavBarDesktop from '../components/navigation_Desktop/navbarDesktop';
@@ -15,11 +13,10 @@ import Map from '../components/EuroCityMap/EuroCityMap';
 import { capitales } from '../services/CapitalesFetch/CapitalesJSON';
 
 const EuropeanCity = () => {
-
   const EuropeanCapital = () => {
     const EuropeanCapitals = [];
     if (capitales.length > 0) {
-      for (let i = 0; i < capitales.length; i++) {
+      for (let i = 0; i < capitales.length; i += 1) {
         EuropeanCapitals.push(
           <DashCity
             key={[i]}

@@ -14,7 +14,6 @@ import Charts from '../components/HistoryChart/Charts';
 import UserWelcomemsg from '../components/welcomeComponents/UserWelcomemsg';
 import NavBarDesktop from '../components/navigation_Desktop/navbarDesktop';
 
-
 const Dash = () => {
   /**
   * Definition useState
@@ -73,7 +72,7 @@ const Dash = () => {
   const wildCity = () => {
     const wildCities = [];
     if (wildCampus.length > 0) {
-      for (let i = 0; i < wildCampus.length; i++) {
+      for (let i = 0; i < wildCampus.length; i += 1) {
         wildCities.push(
           <DashCity
             key={[i]}
@@ -131,9 +130,9 @@ const Dash = () => {
                         ) : ''}
                     </div>
                   </section>
-                    <div className="m-2 p-2 md:grid grid-cols-1">
-                      <Charts />
-                    </div>
+                  <div className="m-2 p-2 md:grid grid-cols-1">
+                    <Charts />
+                  </div>
                   {/* CONTENT HERE */}
                 </div>
               </div>

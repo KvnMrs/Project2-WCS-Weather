@@ -5,7 +5,7 @@ import React, { useContext, useState, useEffect, createContext } from 'react';
 import supabase from './supabaseClient';
 
 // Create context for Auth
-const AuthContext = createContext();
+export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   // Create state values for user data and loading

@@ -7,12 +7,11 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Welcome from './pages/Welcome';
-import TestApp from './pages/TestApp';
 import AboutUs from './pages/AboutUs';
 import Dash from './pages/Dashboard';
 import './Commun/StyleCommun.css';
-import Charts from './components/HistoryChart/Charts';
 import EuropeanCity from './pages/EuropeanCity';
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
   const location = useLocation();
@@ -40,12 +39,10 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
-        <Route exact path="/welcome" component={Welcome} />
-        <Route exact path="/testapp" component={TestApp} />
-        <Route exact path="/About" component={AboutUs} />
-        <Route path="/dashboard" component={Dash} />
-        <Route path="/charts" component={Charts} />
-        <Route path="/europeancity" component={EuropeanCity} />
+        <ProtectedRoute exact path="/welcome" component={Welcome} />
+        <ProtectedRoute exact path="/About" component={AboutUs} />
+        <ProtectedRoute exact path="/dashboard" component={Dash} />
+        <ProtectedRoute exact path="/europeancity" component={EuropeanCity} />
       </Switch>
     </AnimatePresence>
   );
