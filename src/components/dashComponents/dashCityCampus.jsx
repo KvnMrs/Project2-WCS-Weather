@@ -76,7 +76,7 @@ const DashCity = ({ campus }) => {
   const forecastDiv = () => {
     const forcastItem = [];
     if (forecast.length > 0) {
-      for (let i = 0; i < 3; i++) {
+      for (let i = 0; i < 3; i += 1) {
         forcastItem.push(
           <ForecastCard
             day={forecast[i]}
@@ -109,7 +109,7 @@ const DashCity = ({ campus }) => {
           </h1>
         </div>
         <div />
-        <div className={`${bgColor} h-full  grid-cols-5 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-6 grid col-span-4 content-center`}>
+        <div className={`${bgColor} h-full  grid-cols-4 xl:grid-cols-6 grid col-span-4 content-center`}>
           <div className="self-center">
             {/** INDEX */}
             {pollution.length > 0
