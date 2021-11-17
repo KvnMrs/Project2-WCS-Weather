@@ -56,7 +56,7 @@ const DashAirQuality = ({ campus }) => {
       <section>
         <div className="container flex flex-col items-center px-5 py-32 mx-auto max-w-7xl sm:px-6 mb-5 lg:px-8">
           <div className="flex flex-col w-full max-w-3xl mx-auto prose text-left prose-blue">
-            <div className="grid grid-cols-3 gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-2 gap-4 xl:grid-cols-3">
               {pollution.length > 0 ? (
                 <AirPollutionCompositionCard
                   airComposition={pollution[0].components}
