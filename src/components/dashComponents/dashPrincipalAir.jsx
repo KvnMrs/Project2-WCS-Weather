@@ -1,25 +1,21 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable object-shorthand */
-/* eslint-disable camelcase */
 /* eslint-disable prefer-destructuring */
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import supabase from '../../services/supabaseClient';
 import {
   AirPollutionCard,
   AirPollutionCompositionCard,
   AirPollutionIconCard,
 } from './DashboardCard';
 
-const DashAirQuality = () => {
+const DashAirQuality = ({ campus }) => {
   /**
    * Definition useState
    */
   const [pollution, setPollution] = useState([]);
-  const [lat, setLat] = useState(2);
-  const [long, setLong] = useState(0);
   const [bgColor, setBgColor] = useState('');
-  let campusCoordonates = [];
 
   /**
    * Call API air_pollution of openweathermap -> get air pollution data
@@ -30,59 +26,29 @@ const DashAirQuality = () => {
     await axios
       .get('http://api.openweathermap.org/data/2.5/air_pollution', {
         params: {
-          lat: lat,
-          lon: long,
+          lat: parseFloat(campus.latitude),
+          lon: parseFloat(campus.longitude),
           appid: process.env.REACT_APP_AIR_WEATHER_KEY,
         },
       })
       .then((response) => response.data)
       .then((data) => {
         setPollution(data.list);
-        if (pollution.length > 0) {
-          const aqi = pollution[0].main.aqi;
-          if (aqi < 2) {
-            setBgColor('bg-green-50');
-          }
-          if (aqi > 3) {
-            setBgColor('bg-red-50');
-          }
-          if (aqi > 1 && aqi < 4) {
-            setBgColor('bg-yellow-50');
-          }
-        }
       });
   };
   useEffect(() => {
     airPollutionApi();
-  }, []);
-
-  /**
-   * get user Id from context
-   */
-  const user = supabase.auth.user();
-  const id = user.id;
-
-  /**
-   * Recupération de supabase de la latitude & la longitude
-   * du campus choisi lors du sign up
-   */
-  const fetchCampus = async () => {
-    const { data: user_campus, error } = await supabase
-      .from('user_campus')
-      .select('latitude , longitude')
-      .eq('user_id', id);
-
-    if (error) {
-      console.log(error);
-      return console.log('error');
+    if (pollution.length > 0) {
+      if (pollution[0].main.aqi > 1 && pollution[0].main.aqi < 4) {
+        setBgColor('bg-yellow-50');
+      }
+      if (pollution[0].main.aqi < 2) {
+        setBgColor('bg-green-50');
+      }
+      if (pollution[0].main.aqi > 3) {
+        setBgColor('bg-red-50');
+      }
     }
-    return user_campus;
-  };
-  useEffect(async () => {
-    const getCampus = await fetchCampus();
-    campusCoordonates = getCampus;
-    setLat(campusCoordonates[0].latitude);
-    setLong(campusCoordonates[0].longitude);
   }, []);
 
   return (
@@ -90,7 +56,7 @@ const DashAirQuality = () => {
       <section>
         <div className="container flex flex-col items-center px-5 py-32 mx-auto max-w-7xl sm:px-6 mb-5 lg:px-8">
           <div className="flex flex-col w-full max-w-3xl mx-auto prose text-left prose-blue">
-            <div className="grid grid-cols-3 gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-2 gap-4 xl:grid-cols-3">
               {pollution.length > 0 ? (
                 <AirPollutionCompositionCard
                   airComposition={pollution[0].components}

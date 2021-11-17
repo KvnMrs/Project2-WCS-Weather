@@ -1,7 +1,10 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable arrow-body-style */
+/* eslint-disable */
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Slider from '../components/HomeComponents/Slider';
+
 // import supabase from '../services/supabaseClient';
 
 const Home = () => {
@@ -51,11 +54,12 @@ const Home = () => {
                 <div className="absolute top-0 rounded-full bg-violet-300 -left-4 w-72 h-72 mix-blend-multiply filter blur-xl opacity-70 animate-blob" />
                 <div className="absolute rounded-full bg-fuchsia-300 -bottom-24 right-20 w-72 h-72 mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000" />
                 <div className="relative">
-                  <img
+                  {/* <img
                     className="object-cover object-center mx-auto rounded-lg shadow-2xl"
                     alt="hero"
                     src="https://www.fodors.com/wp-content/uploads/2018/10/HERO_UltimateParis_Heroshutterstock_112137761.jpg"
-                  />
+                  /> */}
+                  <Slider />
                 </div>
               </div>
             </div>

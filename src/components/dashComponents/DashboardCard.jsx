@@ -4,7 +4,7 @@
 import React from 'react';
 import Smile from '../icones/Smile';
 import Sad from '../icones/Sad';
-import Neutral from '../icones/Neutral';
+import Neutral from '../icones/neutral';
 
 /**
  * display current weather card -> description, icon & temperature
@@ -46,11 +46,11 @@ export const ForecastCard = ({ day, weather, temperature }) => {
           {(new Date(day.dt * 1000).toLocaleDateString('en-US', { weekday: 'short' }))}
         </h2>
       </div>
-      <div className="justify-self-center grid-rows-2 sm:pt-6">
+      <div className="justify-self-center grid-rows-2 h-28 w-24 sm:pt-6 md:pt-2">
         <img src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`} alt="weather icon" />
       </div>
       <div>
-        <h2 className="text-center">{`${Math.round(temperature.min)} °C to ${Math.round(temperature.max)} °C`}</h2>
+        <h2 className="text-center">{`${Math.round(temperature.min)}°C to ${Math.round(temperature.max)}°C`}</h2>
       </div>
     </div>
   );
@@ -65,7 +65,7 @@ export const AirPollutionCard = ({ airIndice }) => {
   return (
     <div className="sm: grid row-span-3 mt-2 md:row-span-2">
       <h1 className="text-6xl md:text-5xl">
-        {airIndice.aqi}
+        {parseFloat(airIndice.aqi)}
         <span className="text-xl">
           / 5
         </span>
@@ -114,33 +114,33 @@ export const AirPollutionCompositionCard = ({ airComposition }) => {
  */
 export const AirPollutionIconCard = ({ airIndice }) => {
   const icons = [];
-  if (airIndice.aqi < 2) {
+  if (parseFloat(airIndice.aqi) < 2) {
     icons.push(
       <div className="grid grid-rows-1 px-7 md:px-12 lg:px-7 justify-items-center">
         <div className="h-auto self-center">
-          <Smile />
+          <Smile key="good" />
         </div>
         <h1 className="sm:m-auto text-2xl md:text-2xl">
           GOOD
         </h1>
       </div>,
     );
-  } if (airIndice.aqi > 3) {
+  } if (parseFloat(airIndice.aqi) > 3) {
     icons.push(
       <div className="grid grid-rows-1 px-7 md:px-12 lg:px-7 justify-items-center">
         <div className="h-auto self-center">
-          <Sad />
+          <Sad key="danger" />
         </div>
         <h1 className="sm:m-auto text-2xl md:text-2xl">
           DANGER
         </h1>
       </div>,
     );
-  } if (airIndice.aqi > 1 && airIndice.aqi < 4) {
+  } if (parseFloat(airIndice.aqi) > 1 && parseFloat(airIndice.aqi) < 4) {
     icons.push(
       <div className="grid grid-rows-1 px-7 md:px-12 lg:px-7 justify-items-center">
         <div className="h-auto self-center">
-          <Neutral />
+          <Neutral key="bad" />
         </div>
         <h1 className="sm:m-auto text-2xl md:text-2xl">
           BAD
