@@ -32,7 +32,7 @@ const EuropeanCity = () => {
   };
 
   return (
-    <div className="flex h-screen overflow-hidden bg-white rounded-lg">
+    <div className=" flex h-screen overflow-hidden bg-white rounded-lg">
       {/** BACKGROUND COLOR FOR NAVBAR DESKTOP */}
 
       {/** HERE IS THE NAVBAR DESKTOP VERSION */}
