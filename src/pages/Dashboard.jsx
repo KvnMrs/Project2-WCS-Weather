@@ -6,14 +6,13 @@
 /* eslint-disable camelcase */
 import React, { useEffect, useState } from 'react';
 import supabase from '../services/supabaseClient';
-import DashCity from '../components/dashComponents/dashCityCampus';
-import DashAirQuality from '../components/dashComponents/dashPrincipalAir';
-import DashMeteo from '../components/dashComponents/dashPrincipalMeteo';
+import DashCity from '../components/dashComponents/DashCityCampus';
+import DashAirQuality from '../components/dashComponents/DashPrincipalAir';
+import DashMeteo from '../components/dashComponents/DashPrincipalMeteo';
 import Charts from '../components/HistoryChart/Charts';
 import UserWelcomemsg from '../components/welcomeComponents/UserWelcomemsg';
 import NavBarDesktop from '../components/navigationComponents/NavbarDesktop';
 import NavbarMobile from '../components/navigationComponents/NavbarMobile';
-
 
 const Dash = () => {
   /**
