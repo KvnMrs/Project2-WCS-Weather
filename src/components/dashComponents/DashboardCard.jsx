@@ -4,7 +4,7 @@
 import React from 'react';
 import Smile from '../icones/Smile';
 import Sad from '../icones/Sad';
-import Neutral from '../icones/Neutral';
+import Neutral from '../icones/neutral';
 
 /**
  * display current weather card -> description, icon & temperature
@@ -46,7 +46,7 @@ export const ForecastCard = ({ day, weather, temperature }) => {
           {(new Date(day.dt * 1000).toLocaleDateString('en-US', { weekday: 'short' }))}
         </h2>
       </div>
-      <div className="justify-self-center grid-rows-2 sm:pt-6">
+      <div className="justify-self-center grid-rows-2 h-28 w-24 sm:pt-6 md:pt-2">
         <img src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`} alt="weather icon" />
       </div>
       <div>
