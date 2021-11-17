@@ -105,6 +105,11 @@ const Signup = () => {
                 We promise not to sell your datas.
               </span>
             </label>
+            <p className="text-xs pt-4 text-gray-500">
+              <a href="http://127.0.0.1:5500/src/components/Terms/TermsAndConditions.html" target="blank" rel="noreferer">
+                Terms and Conditions
+              </a>
+            </p>
             <button
               type="submit"
               className="px-4 py-4 bg-wild_red rounded-md font-bold tracking-wider text-white text-sm uppercase mt-8 hover:bg-dark_wild_red transition-all transition-duration-150 ease-in-out"
@@ -131,10 +136,6 @@ const Signup = () => {
           style={{ backgroundImage: url + background }}
         />
       </div>
-      <div
-        className="hidden h-full bg-cover bg-center lg:flex lg:flex-col lg:h-screen"
-        style={{ backgroundImage: url + background }}
-      />
     </motion.div>
   );
 };
