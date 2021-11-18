@@ -29,21 +29,21 @@ const EuropeanCity = () => {
     })();
   }, []);
   return (
-    <div className=" flex h-screen overflow-hidden bg-white rounded-lg">
+    <div className=" flex h-screen overflow-hidden rounded-lg">
       {/** BACKGROUND COLOR FOR NAVBAR DESKTOP */}
       <NavbarMobile />
       {/** HERE IS THE NAVBAR DESKTOP VERSION */}
       <div>
         <NavBarDesktop />
       </div>
-      <div className="flex flex-col flex-1 w-0 overflow-hidden">
+      <div className="bg-gray-100 flex flex-col flex-1 w-0 overflow-hidden">
         <main className="relative flex-1 overflow-y-auto focus:outline-none">
           <div className="py-6">
             <div className="px-4 mx-auto max-w-7xl sm:px-6 md:px-8">
               {/* WELCOME MESSAGE WITH THE NAME OF THE USER */}
               <UserWelcomemsg />
               <div className="py-4 pt-4">
-                <div className="rounded-lg bg-gray-50 h-110">
+                <div className="rounded-lg bg-gray-100 h-110">
                   <div className="w3/4 h-96 mx-auto mt-4 rounded-lg">
                     <Map
                       capitales={cityCapitales}
@@ -56,16 +56,16 @@ const EuropeanCity = () => {
                     <button
                       onClick={() => setShowCampus(!showCampus)}
                       type="button"
-                      className=""
+                      className="mr-4 px-4 py-4 bg-red-300 rounded-md font-bold tracking-wider text-white text-sm uppercase mt-8 hover:bg-wild_red transition-all transition-duration-150 ease-in-out"
                     >
                       Campus
                     </button>
                     <button
                       onClick={() => setShowCapitales(!showCapitales)}
                       type="button"
-                      className=""
+                      className="mr-4 px-4 py-4 bg-blue-300 rounded-md font-bold tracking-wider text-white text-sm uppercase mt-8 hover:bg-blue-600 transition-all transition-duration-150 ease-in-out"
                     >
-                      Capitales
+                      Capitals
                     </button>
                   </div>
                   {/* CONTENT HERE */}
