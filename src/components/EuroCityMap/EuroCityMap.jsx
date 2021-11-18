@@ -1,29 +1,15 @@
 /* eslint-disable */
 
 // import * as React from 'react';
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactMapGL, { MapContext } from 'react-map-gl';
-import { WelcomeFetchCampus } from '../../services/WelcomeFetchCampus/WelcomeFetchItems';
 // import 'mapbox-gl/dist/mapbox-gl.css';
-
-// import markerSVG from './marker.svg';
+// import { capitales } from '../../services/CapitalesFetch/CapitalesJSON';
+import markerSVG from './marker.svg';
 import markerCampus from './markerCampus.png';
 
-
-const CampusPopup = (props) => {
-  const { isVisible, campus } = props;
-  return (
-    <div style={{ display: isVisible ? 'block' : 'none' }}>
-      <p>{campus.name}</p>
-      <img src={campus.imageUrl} />
-    </div>
-  );
-};
-
 function CampusMarker(props) {
-  const [showPopup, setShowPopup] = React.useState(false);
   const context = React.useContext(MapContext);
-
   const { longitude, latitude } = props.campus;
 
   const [x, y] = context.viewport.project([
@@ -39,21 +25,42 @@ function CampusMarker(props) {
     marginLeft: -20 / 2,
     marginTop: -15,
   };
-  const handleClick = () => {
-    setShowPopup(!showPopup);
-  };
 
   return (
-    <div style={markerStyle} onClick={handleClick}>
+    <div style={markerStyle}>
       {/* <CampusPopup campus={props.campus} isVisible = {showPopup}/> */}
       <img src={markerCampus} style={{ width: 20 }}></img>
     </div>
   );
 }
 
-function Map() {
-  const [loaded, setLoaded] = useState(false);
-  const [data, setData] = useState([]);
+function CapitaleMarker(props) {
+  const context = React.useContext(MapContext);
+  const { longitude, latitude } = props.capitale;
+  const [x, y] = context.viewport.project([
+    Number(longitude),
+    Number(latitude),
+  ]);
+
+  const markerStyle = {
+    position: 'absolute',
+    // background: '#fff',
+    left: x,
+    top: y,
+    marginLeft: -20 / 2,
+    marginTop: -15,
+  };
+
+  return (
+    <div style={markerStyle}>
+      {/* <CampusPopup campus={props.campus} isVisible = {showPopup}/> */}
+      <img src={markerSVG} style={{ width: 20 }}></img>
+    </div>
+  );
+}
+
+function Map(props) {
+
 
   const [viewport, setViewport] = React.useState({
     latitude: 46.81,
@@ -61,24 +68,7 @@ function Map() {
     zoom: 4,
   });
 
-  async function promisedData() {
-    const campus = await WelcomeFetchCampus()
-      .then((result) => setData(result))
-      .then(setLoaded(true));
-    return campus;
-  }
-
-  useEffect(() => {
-    (async () => {
-      await promisedData();
-    })();
-  }, []);
-
-  if (data.length > 0) {
-    console.log(data);
-  } else {
-    console.log('No data yet.');
-  }
+  
 
   return (
     <ReactMapGL
@@ -91,11 +81,12 @@ function Map() {
       mapStyle="mapbox://style/mapbox/streets-v9"
       onViewportChange={(viewport) => setViewport(viewport)}
     >
-      <div>
-        {data.map((item) => (
-          <CampusMarker campus={item} />
-        ))}
-      </div>
+      { props.showCampus?props.campus.map((item) => (
+        <CampusMarker campus={item} />
+      )) : null }
+      {props.showCapitales?props.capitales.map((capitale) => (
+        <CapitaleMarker capitale={capitale} />
+      )) : null}
     </ReactMapGL>
   );
 }
