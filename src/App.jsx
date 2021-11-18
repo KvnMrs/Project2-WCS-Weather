@@ -12,6 +12,7 @@ import Dash from './pages/Dashboard';
 import './Commun/StyleCommun.css';
 import EuropeanCity from './pages/EuropeanCity';
 import ProtectedRoute from './components/ProtectedRoute';
+import Charts from './components/HistoryChart/Charts';
 
 function App() {
   const location = useLocation();
