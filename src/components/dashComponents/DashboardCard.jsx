@@ -1,8 +1,10 @@
+/* eslint-disable react/jsx-closing-tag-location */
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/prop-types */
 /* eslint-disable arrow-body-style */
 
 import React from 'react';
-import Smile from '../icones/Smile';
+import Smile from '../icones/smile';
 import Sad from '../icones/Sad';
 import Neutral from '../icones/Neutral';
 
@@ -20,7 +22,10 @@ export const CurrentWeatherCard = ({ weather, temperature }) => {
             {weather.description}
           </h1>
           <div className="justify-self-center grid-rows-2 sm:pt-4">
-            <img src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`} alt="weather icon" />
+            <img
+              src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`}
+              alt="weather icon"
+            />
           </div>
           <h2 className="whitespace-nowrap text-center text-3xl md:text-4xl">
             {Math.round(temperature.temp)}
@@ -43,14 +48,21 @@ export const ForecastCard = ({ day, weather, temperature }) => {
     <div className="grid grid-cols-1 px-7 justify-items-center text-center">
       <div className="h-auto pt-2 text-xl">
         <h2>
-          {(new Date(day.dt * 1000).toLocaleDateString('en-US', { weekday: 'short' }))}
+          {new Date(day.dt * 1000).toLocaleDateString('en-US', {
+            weekday: 'short',
+          })}
         </h2>
       </div>
       <div className="justify-self-center grid-rows-2 h-28 w-24 sm:pt-6 md:pt-2">
-        <img src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`} alt="weather icon" />
+        <img
+          src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`}
+          alt="weather icon"
+        />
       </div>
       <div>
-        <h2 className="text-center">{`${Math.round(temperature.min)}°C to ${Math.round(temperature.max)}°C`}</h2>
+        <h2 className="text-center">{`${Math.round(
+          temperature.min,
+        )}°C to ${Math.round(temperature.max)}°C`}</h2>
       </div>
     </div>
   );
@@ -66,9 +78,7 @@ export const AirPollutionCard = ({ airIndice }) => {
     <div className="sm: grid row-span-3 mt-2 md:row-span-2">
       <h1 className="text-6xl md:text-5xl">
         {parseFloat(airIndice.aqi)}
-        <span className="text-xl">
-          / 5
-        </span>
+        <span className="text-xl">/ 5</span>
       </h1>
     </div>
   );
@@ -120,31 +130,27 @@ export const AirPollutionIconCard = ({ airIndice }) => {
         <div className="h-auto self-center">
           <Smile key="good" />
         </div>
-        <h1 className="sm:m-auto text-2xl md:text-2xl">
-          GOOD
-        </h1>
+        <h1 className="sm:m-auto text-2xl md:text-2xl">GOOD</h1>
       </div>,
     );
-  } if (parseFloat(airIndice.aqi) > 3) {
+  }
+  if (parseFloat(airIndice.aqi) > 3) {
     icons.push(
       <div className="grid grid-rows-1 px-7 md:px-12 lg:px-7 justify-items-center">
         <div className="h-auto self-center">
           <Sad key="danger" />
         </div>
-        <h1 className="sm:m-auto text-2xl md:text-2xl">
-          DANGER
-        </h1>
+        <h1 className="sm:m-auto text-2xl md:text-2xl">DANGER</h1>
       </div>,
     );
-  } if (parseFloat(airIndice.aqi) > 1 && parseFloat(airIndice.aqi) < 4) {
+  }
+  if (parseFloat(airIndice.aqi) > 1 && parseFloat(airIndice.aqi) < 4) {
     icons.push(
       <div className="grid grid-rows-1 px-7 md:px-12 lg:px-7 justify-items-center">
         <div className="h-auto self-center">
           <Neutral key="bad" />
         </div>
-        <h1 className="sm:m-auto text-2xl md:text-2xl">
-          BAD
-        </h1>
+        <h1 className="sm:m-auto text-2xl md:text-2xl">BAD</h1>
       </div>,
     );
   }
