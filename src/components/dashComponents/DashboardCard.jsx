@@ -1,6 +1,6 @@
 import React from 'react';
-import Smile from '../icones/smile';
-import Sad from '../icones/sad';
+import Smile from '../icones/Smile';
+import Sad from '../icones/Sad';
 import Neutral from '../icones/neutral';
 
 /**
@@ -56,9 +56,9 @@ export function ForecastCard({ day, weather, temperature }) {
       </div>
       <div>
         <h2 className="text-center">
-          {
-            `${Math.round(temperature.min)}°C to ${Math.round(temperature.max)}°C`
-          }
+          {`${Math.round(temperature.min)}°C to ${Math.round(
+            temperature.max,
+          )}°C`}
         </h2>
       </div>
     </div>
