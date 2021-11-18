@@ -88,8 +88,11 @@ function DashCity({ campus }) {
       <div className="bg-white rounded-lg grid-rows lg:grid grid-cols-9">
         <div className="m-8 pt-8">
           {/** ALL CITY CAMPUS */}
-          <h1 className="flex items-center grid justify-items-center lg:text-start text-2xl">
-            {campus !== undefined ? campus.name : ''}
+          <h1 className="items-center grid justify-items-center lg:text-start text-2xl">
+            {campus !== undefined
+              ? (
+                campus.name
+              ) : ''}
             <br />
             <span className="text-sm">
               {campus !== undefined ? campus.country : ''}
