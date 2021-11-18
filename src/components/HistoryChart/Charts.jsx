@@ -1,8 +1,3 @@
-/* eslint-disable react/jsx-indent */
-/* eslint-disable indent */
-/* eslint-disable function-paren-newline */
-/* eslint-disable implicit-arrow-linebreak */
-/* eslint-disable arrow-body-style */
 import React, { useEffect, useState } from 'react';
 import { ApiHistoryFetch } from '../../services/ChartFetch/ApiHistoryFetch';
 import COchart from '../COchart/COchart';

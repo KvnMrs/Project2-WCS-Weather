@@ -1,5 +1,9 @@
-/* eslint-disable */
-import React, { useContext, useState, useEffect, createContext } from 'react';
+import React, {
+  useContext,
+  useState,
+  useEffect,
+  createContext,
+} from 'react';
 import supabase from './supabaseClient';
 
 // Create context for Auth
@@ -19,8 +23,8 @@ export const AuthProvider = ({ children }) => {
 
     // Listen for changes to auth
     const { data: listener } = supabase.auth.onAuthStateChange(
-      (event, session) => {
-        setUser(session?.user ?? null);
+      (event, usersession) => {
+        setUser(usersession?.user ?? null);
         setLoading(false);
       },
     );

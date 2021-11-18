@@ -1,5 +1,3 @@
-/* eslint-disable prefer-destructuring */
-/* eslint-disable object-shorthand */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import {

@@ -15,15 +15,12 @@ import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
   const location = useLocation();
-
   const [campusList, setCampusList] = useState([]);
-
   const getCampus = async () => {
     const { data: campus, error } = await supabase
       .from('campus')
       .select('*')
       .order('id', { ascending: true });
-    // eslint-disable-next-line no-console
     if (error) console.log(error);
     else setCampusList(campus);
     return campusList;
@@ -38,13 +35,12 @@ function App() {
       <Switch location={location} key={location.pathname}>
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/signup" component={Signup} />       
-        <Route path="/charts" component={Charts} />
+        <Route exact path="/signup" component={Signup} />
         <ProtectedRoute exact path="/welcome" component={Welcome} />
         <ProtectedRoute exact path="/About" component={AboutUs} />
         <ProtectedRoute exact path="/dashboard" component={Dash} />
         <ProtectedRoute exact path="/europeancity" component={EuropeanCity} />
-       </Switch>
+      </Switch>
     </AnimatePresence>
   );
 }
