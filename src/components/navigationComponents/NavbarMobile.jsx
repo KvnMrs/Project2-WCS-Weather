@@ -1,14 +1,28 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useHistory } from 'react-router-dom';
+import { useAuth } from '../../services/Context';
 
 function NavbarMobile() {
   const [isOpen, setIsOpen] = useState(false);
+  const { signOut } = useAuth();
+  const history = useHistory();
   function handleChange() {
     setIsOpen(!isOpen);
   }
+  // Singout function
+  async function handleSingout() {
+    const { error } = await signOut();
+    if (error) {
+      alert('An error occured, please verify your credentials and try again.');
+    } else {
+      localStorage.clear();
+      history.push('/');
+    }
+  }
   return (
     <div>
-      <div className=" w-full mb-5 fixed top-0 bg-gray-200 z-50 flex flex-row items-center justify-between sm:hidden p-4">
+      <div className=" w-full mb-5 fixed top-0 bg-gray-100 z-50 flex flex-row items-center justify-between sm:hidden p-4">
         <a
           href="/"
           className="text-lg font-bold tracking-tighter text-wild_red transition duration-500 ease-in-out transform tracking-relaxed"
@@ -58,6 +72,13 @@ function NavbarMobile() {
                 >
                   About
                 </a>
+                <button
+                  type="submit"
+                  onClick={handleSingout}
+                  className="bg-wild_red hover:bg-dark_wild_red rounded-lg text-white w-24 h-8 justify-self-end self-center"
+                >
+                  log out
+                </button>
               </ul>
             </div>
           </motion.div>
