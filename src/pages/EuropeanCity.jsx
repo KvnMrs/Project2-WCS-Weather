@@ -6,18 +6,28 @@ import NavBarDesktop from '../components/navigationComponents/NavbarDesktop';
 import Map from '../components/EuroCityMap/EuroCityMap';
 import { capitales } from '../services/CapitalesFetch/CapitalesJSON';
 import NavbarMobile from '../components/navigationComponents/NavbarMobile';
+import CapitalesFetch from '../services/CapitalesFetch/CapitalesFetch';
+import { WelcomeFetchCampus } from '../services/WelcomeFetchCampus/WelcomeFetchItems';
 
 const EuropeanCity = () => {
-  const EuropeanCapital = () => {
-    const EuropeanCapitals = [];
-    if (capitales.length > 0) {
-      for (let i = 0; i < capitales.length; i++) {
-        EuropeanCapitals.push(<DashCity key={[i]} campus={capitales[i]} />);
-      }
-    }
-    return EuropeanCapitals;
-  };
+  const [campus, setCampus] = useState([]);
+  const [cityCapitales, setCityCapitales] = useState([]);
 
+  const [showCampus, setShowCampus] = useState(true);
+  const [showCapitales, setShowCapitales] = useState(true);
+  async function promisedData() {
+    const campus = await WelcomeFetchCampus();
+    const capitales = await CapitalesFetch();
+    console.log(capitales);
+    setCampus(campus);
+    setCityCapitales(capitales);
+  }
+
+  useEffect(() => {
+    (async () => {
+      await promisedData();
+    })();
+  }, []);
   return (
     <div className=" flex h-screen overflow-hidden bg-white rounded-lg">
       {/** BACKGROUND COLOR FOR NAVBAR DESKTOP */}
@@ -35,11 +45,28 @@ const EuropeanCity = () => {
               <div className="py-4 pt-4">
                 <div className="rounded-lg bg-gray-50 h-110">
                   <div className="w3/4 h-96 mx-auto mt-4 rounded-lg">
-                    <Map />
+                    <Map
+                      capitales={cityCapitales}
+                      campus={campus}
+                      showCampus={showCampus}
+                      showCapitales={showCapitales}
+                    />
                   </div>
                   <div>
-                  <button type="button" className="">Campus</button>
-                  <button type="button" className="">Capitales</button>
+                    <button
+                      onClick={() => setShowCampus(!showCampus)}
+                      type="button"
+                      className=""
+                    >
+                      Campus
+                    </button>
+                    <button
+                      onClick={() => setShowCapitales(!showCapitales)}
+                      type="button"
+                      className=""
+                    >
+                      Capitales
+                    </button>
                   </div>
                   {/* CONTENT HERE */}
                 </div>
@@ -54,7 +81,9 @@ const EuropeanCity = () => {
                     <div className="px-4 max-w-7xl sm:px-6 md:px-8" />
                   </section>
                   <section className="m-2 p-2 overflow-scroll h-96 hide-scrollbar row grid-cols md:grid grid-cols-1">
-                    {EuropeanCapital()}
+                    {capitales.map((capitale) => (
+                      <DashCity key={capitale.name} campus={capitale} />
+                    ))}
                   </section>
                 </div>
               </div>

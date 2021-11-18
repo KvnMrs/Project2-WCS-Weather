@@ -15,8 +15,8 @@ export const capitales = [
   {
     country: 'Austria',
     name: 'Vienna',
-    latitude: 45.5167,
-    longitude: 4.8667,
+    latitude: 48.2092,
+    longitude: 16.3728,
   },
 
   {
@@ -83,7 +83,7 @@ export const capitales = [
     country: 'Ireland',
     name: 'Dublin',
     latitude: 53.344,
-    longitude: 6.2672,
+    longitude: -6.2672,
   },
   {
     country: 'Iceland',
@@ -217,5 +217,41 @@ export const capitales = [
     name: 'Kiev',
     latitude: 50.4333,
     longitude: 30.5167,
+  },
+  {
+    country: 'Portugal',
+    name: 'Lisbon',
+    latitude: 38.7222,
+    longitude: -9.1393,
+  },
+  {
+    country: 'France',
+    name: 'Paris',
+    latitude: 48.8566,
+    longitude: 2.3522,
+  },
+  {
+    country: 'Belgium',
+    name: 'Brussels',
+    latitude: 50.8503,
+    longitude: 4.3517,
+  },
+  {
+    country: 'Spain',
+    name: 'Madrid',
+    latitude: 40.4168,
+    longitude: -3.7037,
+  },
+  {
+    country: 'Germany',
+    name: 'Berlin',
+    latitude: 52.52,
+    longitude: 13.405,
+  },
+  {
+    country: 'England',
+    name: 'London',
+    latitude: 51.5074,
+    longitude: -0.1278,
   },
 ];

@@ -3,12 +3,10 @@
 // import * as React from 'react';
 import React, { useEffect, useState } from 'react';
 import ReactMapGL, { MapContext } from 'react-map-gl';
-import { WelcomeFetchCampus } from '../../services/WelcomeFetchCampus/WelcomeFetchItems';
 // import 'mapbox-gl/dist/mapbox-gl.css';
 // import { capitales } from '../../services/CapitalesFetch/CapitalesJSON';
 import markerSVG from './marker.svg';
 import markerCampus from './markerCampus.png';
-import CapitalesFetch from '../../services/CapitalesFetch/CapitalesFetch';
 
 function CampusMarker(props) {
   const context = React.useContext(MapContext);
@@ -61,10 +59,8 @@ function CapitaleMarker(props) {
   );
 }
 
-function Map() {
-  const [loaded, setLoaded] = useState(false);
-  const [campus, setCampus] = useState([]);
-  const [cityCapitales, setCityCapitales] = useState([]);
+function Map(props) {
+
 
   const [viewport, setViewport] = React.useState({
     latitude: 46.81,
@@ -72,21 +68,7 @@ function Map() {
     zoom: 4,
   });
 
-  async function promisedData() {
-    const campus = await WelcomeFetchCampus();
-    const capitales = await CapitalesFetch();
-    console.log(capitales);
-    setCampus(campus);
-    setCityCapitales(capitales);
-
-    setLoaded(true);
-  }
-
-  useEffect(() => {
-    (async () => {
-      await promisedData();
-    })();
-  }, []);
+  
 
   return (
     <ReactMapGL
@@ -99,12 +81,12 @@ function Map() {
       mapStyle="mapbox://style/mapbox/streets-v9"
       onViewportChange={(viewport) => setViewport(viewport)}
     >
-      {campus.map((item) => (
+      { props.showCampus?props.campus.map((item) => (
         <CampusMarker campus={item} />
-      ))}
-      {cityCapitales.map((capitale) => (
+      )) : null }
+      {props.showCapitales?props.capitales.map((capitale) => (
         <CapitaleMarker capitale={capitale} />
-      ))}
+      )) : null}
     </ReactMapGL>
   );
 }
