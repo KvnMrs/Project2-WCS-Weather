@@ -1,5 +1,10 @@
-/* eslint-disable */
-import React, { useEffect, useState } from 'react';
+/* eslint-disable react/jsx-indent */
+/* eslint-disable react/button-has-type */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable prefer-destructuring */
+/* eslint-disable object-shorthand */
+/* eslint-disable camelcase */
+import React from 'react';
 import DashCity from '../components/dashComponents/dashCityCampus';
 import UserWelcomemsg from '../components/welcomeComponents/UserWelcomemsg';
 import NavBarDesktop from '../components/navigationComponents/NavbarDesktop';
@@ -11,8 +16,13 @@ const EuropeanCity = () => {
   const EuropeanCapital = () => {
     const EuropeanCapitals = [];
     if (capitales.length > 0) {
-      for (let i = 0; i < capitales.length; i++) {
-        EuropeanCapitals.push(<DashCity key={[i]} campus={capitales[i]} />);
+      for (let i = 0; i < capitales.length; i += 1) {
+        EuropeanCapitals.push(
+          <DashCity
+            key={[i]}
+            campus={capitales[i]}
+          />,
+        );
       }
     }
     return EuropeanCapitals;

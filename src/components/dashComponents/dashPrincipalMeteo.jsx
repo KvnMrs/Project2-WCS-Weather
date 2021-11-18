@@ -1,7 +1,5 @@
 /* eslint-disable prefer-destructuring */
 /* eslint-disable object-shorthand */
-/* eslint-disable no-plusplus */
-/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import {
@@ -47,7 +45,7 @@ const DashMeteo = ({ campus }) => {
   const forecastDiv = () => {
     const forcastItem = [];
     if (forecast.length > 0) {
-      for (let i = 0; i < 3; i++) {
+      for (let i = 0; i < 3; i += 1) {
         forcastItem.push(
           <ForecastCard
             key={[i]}
