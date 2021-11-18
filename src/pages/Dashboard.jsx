@@ -6,9 +6,9 @@
 /* eslint-disable camelcase */
 import React, { useEffect, useState } from 'react';
 import supabase from '../services/supabaseClient';
-import DashCity from '../components/dashComponents/DashCityCampus';
-import DashAirQuality from '../components/dashComponents/DashPrincipalAir';
-import DashMeteo from '../components/dashComponents/DashPrincipalMeteo';
+import DashCity from '../components/dashComponents/dashCityCampus';
+import DashAirQuality from '../components/dashComponents/dashPrincipalAir';
+import DashMeteo from '../components/dashComponents/dashPrincipalMeteo';
 import Charts from '../components/HistoryChart/Charts';
 import UserWelcomemsg from '../components/welcomeComponents/UserWelcomemsg';
 import NavBarDesktop from '../components/navigationComponents/NavbarDesktop';
@@ -73,12 +73,7 @@ const Dash = () => {
     const wildCities = [];
     if (wildCampus.length > 0) {
       for (let i = 0; i < wildCampus.length; i += 1) {
-        wildCities.push(
-          <DashCity
-            key={[i]}
-            campus={wildCampus[i]}
-          />,
-        );
+        wildCities.push(<DashCity key={[i]} campus={wildCampus[i]} />);
       }
     }
     return wildCities;
