@@ -47,14 +47,14 @@ function AboutUs() {
                       <h4 className="mt-4 text-2xl font-semibold text-neutral-600 text-center">
                         Camille Hautois
                       </h4>
-                      <a href="https://github.com/Camille1993">
+                      <a href="https://github.com/Camille1993" target="blank">
                         <img
                           src="https://th.bing.com/th/id/R.6887faf2095ba8705ceb01787c3f9c93?rik=UJ6IgpvP19ePsA&pid=ImgRaw&r=0"
                           className="w-16 m-auto mt-4"
                           alt="lien github"
                         />
                       </a>
-                      <a href="https://www.linkedin.com/in/camille-hautois-075633146/">
+                      <a href="https://www.linkedin.com/in/camille-hautois-075633146/" target="blank">
                         <img
                           src="https://loptimisme.pro/wp-content/uploads/2019/08/Logo-LinkedIn-rond-300x300.png"
                           className="w-10 m-auto mt-4"
@@ -76,14 +76,14 @@ function AboutUs() {
                       <h4 className="mt-4 text-2xl font-semibold text-neutral-600 text-center">
                         François Chatelier
                       </h4>
-                      <a href="https://github.com/Francois-Chatelier">
+                      <a href="https://github.com/Francois-Chatelier" target="blank">
                         <img
                           src="https://th.bing.com/th/id/R.6887faf2095ba8705ceb01787c3f9c93?rik=UJ6IgpvP19ePsA&pid=ImgRaw&r=0"
                           className="w-16 m-auto mt-4"
                           alt="lien github"
                         />
                       </a>
-                      <a href="https://www.linkedin.com/in/francois-chatelier">
+                      <a href="https://www.linkedin.com/in/francois-chatelier" target="blank">
                         <img
                           src="https://loptimisme.pro/wp-content/uploads/2019/08/Logo-LinkedIn-rond-300x300.png"
                           className="w-10 m-auto mt-4"
@@ -105,14 +105,14 @@ function AboutUs() {
                       <h4 className="mt-4 text-2xl font-semibold text-neutral-600 text-center">
                         Robin Beaudru
                       </h4>
-                      <a href="https://media-exp1.licdn.com/dms/image/C4D03AQG_-i2jDHxfzQ/profile-displayphoto-shrink_800_800/0/1596567099844?e=1642636800&v=beta&t=hbQy3Uxzv_de4F7oi9bhLt1pqf-fTdrA80JpmrPsg_k">
+                      <a href="https://media-exp1.licdn.com/dms/image/C4D03AQG_-i2jDHxfzQ/profile-displayphoto-shrink_800_800/0/1596567099844?e=1642636800&v=beta&t=hbQy3Uxzv_de4F7oi9bhLt1pqf-fTdrA80JpmrPsg_k" target="blank">
                         <img
                           src="https://th.bing.com/th/id/R.6887faf2095ba8705ceb01787c3f9c93?rik=UJ6IgpvP19ePsA&pid=ImgRaw&r=0"
                           className="w-16 m-auto mt-4"
                           alt="lien github"
                         />
                       </a>
-                      <a href="https://www.linkedin.com/in/robinbeaudru/">
+                      <a href="https://www.linkedin.com/in/robinbeaudru/" target="blank">
                         <img
                           src="https://loptimisme.pro/wp-content/uploads/2019/08/Logo-LinkedIn-rond-300x300.png"
                           className="w-10 m-auto mt-4"
@@ -134,14 +134,14 @@ function AboutUs() {
                       <h4 className="mt-4 text-2xl font-semibold text-neutral-600 text-center">
                         Kévin Marais
                       </h4>
-                      <a href="https://github.com/KvnMrs">
+                      <a href="https://github.com/KvnMrs" target="blank">
                         <img
                           src="https://th.bing.com/th/id/R.6887faf2095ba8705ceb01787c3f9c93?rik=UJ6IgpvP19ePsA&pid=ImgRaw&r=0"
                           className="w-16 m-auto mt-4"
                           alt="lien github"
                         />
                       </a>
-                      <a href="https://www.linkedin.com/in/k%C3%A9vin-marais-861314216/">
+                      <a href="https://www.linkedin.com/in/k%C3%A9vin-marais-861314216/" target="blank">
                         <img
                           src="https://loptimisme.pro/wp-content/uploads/2019/08/Logo-LinkedIn-rond-300x300.png"
                           className="w-10 m-auto mt-4"
