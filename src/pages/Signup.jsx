@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 import { useAuth } from '../services/Context';
 import tour from '../assets/tour-bretagne.jpg';
 
-const Signup = () => {
+function Signup() {
   // Image import
   const background = `(${tour})`;
   const url = 'url';
@@ -138,6 +138,6 @@ const Signup = () => {
       </div>
     </motion.div>
   );
-};
+}
 
 export default Signup;

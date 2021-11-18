@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useAuth } from '../../services/Context';
 
 // eslint-disable-next-line arrow-body-style
-const UserWelcomemsg = () => {
+function UserWelcomemsg() {
   // Singout functions and states
   const { signOut } = useAuth();
   const history = useHistory();
@@ -28,6 +28,6 @@ const UserWelcomemsg = () => {
       </section>
     </div>
   );
-};
+}
 
 export default UserWelcomemsg;

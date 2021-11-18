@@ -7,7 +7,7 @@ import {
   AirPollutionIconCard,
 } from './DashboardCard';
 
-const DashCity = ({ campus }) => {
+function DashCity({ campus }) {
   /**
    * Definition useState
    */
@@ -134,6 +134,6 @@ const DashCity = ({ campus }) => {
       </div>
     </div>
   );
-};
+}
 
 export default DashCity;

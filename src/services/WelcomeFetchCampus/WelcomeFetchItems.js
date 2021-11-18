@@ -2,7 +2,7 @@
 // Fetch All Campus from Supabase and export to Welcome Page grid.
 import supabase from '../supabaseClient';
 
-export const WelcomeFetchCampus = async () => {
+const WelcomeFetchCampus = async () => {
   const { data: campus, error } = await supabase
     .from('campus')
     .select('*')
@@ -15,3 +15,5 @@ export const WelcomeFetchCampus = async () => {
   console.log(campus);
   return campus;
 };
+
+export default WelcomeFetchCampus;

@@ -14,7 +14,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import supabase from '../../services/supabaseClient';
 
-const WelcomePopup = ({ item, handleHide }) => {
+function WelcomePopup({ item, handleHide }) {
   // Get user ID
   const userId = supabase.auth.user().id;
   // Get Campus data
@@ -101,6 +101,6 @@ const WelcomePopup = ({ item, handleHide }) => {
       </motion.div>
     </AnimatePresence>
   );
-};
+}
 
 export default WelcomePopup;

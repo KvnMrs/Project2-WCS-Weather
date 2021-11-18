@@ -4,7 +4,7 @@ import COchart from '../COchart/COchart';
 import PMchart from '../PMchart/PMcharts';
 import AQIchart from '../AQIchart/AQIchart';
 
-const Charts = () => {
+function Charts() {
   const [chartData, setChartData] = useState([]);
 
   // Launch Fetching Process
@@ -28,6 +28,6 @@ const Charts = () => {
       </div>
     </>
   );
-};
+}
 
 export default Charts;

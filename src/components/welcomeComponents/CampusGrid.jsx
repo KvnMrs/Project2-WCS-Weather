@@ -17,7 +17,7 @@ import CampusItem from './CampusItem';
 import WelcomeNoResults from './WelcomeNoResults';
 import WelcomePopup from './WelcomePopup';
 
-const CampusGrid = ({ data }) => {
+function CampusGrid({ data }) {
   const [search, setSearch] = useState('');
   const [show, setShow] = useState(false);
   const [popupItem, setPopitem] = useState([]);
@@ -88,6 +88,6 @@ const CampusGrid = ({ data }) => {
       </div>
     </>
   );
-};
+}
 
 export default CampusGrid;

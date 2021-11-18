@@ -1,7 +1,7 @@
 import React from 'react';
 
 // eslint-disable-next-line arrow-body-style
-const Sad = () => {
+function Sad() {
   return (
     <div>
       <svg xmlns="http://www.w3.org/2000/svg" className="h-28 w-28" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -9,6 +9,6 @@ const Sad = () => {
       </svg>
     </div>
   );
-};
+}
 
 export default Sad;

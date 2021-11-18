@@ -4,7 +4,7 @@
 /* eslint-disable arrow-body-style */
 import React from 'react';
 
-const CampusItem = ({ item, functionShow }) => {
+function CampusItem({ item, functionShow }) {
   // eslint-disable-next-line object-curly-newline
   const { name, country, flag, imageUrl } = item;
 
@@ -34,6 +34,6 @@ const CampusItem = ({ item, functionShow }) => {
       </div>
     </div>
   );
-};
+}
 
 export default CampusItem;

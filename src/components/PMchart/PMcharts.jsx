@@ -11,7 +11,7 @@ import {
   Tooltip,
 } from 'recharts';
 
-const PMchart = (items) => {
+function PMchart(items) {
   return (
     <div className="md:py-10 md:pr-5 py-6 bg-white border border-gray-100 rounded-xl hover:shadow-md transition-all transform duration-200">
       <div className="flex flex-col mb-12 pl-5">
@@ -72,6 +72,6 @@ const PMchart = (items) => {
       </ResponsiveContainer>
     </div>
   );
-};
+}
 
 export default PMchart;

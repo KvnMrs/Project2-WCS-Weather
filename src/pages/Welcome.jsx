@@ -1,26 +1,11 @@
-/* eslint-disable react/jsx-no-bind */
-/* eslint-disable no-unused-expressions */
-/* eslint-disable import/no-named-as-default-member */
-/* eslint-disable import/no-named-as-default */
-/* eslint-disable no-shadow */
-/* eslint-disable radix */
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable operator-linebreak */
-/* eslint-disable function-paren-newline */
-/* eslint-disable implicit-arrow-linebreak */
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable indent */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable arrow-body-style */
-
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { WelcomeFetchCampus } from '../services/WelcomeFetchCampus/WelcomeFetchItems';
+import WelcomeFetchCampus from '../services/WelcomeFetchCampus/WelcomeFetchItems';
 import WelcomeHeader from '../components/welcomeComponents/WelcomeHeader';
 import CampusGrid from '../components/welcomeComponents/CampusGrid';
 import WelcomeLoading from '../components/welcomeComponents/WelcomeLoading';
 
-const Welcome = () => {
+function Welcome() {
   //
   // Fetched Data States
   //
@@ -69,6 +54,6 @@ const Welcome = () => {
       </div>
     </motion.div>
   );
-};
+}
 
 export default Welcome;
