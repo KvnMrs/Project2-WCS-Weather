@@ -1,6 +1,6 @@
 import React from 'react';
-import Smile from '../icones/Smile';
-import Sad from '../icones/Sad';
+import Smile from '../icones/smile';
+import Sad from '../icones/sad';
 import Neutral from '../icones/neutral';
 
 /**
