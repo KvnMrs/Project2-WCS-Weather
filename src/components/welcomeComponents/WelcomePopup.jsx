@@ -34,9 +34,9 @@ function WelcomePopup({ item, handleHide }) {
       longitude: longitude,
     });
     if (error) {
-      console.error(error);
+      return false;
     }
-    history.push('/charts');
+    return history.push('/charts');
   }
 
   return (

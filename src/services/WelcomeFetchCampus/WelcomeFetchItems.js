@@ -9,8 +9,7 @@ const WelcomeFetchCampus = async () => {
     .order('name', { ascending: true });
 
   if (error) {
-    console.error(error);
-    return ErrorEvent.toString;
+    return false;
   }
   return campus;
 };

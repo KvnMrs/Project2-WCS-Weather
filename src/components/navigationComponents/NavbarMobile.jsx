@@ -14,11 +14,10 @@ function NavbarMobile() {
   async function handleSingout() {
     const { error } = await signOut();
     if (error) {
-      console.error('An error occured, please verify your credentials and try again.');
-    } else {
-      localStorage.clear();
-      history.push('/');
+      return false;
     }
+    localStorage.clear();
+    return history.push('/');
   }
   return (
     <div>

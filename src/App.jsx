@@ -21,8 +21,8 @@ function App() {
       .from('campus')
       .select('*')
       .order('id', { ascending: true });
-    if (error) console.error(error);
-    else setCampusList(campus);
+    if (error) return false;
+    setCampusList(campus);
     return campusList;
   };
 

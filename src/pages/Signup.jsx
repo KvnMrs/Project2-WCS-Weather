@@ -23,14 +23,12 @@ function Signup() {
     e.preventDefault();
     const { error } = await signUp({ email, password });
     if (error) {
-      console.error(
-        'An error occured, please verify your credentials and try again.',
-      );
-    } else if (password.length <= 5) {
-      console.error('Your password must be at least 6 characters long.');
-    } else {
-      history.push('/welcome');
+      return false;
     }
+    if (password.length <= 5) {
+      return false;
+    }
+    return history.push('/welcome');
   }
 
   return (

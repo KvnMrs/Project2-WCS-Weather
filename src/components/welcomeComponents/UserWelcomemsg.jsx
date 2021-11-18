@@ -12,11 +12,10 @@ function UserWelcomemsg() {
   async function handleSingout() {
     const { error } = await signOut();
     if (error) {
-      console.error('An error occured, please verify your credentials and try again.');
-    } else {
-      localStorage.clear();
-      history.push('/');
+      return false;
     }
+    localStorage.clear();
+    return history.push('/');
   }
   return (
     <div>
@@ -24,7 +23,13 @@ function UserWelcomemsg() {
         <h1 className=" text-center mt-12 sm:mt-0 sm:text-left text-3xl font-semibold leading-none tracking-tighter text-neutral-600 pl-2 pt-5">
           Hello, Wilder !
         </h1>
-        <button type="submit" onClick={handleSingout} className="hidden sm:block bg-wild_red hover:bg-dark_wild_red rounded-lg text-white w-24 h-8 justify-self-end self-center">log out</button>
+        <button
+          type="submit"
+          onClick={handleSingout}
+          className="hidden sm:block bg-wild_red hover:bg-dark_wild_red rounded-lg text-white w-24 h-8 justify-self-end self-center"
+        >
+          log out
+        </button>
       </section>
     </div>
   );
