@@ -4,12 +4,11 @@
 /* eslint-disable prefer-destructuring */
 /* eslint-disable object-shorthand */
 /* eslint-disable camelcase */
-/* eslint-disable no-plusplus */
 import React, { useEffect, useState } from 'react';
 import supabase from '../services/supabaseClient';
-import DashCity from '../components/dashComponents/dashCityCampus';
-import DashAirQuality from '../components/dashComponents/dashPrincipalAir';
-import DashMeteo from '../components/dashComponents/dashPrincipalMeteo';
+import DashCity from '../components/dashComponents/DashCityCampus';
+import DashAirQuality from '../components/dashComponents/DashPrincipalAir';
+import DashMeteo from '../components/dashComponents/DashPrincipalMeteo';
 import Charts from '../components/HistoryChart/Charts';
 import UserWelcomemsg from '../components/welcomeComponents/UserWelcomemsg';
 import NavBarDesktop from '../components/navigationComponents/NavbarDesktop';
@@ -73,15 +72,20 @@ const Dash = () => {
   const wildCity = () => {
     const wildCities = [];
     if (wildCampus.length > 0) {
-      for (let i = 0; i < wildCampus.length; i++) {
-        wildCities.push(<DashCity key={[i]} campus={wildCampus[i]} />);
+      for (let i = 0; i < wildCampus.length; i += 1) {
+        wildCities.push(
+          <DashCity
+            key={[i]}
+            campus={wildCampus[i]}
+          />,
+        );
       }
     }
     return wildCities;
   };
 
   return (
-    <div className="flex h-screen overflow-hidden bg-white rounded-lg">
+    <div className="relative flex h-screen overflow-hidden bg-white rounded-lg">
       {/** BACKGROUND COLOR FOR NAVBAR DESKTOP */}
       <NavbarMobile />
       {/** HERE IS THE NAVBAR DESKTOP VERSION */}

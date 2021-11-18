@@ -1,5 +1,10 @@
-/* eslint-disable */
-import React, { useEffect, useState } from 'react';
+/* eslint-disable react/jsx-indent */
+/* eslint-disable react/button-has-type */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable prefer-destructuring */
+/* eslint-disable object-shorthand */
+/* eslint-disable camelcase */
+import React from 'react';
 import DashCity from '../components/dashComponents/dashCityCampus';
 import UserWelcomemsg from '../components/welcomeComponents/UserWelcomemsg';
 import NavBarDesktop from '../components/navigationComponents/NavbarDesktop';
@@ -10,11 +15,12 @@ import CapitalesFetch from '../services/CapitalesFetch/CapitalesFetch';
 import { WelcomeFetchCampus } from '../services/WelcomeFetchCampus/WelcomeFetchItems';
 
 const EuropeanCity = () => {
+
   const [campus, setCampus] = useState([]);
   const [cityCapitales, setCityCapitales] = useState([]);
-
   const [showCampus, setShowCampus] = useState(true);
   const [showCapitales, setShowCapitales] = useState(true);
+  
   async function promisedData() {
     const campus = await WelcomeFetchCampus();
     const capitales = await CapitalesFetch();

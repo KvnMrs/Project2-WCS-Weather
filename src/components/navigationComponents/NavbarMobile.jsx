@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
 function NavbarMobile() {
   const [isOpen, setIsOpen] = useState(false);
@@ -7,7 +8,7 @@ function NavbarMobile() {
   }
   return (
     <div>
-      <div className=" w-full mb-5 absolute bg-gray-300 z-50 flex flex-row items-center justify-between sm:hidden p-4">
+      <div className=" w-full mb-5 fixed top-0 bg-gray-200 z-50 flex flex-row items-center justify-between sm:hidden p-4">
         <a
           href="/"
           className="text-lg font-bold tracking-tighter text-wild_red transition duration-500 ease-in-out transform tracking-relaxed"
@@ -30,17 +31,36 @@ function NavbarMobile() {
       </div>
       <div className="sm:hidden ">
         {isOpen && (
-          <ul className="absolute z-50 mt-16 flex flex-col bg-gray-200 px-4 py-2 w-full ">
-            <a className="hover:bg-wild_red" href="/">
-              Home
-            </a>
-            <a className="hover:bg-wild_red" href="/europeancity">
-              Euroean city
-            </a>
-            <a className="hover:bg-wild_red" href="/dashboard">
-              Dashboard
-            </a>
-          </ul>
+          <motion.div
+            className="absolute inset-x-0 top-0 z-40 mt-16"
+            initial={{ opacity: 0, y: '-100%' }}
+            animate={{ opacity: 1, y: '-0%' }}
+            exit={{ opacity: 0, y: '-100%' }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="w-full">
+              <ul className=" flex flex-col bg-gray-200 px-4 py-2 w-full">
+                <a
+                  className="hover:bg-wild_red py-2 text-left text-2xl font-normal text-gray-800"
+                  href="/dashboard"
+                >
+                  Dashboard
+                </a>
+                <a
+                  className="hover:bg-wild_red py-2 text-left text-2xl font-normal text-gray-800"
+                  href="/europeancity"
+                >
+                  European city
+                </a>
+                <a
+                  className="hover:bg-wild_red py-2 text-left text-2xl font-normal text-gray-800"
+                  href="/about"
+                >
+                  About
+                </a>
+              </ul>
+            </div>
+          </motion.div>
         )}
       </div>
     </div>

@@ -1,3 +1,5 @@
+/* eslint-disable import/prefer-default-export */
+
 import { capitales } from './CapitalesJSON';
 
 // const key = 'ae8db554743a0d9e76dda942a3f3fb05';
