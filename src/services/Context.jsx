@@ -1,11 +1,13 @@
-/* eslint-disable no-shadow */
-/* eslint-disable react/prop-types */
-/* eslint-disable object-curly-newline */
-import React, { useContext, useState, useEffect, createContext } from 'react';
+import React, {
+  useContext,
+  useState,
+  useEffect,
+  createContext,
+} from 'react';
 import supabase from './supabaseClient';
 
 // Create context for Auth
-const AuthContext = createContext();
+export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   // Create state values for user data and loading
@@ -21,8 +23,8 @@ export const AuthProvider = ({ children }) => {
 
     // Listen for changes to auth
     const { data: listener } = supabase.auth.onAuthStateChange(
-      (event, session) => {
-        setUser(session?.user ?? null);
+      (event, usersession) => {
+        setUser(usersession?.user ?? null);
         setLoading(false);
       },
     );
