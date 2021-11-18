@@ -4,7 +4,7 @@
 /* eslint-disable arrow-body-style */
 
 import React from 'react';
-import Smile from '../icones/smile';
+import Smile from '../icones/Smile';
 import Sad from '../icones/Sad';
 import Neutral from '../icones/neutral';
 

@@ -43,7 +43,7 @@ const AboutUs = () => {
                   <div className="relative flex flex-col m-1 p-4 transition duration-300 ease-in-out delay-150 transform bg-white shadow-2xl rounded-xl md:w-80 md:hover:-translate-x-16 md:hover:-translate-y-8">
                     <img
                       className="object-cover object-center w-full rounded-t-xl lg:h-48 md:h-36"
-                      src="https://th.bing.com/th/id/OIP.Ghae4OEdb4UmC3hkqpFvLAHaGd?pid=ImgDet&rs=1"
+                      src="https://media-exp1.licdn.com/dms/image/C5603AQG0k2IFbWVbEQ/profile-displayphoto-shrink_800_800/0/1599082597707?e=1642636800&v=beta&t=1N3LlLnFGJdfDj6TUeX_49VvvKpw0BhUkaRlSFU-AF8"
                       alt="blog"
                     />
                     <div className="px-6 py-4">
@@ -108,7 +108,7 @@ const AboutUs = () => {
                       <h4 className="mt-4 text-2xl font-semibold text-neutral-600 text-center">
                         Robin Beaudru
                       </h4>
-                      <a href="https://github.com/robinbdru">
+                      <a href="https://media-exp1.licdn.com/dms/image/C4D03AQG_-i2jDHxfzQ/profile-displayphoto-shrink_400_400/0/1596567099844?e=1642636800&v=beta&t=CXCfeSVIfp-5rYpOLZS5PfYNul4qcLNq67QVtdB6ALI">
                         <img
                           src="https://th.bing.com/th/id/R.6887faf2095ba8705ceb01787c3f9c93?rik=UJ6IgpvP19ePsA&pid=ImgRaw&r=0"
                           className="w-16 m-auto mt-4"
