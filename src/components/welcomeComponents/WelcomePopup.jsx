@@ -33,12 +33,9 @@ function WelcomePopup({ item, handleHide }) {
       latitude: latitude,
       longitude: longitude,
     });
-    console.log(data);
     if (error) {
-      console.log(error);
+      console.error(error);
     }
-
-    console.log('Post OK.');
     history.push('/charts');
   }
 

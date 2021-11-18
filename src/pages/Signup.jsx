@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable no-alert */
+/* eslint-disable no-console.error */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable arrow-body-style */
 import React, { useState } from 'react';
@@ -24,9 +24,9 @@ function Signup() {
     e.preventDefault();
     const { error } = await signUp({ email, password });
     if (error) {
-      alert('An error occured, please verify your credentials and try again.');
+      console.error('An error occured, please verify your credentials and try again.');
     } else if (password.length <= 5) {
-      alert('Your password must be at least 6 characters long.');
+      console.error('Your password must be at least 6 characters long.');
     } else {
       history.push('/welcome');
     }

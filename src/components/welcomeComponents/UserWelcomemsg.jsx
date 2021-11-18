@@ -12,7 +12,7 @@ function UserWelcomemsg() {
   async function handleSingout() {
     const { error } = await signOut();
     if (error) {
-      alert('An error occured, please verify your credentials and try again.');
+      console.error('An error occured, please verify your credentials and try again.');
     } else {
       localStorage.clear();
       history.push('/');

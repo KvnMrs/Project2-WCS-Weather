@@ -9,10 +9,9 @@ const WelcomeFetchCampus = async () => {
     .order('name', { ascending: true });
 
   if (error) {
-    console.log(error);
+    console.error(error);
     return ErrorEvent.toString;
   }
-  console.log(campus);
   return campus;
 };
 
