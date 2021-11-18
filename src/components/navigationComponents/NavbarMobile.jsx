@@ -42,7 +42,7 @@ function NavbarMobile() {
               <ul className=" flex flex-col bg-gray-200 px-4 py-2 w-full">
                 <a
                   className="hover:bg-wild_red py-2 text-left text-2xl font-normal text-gray-800"
-                  href="/"
+                  href="/dashboard"
                 >
                   Dashboard
                 </a>
