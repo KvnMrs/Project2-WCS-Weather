@@ -9,7 +9,7 @@ import NavBarDesktop from '../components/navigationComponents/NavbarDesktop';
 import NavbarMobile from '../components/navigationComponents/NavbarMobile';
 import { AuthContext } from '../services/Context';
 
-const Dash = () => {
+function Dash() {
   /**
    * Definition useState
    */
@@ -145,6 +145,6 @@ const Dash = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Dash;

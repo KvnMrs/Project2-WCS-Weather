@@ -7,7 +7,7 @@ import Slider from '../components/HomeComponents/Slider';
 
 // import supabase from '../services/supabaseClient';
 
-const Home = () => {
+function Home() {
   return (
     <div>
       <div className="px-4 py-12 mx-auto max-w-7xl sm:px-6 md:px-12 lg:px-24 lg:py-24 2xl:h-screen 2xl:flex 2xl: items-center">
@@ -82,6 +82,6 @@ const Home = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Home;

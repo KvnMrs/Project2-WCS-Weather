@@ -5,7 +5,7 @@ import {
   ForecastCard,
 } from './DashboardCard';
 
-const DashMeteo = ({ campus }) => {
+function DashMeteo({ campus }) {
   /**
    * Definition useState
    */
@@ -79,6 +79,6 @@ const DashMeteo = ({ campus }) => {
       </section>
     </div>
   );
-};
+}
 
 export default DashMeteo;

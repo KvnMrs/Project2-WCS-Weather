@@ -6,9 +6,9 @@ import Map from '../components/EuroCityMap/EuroCityMap';
 import { capitales } from '../services/CapitalesFetch/CapitalesJSON';
 import NavbarMobile from '../components/navigationComponents/NavbarMobile';
 import CapitalesFetch from '../services/CapitalesFetch/CapitalesFetch';
-import { WelcomeFetchCampus } from '../services/WelcomeFetchCampus/WelcomeFetchItems';
+import WelcomeFetchCampus from '../services/WelcomeFetchCampus/WelcomeFetchItems';
 
-const EuropeanCity = () => {
+function EuropeanCity() {
   const [campus, setCampus] = useState([]);
   const [cityCapitales, setCityCapitales] = useState([]);
   const [showCampus, setShowCampus] = useState(true);
@@ -91,6 +91,6 @@ const EuropeanCity = () => {
       </div>
     </div>
   );
-};
+}
 
 export default EuropeanCity;

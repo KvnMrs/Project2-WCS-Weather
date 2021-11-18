@@ -2,7 +2,7 @@
 import React from 'react';
 
 // eslint-disable-next-line arrow-body-style
-const Neutral = () => {
+function Neutral() {
   return (
     <div>
       <svg xmlns="http://www.w3.org/2000/svg" className="h-28 w-28" fill="none" viewBox="-1 -1 18 18" strokeWidth="1" stroke="currentColor">
@@ -11,6 +11,6 @@ const Neutral = () => {
       </svg>
     </div>
   );
-};
+}
 
 export default Neutral;

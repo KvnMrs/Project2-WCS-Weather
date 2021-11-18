@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import elephant from '../assets/elephant.jpg';
 import { useAuth } from '../services/Context';
 
-const Login = () => {
+function Login() {
   // Image Import
   const background = `(${elephant})`;
   const url = 'url';
@@ -118,6 +118,6 @@ const Login = () => {
       </div>
     </motion.div>
   );
-};
+}
 
 export default Login;

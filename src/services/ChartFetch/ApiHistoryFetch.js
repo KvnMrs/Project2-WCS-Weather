@@ -3,7 +3,7 @@
 
 import axios from 'apisauce/node_modules/axios';
 import { getUnixTime, formatRFC7231, fromUnixTime } from 'date-fns';
-import { UserCampusFetch } from './UserCampusFetch';
+import UserCampusFetch from './UserCampusFetch';
 import supabase from '../supabaseClient';
 
 // Fetch the index history on the API
