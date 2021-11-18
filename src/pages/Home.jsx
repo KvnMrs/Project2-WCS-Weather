@@ -10,7 +10,7 @@ import Slider from '../components/HomeComponents/Slider';
 const Home = () => {
   return (
     <div>
-      <div className="px-4 py-12 mx-auto max-w-7xl sm:px-6 md:px-12 lg:px-24 lg:py-24">
+      <div className="px-4 py-12 mx-auto max-w-7xl sm:px-6 md:px-12 lg:px-24 lg:py-24 2xl:h-screen 2xl:flex 2xl: items-center">
         <div className="flex flex-wrap items-center mx-auto max-w-7xl">
           <div className="flex flex-col items-start mb-8 text-left lg:flex-grow lg:w-1/2 xl:pr-24 md:mb-0">
             <div className="mb-8 text-center mx-auto">

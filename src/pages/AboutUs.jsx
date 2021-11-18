@@ -1,6 +1,5 @@
 /* eslint-disable */
 import UserWelcomemsg from '../components/welcomeComponents/UserWelcomemsg';
-import './About.css';
 // import supabase from '../services/supabaseClient';
 import NavBarDesktop from '../components/navigationComponents/NavbarDesktop';
 import NavbarMobile from '../components/navigationComponents/NavbarMobile';
@@ -9,7 +8,7 @@ const AboutUs = () => {
 
   return (
     <div className=" flex h-screen overflow-hidden rounded-lg">
-     <NavbarMobile />
+      <NavbarMobile />
       <div className="hidden sm:block">
         <NavBarDesktop />
       </div>
@@ -158,9 +157,9 @@ const AboutUs = () => {
               </div>
             </div>
             <p className="text-center text-xs text-gray-500">
-            <a href="http://127.0.0.1:5500/src/components/Terms/TermsAndConditions.html" target="blank" >
-            Terms and Conditions
-            </a>
+              <a href="http://127.0.0.1:5500/src/components/Terms/TermsAndConditions.html" target="blank" >
+                Terms and Conditions
+              </a>
             </p>
           </div>
         </main>
