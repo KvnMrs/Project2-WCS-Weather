@@ -1,7 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-alert */
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable arrow-body-style */
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -46,9 +42,10 @@ const Login = () => {
             <p className="text-gray-500 font-normal text-xl pt-2">
               and stay updated of the air quality in your campus !
             </p>
-            <label className="text-gray-800 pt-14">
+            <label htmlFor="inputMail" className="text-gray-800 pt-14">
               Email address
               <input
+                id="inputMail"
                 type="email"
                 placeholder="exemple@mail.com"
                 className="mt-1
@@ -69,9 +66,10 @@ const Login = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </label>
-            <label className="text-gray-800 pt-6">
+            <label htmlFor="inputPassword" className="text-gray-800 pt-6">
               Password
               <input
+                id="inputPassword"
                 type="password"
                 placeholder="••••••••••••"
                 className="mt-1

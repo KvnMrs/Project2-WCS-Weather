@@ -1,6 +1,4 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
-/* eslint-disable arrow-body-style */
 import React from 'react';
 import {
   ResponsiveContainer,
@@ -11,7 +9,7 @@ import {
   Tooltip,
 } from 'recharts';
 
-const AQIchart = (items) => {
+function AQIchart(items) {
   return (
     <div className="md:py-10 md:pr-5 py-6 bg-white border border-gray-100 rounded-xl hover:shadow-md transition-all transform duration-200">
       <div className="flex flex-col mb-12 ml-6">
@@ -78,6 +76,6 @@ const AQIchart = (items) => {
       </ResponsiveContainer>
     </div>
   );
-};
+}
 
 export default AQIchart;

@@ -1,7 +1,6 @@
 import React from 'react';
 
-// eslint-disable-next-line arrow-body-style
-const CityCountryUser = () => {
+function CityCountryUser() {
   return (
     <div>
       <section className="pl-4 pt-10">
@@ -16,6 +15,6 @@ const CityCountryUser = () => {
       </section>
     </div>
   );
-};
+}
 
 export default CityCountryUser;

@@ -1,10 +1,9 @@
-/* eslint-disable */
+import React from 'react';
 import UserWelcomemsg from '../components/welcomeComponents/UserWelcomemsg';
-// import supabase from '../services/supabaseClient';
 import NavBarDesktop from '../components/navigationComponents/NavbarDesktop';
 import NavbarMobile from '../components/navigationComponents/NavbarMobile';
 
-const AboutUs = () => {
+function AboutUs() {
   return (
     <div className=" flex h-screen overflow-hidden rounded-lg">
       <NavbarMobile />
@@ -20,7 +19,8 @@ const AboutUs = () => {
               <div className="flex flex-col m-auto bg-white shadow-2xl rounded-xl">
                 <div className="px-6 py-8">
                   <h4 className="mt-4 text-2xl font-semibold text-neutral-600 text-center">
-                    About this project{' '}
+                    About this project
+                    {' '}
                   </h4>
                   <p className="mt-4 text-base font-normal text-gray-300 leading-relax">
                     Air pollution is an actual subject of concern. According to
@@ -154,10 +154,7 @@ const AboutUs = () => {
               </div>
             </div>
             <p className="text-center text-xs text-gray-500">
-              <a
-                href="http://127.0.0.1:5500/src/components/Terms/TermsAndConditions.html"
-                target="blank"
-              >
+              <a href="http://127.0.0.1:5500/src/components/Terms/TermsAndConditions.html" target="blank">
                 Terms and Conditions
               </a>
             </p>
@@ -166,6 +163,6 @@ const AboutUs = () => {
       </div>
     </div>
   );
-};
+}
 
 export default AboutUs;

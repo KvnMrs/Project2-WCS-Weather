@@ -1,7 +1,3 @@
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable object-shorthand */
-/* eslint-disable prefer-destructuring */
-/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import {

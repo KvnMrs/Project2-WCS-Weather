@@ -1,8 +1,3 @@
-/* eslint-disable react/jsx-closing-tag-location */
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable react/prop-types */
-/* eslint-disable arrow-body-style */
-
 import React from 'react';
 import Smile from '../icones/Smile';
 import Sad from '../icones/Sad';
@@ -13,7 +8,7 @@ import Neutral from '../icones/neutral';
  * @param {object} param0
  * @returns
  */
-export const CurrentWeatherCard = ({ weather, temperature }) => {
+export function CurrentWeatherCard({ weather, temperature }) {
   return (
     <div className="grid grid-rows-1 gap-4">
       <div className="justify-self-center self-center ml-9 sm:pt-4">
@@ -36,14 +31,14 @@ export const CurrentWeatherCard = ({ weather, temperature }) => {
       </div>
     </div>
   );
-};
+}
 
 /**
  * display forecast weather card -> short date, icon & gap temperature
  * @param {object} param0
  * @returns
  */
-export const ForecastCard = ({ day, weather, temperature }) => {
+export function ForecastCard({ day, weather, temperature }) {
   return (
     <div className="grid grid-cols-1 px-7 justify-items-center text-center">
       <div className="h-auto pt-2 text-xl">
@@ -60,20 +55,22 @@ export const ForecastCard = ({ day, weather, temperature }) => {
         />
       </div>
       <div>
-        <h2 className="text-center">{`${Math.round(
-          temperature.min,
-        )}°C to ${Math.round(temperature.max)}°C`}</h2>
+        <h2 className="text-center">
+          {
+            `${Math.round(temperature.min)}°C to ${Math.round(temperature.max)}°C`
+          }
+        </h2>
       </div>
     </div>
   );
-};
+}
 
 /**
  * display air pollution card -> indice pollution
  * @param {object} param0
  * @returns
  */
-export const AirPollutionCard = ({ airIndice }) => {
+export function AirPollutionCard({ airIndice }) {
   return (
     <div className="sm: grid row-span-3 mt-2 md:row-span-2">
       <h1 className="text-6xl md:text-5xl">
@@ -82,14 +79,14 @@ export const AirPollutionCard = ({ airIndice }) => {
       </h1>
     </div>
   );
-};
+}
 
 /**
  * display air composition card -> description, composition in ug/m3
  * @param {object} param0
  * @returns
  */
-export const AirPollutionCompositionCard = ({ airComposition }) => {
+export function AirPollutionCompositionCard({ airComposition }) {
   return (
     <div className="grid-rows-2 sm:pt-9 md:pt-0">
       <h1 className="pt-3">
@@ -115,14 +112,14 @@ export const AirPollutionCompositionCard = ({ airComposition }) => {
       </div>
     </div>
   );
-};
+}
 
 /**
  * display emoticon and text according to air pollution indice (aqi)
  * @param {object} param0
  * @returns
  */
-export const AirPollutionIconCard = ({ airIndice }) => {
+export function AirPollutionIconCard({ airIndice }) {
   const icons = [];
   if (parseFloat(airIndice.aqi) < 2) {
     icons.push(
@@ -155,4 +152,4 @@ export const AirPollutionIconCard = ({ airIndice }) => {
     );
   }
   return icons;
-};
+}

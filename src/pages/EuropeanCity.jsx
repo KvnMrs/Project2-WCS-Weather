@@ -1,9 +1,3 @@
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/button-has-type */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable prefer-destructuring */
-/* eslint-disable object-shorthand */
-/* eslint-disable camelcase */
 import React, { useState, useEffect } from 'react';
 import DashCity from '../components/dashComponents/dashCityCampus';
 import UserWelcomemsg from '../components/welcomeComponents/UserWelcomemsg';
@@ -21,10 +15,9 @@ const EuropeanCity = () => {
   const [showCapitales, setShowCapitales] = useState(true);
 
   async function promisedData() {
-    const cityCampus = await WelcomeFetchCampus();
+    const citiesCampus = await WelcomeFetchCampus();
     const capitals = await CapitalesFetch();
-    console.log(capitals);
-    setCampus(cityCampus);
+    setCampus(citiesCampus);
     setCityCapitales(capitals);
   }
 

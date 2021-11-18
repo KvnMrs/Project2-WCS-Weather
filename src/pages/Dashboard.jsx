@@ -1,10 +1,4 @@
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/button-has-type */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable prefer-destructuring */
-/* eslint-disable object-shorthand */
-/* eslint-disable camelcase */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import supabase from '../services/supabaseClient';
 import DashCity from '../components/dashComponents/dashCityCampus';
 import DashAirQuality from '../components/dashComponents/dashPrincipalAir';
@@ -13,6 +7,7 @@ import Charts from '../components/HistoryChart/Charts';
 import UserWelcomemsg from '../components/welcomeComponents/UserWelcomemsg';
 import NavBarDesktop from '../components/navigationComponents/NavbarDesktop';
 import NavbarMobile from '../components/navigationComponents/NavbarMobile';
+import { AuthContext } from '../services/Context';
 
 const Dash = () => {
   /**
@@ -24,8 +19,7 @@ const Dash = () => {
   /**
    * get user Id from context
    */
-  const user = supabase.auth.user();
-  const id = user.id;
+  const { user } = useContext(AuthContext);
 
   /**
    * Recupération de supabase du nom, du pays, de la latitude
@@ -35,7 +29,7 @@ const Dash = () => {
     const { data: userCampus, error } = await supabase
       .from('user_campus')
       .select('name, country, latitude, longitude')
-      .eq('user_id', id);
+      .eq('user_id', user.id);
 
     if (error) {
       console.log(error);
@@ -66,7 +60,6 @@ const Dash = () => {
   useEffect(async () => {
     const campusWild = await fetchAllCampus();
     setWildCampus(campusWild);
-    console.log(campusWild);
   }, []);
 
   const wildCity = () => {

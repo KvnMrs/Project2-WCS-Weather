@@ -1,8 +1,3 @@
-/* eslint-disable camelcase */
-/* eslint-disable no-plusplus */
-/* eslint-disable prefer-destructuring */
-/* eslint-disable object-shorthand */
-/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import {
