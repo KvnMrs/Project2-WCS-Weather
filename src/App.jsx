@@ -12,6 +12,7 @@ import Dash from './pages/Dashboard';
 import './Commun/StyleCommun.css';
 import EuropeanCity from './pages/EuropeanCity';
 import ProtectedRoute from './components/ProtectedRoute';
+import Charts from './components/HistoryChart/Charts';
 
 function App() {
   const location = useLocation();
@@ -38,13 +39,13 @@ function App() {
       <Switch location={location} key={location.pathname}>
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/signup" component={Signup} />       
+        <Route exact path="/signup" component={Signup} />
         <Route path="/charts" component={Charts} />
         <ProtectedRoute exact path="/welcome" component={Welcome} />
         <ProtectedRoute exact path="/About" component={AboutUs} />
         <ProtectedRoute exact path="/dashboard" component={Dash} />
         <ProtectedRoute exact path="/europeancity" component={EuropeanCity} />
-       </Switch>
+      </Switch>
     </AnimatePresence>
   );
 }
