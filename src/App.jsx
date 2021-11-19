@@ -3,7 +3,7 @@ import { Switch, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import supabase from './services/supabaseClient';
 import './App.css';
-import Home from './pages/Home';
+
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Welcome from './pages/Welcome';
@@ -12,6 +12,7 @@ import Dash from './pages/Dashboard';
 import './Commun/StyleCommun.css';
 import EuropeanCity from './pages/EuropeanCity';
 import ProtectedRoute from './components/ProtectedRoute';
+import { Landing } from './components/Landing/Landing';
 
 function App() {
   const location = useLocation();
@@ -33,7 +34,7 @@ function App() {
   return (
     <AnimatePresence exitBeforeEnter>
       <Switch location={location} key={location.pathname}>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component={Landing} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
         <ProtectedRoute exact path="/welcome" component={Welcome} />

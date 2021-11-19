@@ -25,12 +25,14 @@ text-left text-gray-800"
             <br />
             Stay safe !
           </p>
-          <button
-            type="button"
-            className="mt-6 px-10 py-3 rounded-lg bg-wild_red text-white uppercase text-md font-bold tracking-wider hover:bg-dark_wild_red transition-all duration-150 ease-in-out"
-          >
-            Get Started
-          </button>
+          <a href="/signup">
+            <button
+              type="button"
+              className="mt-6 px-10 py-3 rounded-lg bg-wild_red text-white uppercase text-md font-bold tracking-wider hover:bg-dark_wild_red transition-all duration-150 ease-in-out"
+            >
+              Get Started
+            </button>
+          </a>
         </div>
         <div className="mt-12 lg:mt-28">
           <p className="mb-6 text-gray-500 text-sm">Thanks to our partners !</p>

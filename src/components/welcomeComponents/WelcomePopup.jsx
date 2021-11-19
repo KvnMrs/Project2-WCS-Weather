@@ -36,7 +36,7 @@ function WelcomePopup({ item, handleHide }) {
     if (error) {
       return false;
     }
-    return history.push('/charts');
+    return history.push('/dashboard');
   }
 
   return (

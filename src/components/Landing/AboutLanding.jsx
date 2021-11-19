@@ -43,7 +43,7 @@ const features = [
 
 const AboutLanding = () => {
   return (
-    <div className="px-4 mt-28 sm:mt-36 mx-auto w-full max-w-7xl">
+    <div id="about" className="px-4 mt-28 sm:mt-36 mx-auto w-full max-w-7xl">
       <div>
         <h1 className=" text-4xl text-gray-800 pr-12 sm:text-6xl font-bold tracking-tight">
           Learn more about this project.

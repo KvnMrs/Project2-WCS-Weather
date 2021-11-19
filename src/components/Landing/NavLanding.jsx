@@ -6,7 +6,7 @@ import React from 'react';
 const menus = [
   {
     title: 'About',
-    url: '/about',
+    url: '/#about',
   },
   {
     title: 'Login',
@@ -35,12 +35,14 @@ const NavLanding = () => {
           </a>
         ))}
         <div>
-          <button
-            type="button"
-            className="ml-3 px-5 py-3 rounded-lg bg-wild_red text-white uppercase text-md font-bold tracking-wider"
-          >
-            Get Started
-          </button>
+          <a href="/signup">
+            <button
+              type="button"
+              className="ml-3 px-5 py-3 rounded-lg bg-wild_red text-white uppercase text-md font-bold tracking-wider"
+            >
+              Get Started
+            </button>
+          </a>
         </div>
       </div>
     </div>

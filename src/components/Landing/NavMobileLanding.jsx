@@ -8,7 +8,7 @@ import React, { useState } from 'react';
 const menus = [
   {
     title: 'About',
-    url: '/about',
+    url: '/#about',
   },
   {
     title: 'Login',
@@ -51,12 +51,14 @@ const NavMobileLanding = () => {
             </a>
           ))}
 
-          <button
-            type="button"
-            className="mt-12 px-6 py-6 w-full rounded-lg bg-wild_red text-white uppercase text-xl font-bold tracking-wider"
-          >
-            Get Started
-          </button>
+          <a href="/signup">
+            <button
+              type="button"
+              className="mt-12 px-6 py-6 w-full rounded-lg bg-wild_red text-white uppercase text-xl font-bold tracking-wider"
+            >
+              Get Started
+            </button>
+          </a>
         </div>
       ) : null}
     </div>
