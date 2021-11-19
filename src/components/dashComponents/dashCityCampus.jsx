@@ -20,7 +20,7 @@ function DashCity({ campus }) {
    */
   const oneCallWeatherApi = async () => {
     await axios
-      .get('http://api.openweathermap.org/data/2.5/onecall', {
+      .get('https://api.openweathermap.org/data/2.5/onecall', {
         params: {
           lat: parseFloat(campus.latitude),
           lon: parseFloat(campus.longitude),
@@ -36,7 +36,7 @@ function DashCity({ campus }) {
   };
   const airPollutionApi = async () => {
     await axios
-      .get('http://api.openweathermap.org/data/2.5/air_pollution', {
+      .get('https://api.openweathermap.org/data/2.5/air_pollution', {
         params: {
           lat: parseFloat(campus.latitude),
           lon: parseFloat(campus.longitude),

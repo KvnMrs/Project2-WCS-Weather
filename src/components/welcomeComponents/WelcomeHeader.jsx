@@ -2,7 +2,7 @@
 import React from 'react';
 
 function WelcomeHeader() {
-  (
+  return (
     <div className="w-full pt-24">
       <h1 className="text-center text-4xl sm:text-5xl tracking-tight text-gray-700 font-bold">
         Welcome
