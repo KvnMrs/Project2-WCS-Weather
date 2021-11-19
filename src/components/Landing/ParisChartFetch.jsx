@@ -13,7 +13,7 @@ async function getApiData() {
   const startDateUnix = endDateUnix - 1339200;
 
   const key = 'ae8db554743a0d9e76dda942a3f3fb05';
-  const url = `http://api.openweathermap.org/data/2.5/air_pollution/history?lat=${latitude}&lon=${longitude}&start=${startDateUnix}&end=${endDateUnix}&appid=${key}`;
+  const url = `https://api.openweathermap.org/data/2.5/air_pollution/history?lat=${latitude}&lon=${longitude}&start=${startDateUnix}&end=${endDateUnix}&appid=${key}`;
 
   // Axios Get request
   const RowData = await axios.get(url).then((res) => res.data?.list);
