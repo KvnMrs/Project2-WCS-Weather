@@ -1,0 +1,14 @@
+.thumbs {
+  display: none;
+}
+.slider-wrapper {
+  border-radius: 15px;
+}
+.slider {
+  height: 40em;
+}
+@media (max-width: 640px) {
+  .slider {
+    height: 30em;
+  }
+}

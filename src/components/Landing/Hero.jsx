@@ -5,6 +5,7 @@
 import React from 'react';
 import WCSlogo from '../../assets/logo-HD-fond-transparent-titre.png';
 import OWMlogo from '../../assets/OWMlogo.png';
+import CarouselLanding from './CarouselLanding';
 
 const Hero = () => {
   return (
@@ -33,16 +34,21 @@ text-left text-gray-800"
               Get Started
             </button>
           </a>
-        </div>
-        <div className="mt-12 lg:mt-28">
-          <p className="mb-6 text-gray-500 text-sm">Thanks to our partners !</p>
-          <div className="flex flex-row gap-x-8">
-            <img className="h-9" src={WCSlogo} alt="Logo WCS" />
-            <img className="h-9" src={OWMlogo} alt="Open Weather Map logo" />
+          <div className="mt-12">
+            <p className="mb-6 text-gray-500 text-sm">
+              Thanks to our partners !
+            </p>
+            <div className="flex flex-row gap-x-8">
+              <img className="h-9" src={WCSlogo} alt="Logo WCS" />
+              <img className="h-9" src={OWMlogo} alt="Open Weather Map logo" />
+            </div>
           </div>
         </div>
       </div>
-      <div className="mt-24 bg-gray-300 p-10 rounded-lg">1</div>
+      <div>
+        <div className="h-20" />
+        <CarouselLanding />
+      </div>
     </div>
   );
 };
