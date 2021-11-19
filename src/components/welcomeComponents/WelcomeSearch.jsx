@@ -4,7 +4,7 @@
 import React from 'react';
 
 function WelcomeSearch({ search, setSearch }) {
-  (
+  return (
     <div className="flex flex-col min-w-full items-center">
       <form className="mt-10 w-64">
         <label className="text-gray-800 pt-14">

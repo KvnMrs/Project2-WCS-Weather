@@ -154,7 +154,7 @@ function AboutUs() {
               </div>
             </div>
             <p className="text-center text-xs text-gray-500">
-              <a href="http://127.0.0.1:5500/src/components/Terms/TermsAndConditions.html" target="blank">
+              <a href="https://127.0.0.1:5500/src/components/Terms/TermsAndConditions.html" target="blank">
                 Terms and Conditions
               </a>
             </p>

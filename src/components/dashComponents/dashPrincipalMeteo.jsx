@@ -18,7 +18,7 @@ function DashMeteo({ campus }) {
   */
   const oneCallWeatherApi = async () => {
     await axios
-      .get('http://api.openweathermap.org/data/2.5/onecall', {
+      .get('https://api.openweathermap.org/data/2.5/onecall', {
         params: {
           lat: parseFloat(campus.latitude),
           lon: parseFloat(campus.longitude),

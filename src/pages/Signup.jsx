@@ -106,7 +106,7 @@ function Signup() {
             </label>
             <p className="text-xs pt-4 text-gray-500">
               <a
-                href="http://127.0.0.1:5500/src/components/Terms/TermsAndConditions.html"
+                href="https://127.0.0.1:5500/src/components/Terms/TermsAndConditions.html"
                 target="blank"
                 rel="noreferer"
               >

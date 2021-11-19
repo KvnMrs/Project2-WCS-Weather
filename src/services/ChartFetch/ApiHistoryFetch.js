@@ -16,7 +16,7 @@ async function getData(userCampus) {
   // Latitude and Longitude Parameters from user_campus
   const { latitude, longitude } = userCampus;
   // API url construction
-  const url = `http://api.openweathermap.org/data/2.5/air_pollution/history?lat=${latitude}&lon=${longitude}&start=${startDateUnix}&end=${endDateUnix}&appid=${key}`;
+  const url = `https://api.openweathermap.org/data/2.5/air_pollution/history?lat=${latitude}&lon=${longitude}&start=${startDateUnix}&end=${endDateUnix}&appid=${key}`;
   // Log URL
   // Axios Get request
   const RowData = await axios.get(url).then((res) => res.data?.list);
