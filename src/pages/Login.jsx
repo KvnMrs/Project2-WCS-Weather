@@ -20,10 +20,9 @@ function Login() {
     e.preventDefault();
     const { error } = await signIn({ email, password });
     if (error) {
-      alert('An error occured, please verify your credentials and try again.');
-    } else {
-      history.push('/dashboard');
+      return false;
     }
+    return history.push('/dashboard');
   }
 
   return (

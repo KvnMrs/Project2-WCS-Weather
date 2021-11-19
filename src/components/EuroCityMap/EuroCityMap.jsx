@@ -64,7 +64,7 @@ function Map({
   });
   return (
     <ReactMapGL
-      mapboxApiAccessToken="pk.eyJ1Ijoia3ZubXJzIiwiYSI6ImNrdm8wN3VlNTA5YWMyb2tnbXNvODkzaW0ifQ.mXZMpjszbpePOR6KT4OwBw"
+      mapboxApiAccessToken={process.env.REACT_APP_MAPBOXAPIACCESSTOKEN}
       latitude={viewport.latitude}
       longitude={viewport.longitude}
       zoom={viewport.zoom}

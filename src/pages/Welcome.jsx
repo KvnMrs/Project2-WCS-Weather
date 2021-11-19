@@ -28,16 +28,6 @@ function Welcome() {
       await promisedData();
     })();
   }, []);
-  //
-  // Loading Message
-  //
-  if (data.length > 0) {
-    console.log(data);
-  } else {
-    console.log('No data yet.');
-  }
-  //
-  //
   return (
     <motion.div
       initial={{ opacity: 0, scale: 1.05 }}

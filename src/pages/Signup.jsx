@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable no-alert */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable arrow-body-style */
 import React, { useState } from 'react';
@@ -24,12 +23,12 @@ function Signup() {
     e.preventDefault();
     const { error } = await signUp({ email, password });
     if (error) {
-      alert('An error occured, please verify your credentials and try again.');
-    } else if (password.length <= 5) {
-      alert('Your password must be at least 6 characters long.');
-    } else {
-      history.push('/welcome');
+      return false;
     }
+    if (password.length <= 5) {
+      return false;
+    }
+    return history.push('/welcome');
   }
 
   return (
@@ -106,7 +105,11 @@ function Signup() {
               </span>
             </label>
             <p className="text-xs pt-4 text-gray-500">
-              <a href="http://127.0.0.1:5500/src/components/Terms/TermsAndConditions.html" target="blank" rel="noreferer">
+              <a
+                href="http://127.0.0.1:5500/src/components/Terms/TermsAndConditions.html"
+                target="blank"
+                rel="noreferer"
+              >
                 Terms and Conditions
               </a>
             </p>

@@ -25,7 +25,7 @@ function WelcomePopup({ item, handleHide }) {
 
   // Create an user_campus row into user_campus table : join an user and an campus
   async function createUserCampus() {
-    const { data, error } = await supabase.from('user_campus').insert({
+    const { /* data */ error } = await supabase.from('user_campus').insert({
       user_id: userId,
       campus: id,
       name: name,
@@ -33,13 +33,10 @@ function WelcomePopup({ item, handleHide }) {
       latitude: latitude,
       longitude: longitude,
     });
-    console.log(data);
     if (error) {
-      console.log(error);
+      return false;
     }
-
-    console.log('Post OK.');
-    history.push('/charts');
+    return history.push('/charts');
   }
 
   return (

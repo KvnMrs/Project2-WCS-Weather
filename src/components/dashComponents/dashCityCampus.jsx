@@ -16,8 +16,8 @@ function DashCity({ campus }) {
   const [bgColor, setBgColor] = useState('');
 
   /**
-  * Call API onecall of openweathermap -> get weather data
-  */
+   * Call API onecall of openweathermap -> get weather data
+   */
   const oneCallWeatherApi = async () => {
     await axios
       .get('http://api.openweathermap.org/data/2.5/onecall', {
@@ -32,7 +32,6 @@ function DashCity({ campus }) {
       .then((response) => response.data)
       .then((data) => {
         setForecast(data.daily);
-        console.log(campus);
       });
   };
   const airPollutionApi = async () => {
@@ -66,8 +65,8 @@ function DashCity({ campus }) {
   }, []);
 
   /**
-  * Hook to render 3 forecastCard components for 3day weather forecast
-  */
+   * Hook to render 3 forecastCard components for 3day weather forecast
+   */
   const forecastDiv = () => {
     const forcastItem = [];
     if (forecast.length > 0) {
@@ -96,35 +95,39 @@ function DashCity({ campus }) {
               ) : ''}
             <br />
             <span className="text-sm">
-              {campus !== undefined
-                ? (
-                  campus.country
-                ) : ''}
+              {campus !== undefined ? campus.country : ''}
             </span>
           </h1>
         </div>
         <div />
-        <div className={`${bgColor} h-full  grid-cols-4 xl:grid-cols-6 grid col-span-4 content-center`}>
+        <div
+          className={`${bgColor} h-full  grid-cols-4 xl:grid-cols-6 grid col-span-4 content-center`}
+        >
           <div className="self-center">
             {/** INDEX */}
-            {pollution.length > 0
-              ? (
-                <AirPollutionCard airIndice={pollution[0].main} />
-              ) : ''}
+            {pollution.length > 0 ? (
+              <AirPollutionCard airIndice={pollution[0].main} />
+            ) : (
+              ''
+            )}
           </div>
           <div className="mt-4 mr-3 pr-4 col-span-2 lg:col-span-2">
             {/** EMOJI ABOUT AQI */}
-            {pollution.length > 0
-              ? (
-                <AirPollutionIconCard airIndice={pollution[0].main} />
-              ) : ''}
+            {pollution.length > 0 ? (
+              <AirPollutionIconCard airIndice={pollution[0].main} />
+            ) : (
+              ''
+            )}
           </div>
           {/** INFOS ABOUT AIR QUALITY */}
           <ul className="grid col-span-3 text-xs lg:text-sm">
-            {pollution.length > 0
-              ? (
-                <AirPollutionCompositionCard airComposition={pollution[0].components} />
-              ) : ''}
+            {pollution.length > 0 ? (
+              <AirPollutionCompositionCard
+                airComposition={pollution[0].components}
+              />
+            ) : (
+              ''
+            )}
           </ul>
         </div>
         {/** WEATHER ON 3 DAYS */}

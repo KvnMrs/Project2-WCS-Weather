@@ -32,8 +32,7 @@ function Dash() {
       .eq('user_id', user.id);
 
     if (error) {
-      console.log(error);
-      return console.log('error');
+      return false;
     }
     return userCampus;
   }
@@ -52,8 +51,7 @@ function Dash() {
       .select('name, country, latitude , longitude');
 
     if (error) {
-      console.log(error);
-      return console.log('error');
+      return false;
     }
     return allCampus;
   };

@@ -18,10 +18,8 @@ async function getData(userCampus) {
   // API url construction
   const url = `http://api.openweathermap.org/data/2.5/air_pollution/history?lat=${latitude}&lon=${longitude}&start=${startDateUnix}&end=${endDateUnix}&appid=${key}`;
   // Log URL
-  // console.log(url);
   // Axios Get request
   const RowData = await axios.get(url).then((res) => res.data?.list);
-  // console.log('Row Data = ', RowData);
   return RowData;
 }
 
@@ -48,19 +46,15 @@ const fetchAPI = async () => {
   const userId = supabase.auth.user().id;
   // Invoke use_campus fetch from Supabase
   const userCampus = await UserCampusFetch(userId);
-  // console.log(userCampus);
   // Invoke API Fetch with Lat and Long from user_campus
   const fetchRowData = await getData(userCampus[0]);
   // Invoke items creation function
   const structuredItems = await createItems(fetchRowData);
-  // console.log(structuredItems);
 
   return structuredItems;
 };
 
 export const ApiHistoryFetch = async () => {
-  // console.log('User ID = ', userId);
-
   const data = await fetchAPI();
   return data;
 };
